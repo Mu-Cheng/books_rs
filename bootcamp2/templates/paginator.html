@@ -1,0 +1,32 @@
+<ul class="pagination">
+  {% if paginator.has_previous %}
+    <li><a href="?page={{ paginator.previous_page_number }}">&laquo;</a></li>
+  {% else %}
+    <li class="disabled"><span>&laquo;</span></li>
+  {% endif %}
+  {% if paginator.paginator.num_pages < 15 %}
+    {% for i in paginator.paginator.page_range %}
+      {% if paginator.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+  {% else %}
+    {% for i in paginator.paginator.page_range %}
+      {% if i < 15 %}
+        {% if paginator.number == i %}
+          <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+        {% else %}
+          <li><a href="?page={{ i }}">{{ i }}</a></li>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+    <li><a href="?page={{ i }}">...</a></li>
+  {% endif %}
+  {% if paginator.has_next %}
+    <li><a href="?page={{ paginator.next_page_number }}">&raquo;</a></li>
+  {% else %}
+    <li class="disabled"><span>&raquo;</span></li>
+  {% endif %}
+</ul>

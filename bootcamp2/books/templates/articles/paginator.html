@@ -1,0 +1,20 @@
+<ul class="pager">
+
+
+  {% if paginator.has_previous %}
+
+    <li class="previous"><a href="?page={{ paginator.previous_page_number }}">&laquo; 上一页</a></li>
+    <span class="page-number">第 {{ paginator.number }} 页/共 {{ pages_sum }} 页
+    </span>
+    {% if paginator.has_next %}
+    <li class="next"><a href="?page={{ paginator.next_page_number }}">&raquo; 下一页</a></li>
+    {% endif %}
+  {% else %}
+      {% if paginator.has_next %}
+  <span class="page-number">第 {{ paginator.number }} 页/共 {{ pages_sum }} 页
+  </span>
+    <li class="next"><a href="?page={{ paginator.next_page_number }}">&raquo; 下一页</a></li>
+  {% endif%}
+  {% endif %}
+  
+</ul>
