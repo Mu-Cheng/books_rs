@@ -9,7 +9,7 @@ import markdown,redis,json,pickle, random
 
 # choice 最好在模型内部定义，然后给每个值定义一个合适名字的常量，方便外部引用
 # on_delete 删除联级, related_name 不创建反向关联
-class Book(models.Model):
+class Article(models.Model):
     DRAFT = 'D'
     PUBLISHED = 'P'
     STATUS = (
@@ -117,11 +117,11 @@ class Book(models.Model):
 
 class Tag(models.Model):
     tag = models.CharField(max_length=50)
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    article = models.ForeignKey(Article, on_delete=models.CASCADE)
 
     class Meta:
-        unique_together = (('tag', 'book'),)
-        index_together = [['tag', 'book'], ]
+        unique_together = (('tag', 'article'),)
+        index_together = [['tag', 'article'], ]
 
     def __str__(self):
         return self.tag
@@ -153,8 +153,8 @@ class Tag(models.Model):
             return result
 
 
-class BookComment(models.Model):
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+class ArticleComment(models.Model):
+    article = models.ForeignKey(Article, on_delete=models.CASCADE)
     comment = models.CharField(max_length=200)
     date = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -163,4 +163,4 @@ class BookComment(models.Model):
         ordering = ('date',)
 
     def __str__(self):
-        return f'{self.user.username} {self.book.title}'
+        return f'{self.user.username} {self.article.title}'

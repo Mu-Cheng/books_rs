@@ -44,8 +44,8 @@ INSTALLED_APPS = [
     'bootcamp2.feeds',
     'bootcamp2.authentication',
     'bootcamp2.core',
-    # 'bootcamp2.articles',
-    'bootcamp2.books',
+    'bootcamp2.articles',
+    # 'bootcamp2.books',
 
     'bootcamp2.questions',
     'bootcamp2.messenger',
