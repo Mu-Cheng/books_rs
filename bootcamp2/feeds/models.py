@@ -102,12 +102,11 @@ class Feed(models.Model):
         return Tag.objects.filter(article_id=self.get_book_id)
 
     def get_tag_1(self):
-        # print(Tag.objects.filter(article_id=self.get_book_id()))
-        return Tag.objects.filter(article_id=self.get_book_id())[0]
+        return str(Tag.objects.filter(article_id=self.get_book_id())[0])
     def get_tag_2(self):
-        return Tag.objects.filter(article_id=self.get_book_id())[1]
+        return str(Tag.objects.filter(article_id=self.get_book_id())[1])
     def get_tag_3(self):
-        return Tag.objects.filter(article_id=self.get_book_id())[2]
+        return str(Tag.objects.filter(article_id=self.get_book_id())[2])
 
 
     def get_content_as_markdown(self):
@@ -140,8 +139,8 @@ class Feed(models.Model):
             #     print('1')
 
             book = content['books'][0]
-            img = 'http://118.89.162.148/img/{}'.format(book['image'].split('/')[-1])
-            # img = 'http://img-1252422469.file.myqcloud.com/big_bookimg/{}'.format(book['image'].split('/')[-1])
+            # img = 'http://118.89.162.148/img/{}'.format(book['image'].split('/')[-1])
+            img = 'http://img-1252422469.file.myqcloud.com/big_bookimg/{}'.format(book['image'].split('/')[-1])
 
             # print('article', type(article), article)
             return img

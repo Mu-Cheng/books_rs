@@ -58,8 +58,8 @@ class Article(models.Model):
 
             book = content['books'][0]
             # img = 'http://118.89.162.148/img/{}'.format(book['image'].split('/')[-1])
-            # img = 'http://img-1252422469.file.myqcloud.com/big_bookimg/{}'.format(book['image'].split('/')[-1])
-            img = 'http://118.89.162.148/img/{}'.format(book['image'].split('/')[-1])
+            img = 'http://img-1252422469.file.myqcloud.com/big_bookimg/{}'.format(book['image'].split('/')[-1])
+            # img = 'http://118.89.162.148/img/{}'.format(book['image'].split('/')[-1])
 
             # print('article', type(article), article)
             return img

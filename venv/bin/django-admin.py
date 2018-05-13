@@ -1,4 +1,4 @@
-#!/root/bootcamp2/venv/bin/python
+#!/root/books_rs/venv/bin/python
 from django.core import management
 
 if __name__ == "__main__":

@@ -28,6 +28,11 @@ from .feeds import views as feeds_views
 from .search import views as search_views
 from .authentication import views as authentication_views
 from django.conf.urls.i18n import i18n_patterns
+import xadmin
+xadmin.autodiscover()
+
+from xadmin.plugins import xversion
+xversion.register_models()
 
 # import os
 
@@ -38,7 +43,9 @@ urlpatterns = [
     # (r'^css/(?P<path>.*)$' , 'django.views.static.serve', {'document_root': os.path.join( settings.STATIC_PATH , 'css' ) } ) ,
 
     # (r'^js/(?P<path>.*)$' , 'django.views.static.serve', {'document_root': os.path.join( settings.STATIC_PATH , 'js' ) } ) ,
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
+    path('admin/', xadmin.site.urls),
+
     path('i18n/', include('django.conf.urls.i18n'), name='i18n'),
 
     path('', feeds_views.feeds, name='home'),

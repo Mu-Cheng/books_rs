@@ -47,6 +47,9 @@ INSTALLED_APPS = [
     'bootcamp2.articles',
     # 'bootcamp2.books',
 
+    'xadmin',
+    'crispy_forms',
+    'reversion',
     'bootcamp2.questions',
     'bootcamp2.messenger',
     'bootcamp2.search',
