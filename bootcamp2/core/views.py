@@ -25,7 +25,10 @@ FEEDS_NUM_PATES = 24
 
 def profile(request, username):
     page_user = get_object_or_404(User, username=username)
-    all_feeds = Feed.get_feeds().filter(user=page_user)
+    all_feeds = Feed.get_feeds(user_id=page_user.id)
+    print("*"*40)
+    print(all_feeds)
+    print("*"*40)
     paginator = Paginator(all_feeds, FEEDS_NUM_PATES)
     feeds = paginator.page(1)
     user = request.user
@@ -39,6 +42,10 @@ def profile(request, username):
         is_follow = True
     else:
         is_follow = False
+    print("*"*40)
+    print(feeds)
+    print("*"*40)
+
     context = {
     'page_user': page_user, 'feeds': feeds,
     'from_feed': from_feed, 'page': 1,
@@ -66,9 +73,9 @@ def settings(request):
 
     else:
         initial = {
-            'job_title': user.profile.job_title,
-            'url': user.profile.url,
-            'location': user.profile.location
+            'college': user.profile.college,
+            'identity': user.profile.identity,
+            # 'location': user.email
         }
         form = PorfileForm(instance=user, initial=initial)
 

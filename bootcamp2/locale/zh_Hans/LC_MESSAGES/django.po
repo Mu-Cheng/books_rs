@@ -225,6 +225,14 @@ msgstr "密码"
 msgid "Confirm your password"
 msgstr "确认你的密码"
 
+#: authentication/forms.py
+msgid "College"
+msgstr "学院"
+
+#: authentication/forms.py
+msgid "Identity"
+msgstr "身份"
+
 #: authentication/forms.py:55 core/forms.py:19
 #: core/templates/core/network.html:29
 msgid "Email"

@@ -7,19 +7,19 @@ from bootcamp2.follow.models import Follow
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    url = models.CharField(max_length=50, null=True, blank=True)
-    location = models.CharField(max_length=50, null=True, blank=True)
-    job_title = models.CharField(max_length=50, null=True, blank=True)
+    college = models.CharField(max_length=50, null=True, blank=True)
+    identity = models.CharField(max_length=50, null=True, blank=True)
+    # job_title = models.CharField(max_length=50, null=True, blank=True)
     picture_url = models.CharField(max_length=100, null=True, blank=True)
 
-    def get_url(self):
-        url = self.url
-        if not self.url.startswith("http://") \
-                and not self.url.startswith("https://") \
-                and len(self.url) > 0:
-            url = "http://" + str(self.url)
-        return url
-
+    # def get_url(self):
+    #     url = self.url
+    #     if not self.url.startswith("http://") \
+    #             and not self.url.startswith("https://") \
+    #             and len(self.url) > 0:
+    #         url = "http://" + str(self.url)
+    #     return url
+    #
     def get_picture(self):
         if not self.picture_url:
             no_picture = '/static/img/user.png'

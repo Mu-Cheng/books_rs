@@ -44,18 +44,18 @@
           {% endif %}
       {% endif %}<br>
         <ul>
-          {% if page_user.profile.job_title %}
-          <li><span class="glyphicon glyphicon-briefcase"></span> {{ page_user.profile.job_title }}</li>
+          {% if page_user.profile.college %}
+          <li><span class="glyphicon glyphicon-briefcase"></span> {{ page_user.profile.college }}</li>
           {% endif %}
-          {% if page_user.profile.location %}
-          <li><span class="glyphicon glyphicon-map-marker"></span> {{ page_user.profile.location }}</li>
+          {% if page_user.profile.identity %}
+          <li><span class="glyphicon glyphicon-map-marker"></span> {{ page_user.profile.identity }}</li>
           {% endif %}
           {% if page_user.email %}
           <li><span class="glyphicon glyphicon-envelope"></span>  {{ page_user.email }}</li>
           {% endif %}
-          {% if page_user.profile.url %}
-          <li><span class="glyphicon glyphicon-globe"></span> <a href="{{ page_user.profile.get_url }}" target="_blank">{{ page_user.profile.get_url }}</a></li>
-          {% endif %}
+          {# {% if page_user.profile.url %} #}
+          {# <li><span class="glyphicon glyphicon-globe"></span> <a href="{{ page_user.profile.get_url }}" target="_blank">{{ page_user.profile.get_url }}</a></li> #}
+          {# {% endif %} #}
         </ul>
       </div>
       <div class="col-md-9">
@@ -64,9 +64,14 @@
           <a href="#"><span class="new-posts"></span> new posts</a>
         </div>
         <ul class="stream">
+            {# {% if feeds %} #}
           {% for feed in feeds %}
+          {% if feed %}
             {% include 'feeds/partial_feed.html' with feed=feed %}
+          {% endif %}
+
           {% endfor %}
+          {# {% endif %} #}
         </ul>
         <div class="load">
           <img src="{% static 'img/loading.gif' %}">

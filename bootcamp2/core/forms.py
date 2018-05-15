@@ -8,31 +8,33 @@ class PorfileForm(forms.ModelForm):
         widget=forms.TextInput(attrs={'class': 'form-control'}),
         max_length=30, label=_('First Name'), required=False
     )
-    last_name = forms.CharField(
-        widget=forms.TextInput(attrs={'class': 'form-control'}),
-        max_length=30, label=_('Last Name'), required=False
-    )
-    job_title = forms.CharField(
-        widget=forms.TextInput(attrs={'class': 'form-control'}),
-        max_length=50, label=_('Job Title'), required=False
-    )
+    # last_name = forms.CharField(
+    #     widget=forms.TextInput(attrs={'class': 'form-control'}),
+    #     max_length=30, label=_('Last Name'), required=False
+    # )
     email = forms.CharField(
         widget=forms.TextInput(attrs={'class': 'form-control'}),
         max_length=50, label=_('Email'), required=False
     )
-    url = forms.CharField(
+    college = forms.CharField(
+    widget=forms.TextInput(attrs={'class': 'form-control'}),
+    max_length=50, label=_('College'), required=False
+    )
+    identity = forms.CharField(
         widget=forms.TextInput(attrs={'class': 'form-control'}),
         max_length=50, label=_('Url'), required=False
     )
-    location = forms.CharField(
-        widget=forms.TextInput(attrs={'class': 'form-control'}),
-        max_length=50, label=_('Location'), required=False
-    )
+    # location = forms.CharField(
+    #     widget=forms.TextInput(attrs={'class': 'form-control'}),
+    #     max_length=50, label=_('Location'), required=False
+    # )
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'email',
-                  'url', 'location', 'job_title', ]
+        fields = ['first_name',  'email',
+                  'college','identity',
+                                                    ]
+                  # 'url', 'location', 'job_title', ]
 
 
 class ChangePasswordForm(forms.ModelForm):

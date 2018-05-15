@@ -38,10 +38,10 @@ class Feed(models.Model):
 
 
     @staticmethod
-    def get_feeds(from_feed=None):
-        if from_feed is not None:
+    def get_feeds(user_id=None):
+        if user_id is not None:
             feeds = Feed.objects.filter(
-                parent=None, user_id=from_feed)  # <= gte >=
+                parent=None, user_id=user_id)  # <= gte >=
             # print('get_feeds=', feeds)
         else:
 
@@ -124,7 +124,12 @@ class Feed(models.Model):
         return self.post.split(']')[0][1:]
 
     def get_book_id(self):
-        return self.post.split('/')[-2]
+        try:
+            ans = self.post.split('/')[-2]
+        except:
+            ans = ''
+        return ans
+
 
     def get_img(self):
         r_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=6)

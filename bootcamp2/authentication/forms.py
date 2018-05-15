@@ -75,11 +75,28 @@ class SignUpForm(forms.ModelForm):
         max_length=75,
         label=_('Email')
     )
+    college = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
+        required=True,
+        max_length=75,
+        label=_('College'),
+    )
+    identity = forms.ChoiceField(
+        # attrs={"class":"dropdown"},
+        choices=[('正式职工','正式职工'),('本科生','本科生'),('硕士生','硕士生')],
+        label=_('Identity'),
+
+    )
+    identity.widget.attrs={"class":"form-control"}
+        # widget=forms.EmailInput(attrs={'class': 'form-control'}),
+        # required=True,
+        # max_length=75,
+    # )
 # 模型表单 除了
     class Meta:
         model = User
         exclude = ['last_login', 'date_joined']
-        fields = ['username', 'email', 'password', 'confirm_password', ]
+        fields = ['username',  'password', 'confirm_password','email', 'college','identity' ]
 
     def __init__(self, *args, **kw):
         super(SignUpForm, self).__init__(*args, **kw)
