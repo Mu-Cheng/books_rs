@@ -9,7 +9,7 @@ from django.views.decorators.cache import cache_page
 import markdown
 from bootcamp2.decorators import ajax_required
 from bootcamp2.articles.forms import ArticleForm
-from bootcamp2.articles.models import Article, Tag, ArticleComment
+from bootcamp2.articles.models import Book as Article, Tag, ArticleComment
 from bootcamp2.feeds.models import Feed
 import redis
 import json,pickle

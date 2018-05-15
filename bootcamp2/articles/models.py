@@ -9,7 +9,7 @@ import markdown,redis,json,pickle, random
 
 # choice 最好在模型内部定义，然后给每个值定义一个合适名字的常量，方便外部引用
 # on_delete 删除联级, related_name 不创建反向关联
-class Article(models.Model):
+class Book(models.Model):
     DRAFT = 'D'
     PUBLISHED = 'P'
     STATUS = (
@@ -35,13 +35,13 @@ class Article(models.Model):
 
     def save(self, *args, **kw):
         if not self.pk:
-            super(Article, self).save(*args, **kw)
+            super(Book, self).save(*args, **kw)
         else:
             self.update_date = datetime.now()
         if not self.slug:
             slug_str = f'{self.pk}{self.title.lower()}'
             self.slug = slugify(slug_str)
-        super(Article, self).save(*args, **kw)
+        super(Book, self).save(*args, **kw)
 
     def get_content_as_markdown(self):
         return markdown.markdown(self.content, safe_mode='escape')
@@ -70,7 +70,7 @@ class Article(models.Model):
 
     @staticmethod
     def get_published():
-        articles = Article.objects.filter(status=Article.PUBLISHED)
+        articles = Book.objects.filter(status=Book.PUBLISHED)
         return articles
 
     @staticmethod
@@ -117,7 +117,7 @@ class Article(models.Model):
 
 class Tag(models.Model):
     tag = models.CharField(max_length=50)
-    article = models.ForeignKey(Article, on_delete=models.CASCADE)
+    article = models.ForeignKey(Book, on_delete=models.CASCADE)
 
     class Meta:
         unique_together = (('tag', 'article'),)
@@ -154,7 +154,7 @@ class Tag(models.Model):
 
 
 class ArticleComment(models.Model):
-    article = models.ForeignKey(Article, on_delete=models.CASCADE)
+    article = models.ForeignKey(Book, on_delete=models.CASCADE)
     comment = models.CharField(max_length=200)
     date = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)

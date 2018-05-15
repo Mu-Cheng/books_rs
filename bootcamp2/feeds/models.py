@@ -4,7 +4,7 @@ from django.utils.html import escape
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _  # 延迟翻译
 from bootcamp2.activities.models import Activity
-from bootcamp2.articles.models import Article
+from bootcamp2.articles.models import Book as Article
 from bootcamp2.articles.models import Tag
 
 from bootcamp2.borrow.models import Borrow

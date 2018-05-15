@@ -2,7 +2,7 @@ from django.contrib import admin
 import xadmin
 
 
-from .models import Article, Tag, ArticleComment
+from .models import Book , Tag, ArticleComment
 from xadmin import views
 
 # 基本的修改
@@ -19,7 +19,7 @@ class GlobalSettings(object):
 xadmin.site.register(views.BaseAdminView, BaseSetting)
 xadmin.site.register(views.CommAdminView, GlobalSettings)
 
-@xadmin.sites.register(Article)
+@xadmin.sites.register(Book)
 class ArticleAdmin(object):
     list_display = ("title", "slug", "content", "status", "create_user") #界面上展示的列，对应IDC Model的字段
     list_display_links = ("title",) #带链接可点击的字段，点击会进入编辑界面

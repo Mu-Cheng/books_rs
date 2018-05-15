@@ -3,7 +3,7 @@ from django.db.models import Q
 from django.contrib.auth.models import User
 
 from bootcamp2.feeds.models import Feed
-from bootcamp2.articles.models import Article
+from bootcamp2.articles.models import Book as Article
 from bootcamp2.questions.models import Question
 
 

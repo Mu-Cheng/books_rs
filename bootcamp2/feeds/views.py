@@ -9,7 +9,7 @@ from django.views.decorators.cache import cache_page
 
 from bootcamp2.decorators import ajax_required
 from bootcamp2.activities.models import Activity
-from bootcamp2.articles.models import Article
+from bootcamp2.articles.models import Book as Article
 from bootcamp2.articles.views import tag
 from bootcamp2.follow.models import Follow
 from bootcamp2.borrow.models import Borrow

@@ -85,7 +85,7 @@ class Notification(models.Model):
     answer = models.ForeignKey(
         'questions.Answer', blank=True, null=True, on_delete=models.CASCADE)
     article = models.ForeignKey(
-        'articles.Article', blank=True, null=True, on_delete=models.CASCADE)
+        'articles.Book', blank=True, null=True, on_delete=models.CASCADE)
     notification_type = models.CharField(
         max_length=1, choices=NOTIFICATION_TYPES)
     is_read = models.BooleanField(default=False)

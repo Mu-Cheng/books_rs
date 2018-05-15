@@ -1,7 +1,7 @@
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 
-from .models import Article
+from .models import Book as Article
 
 
 class ArticleForm(forms.ModelForm):
