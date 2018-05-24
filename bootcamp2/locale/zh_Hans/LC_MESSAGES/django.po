@@ -474,16 +474,16 @@ msgstr "使用空格分离标签，像这样 \"asp.net mvc5 javascript\""
 #: search/templates/search/partial_questions_results.html:4
 #: search/templates/search/partial_results_menu.html:13
 msgid "Questions"
-msgstr "问答"
+msgstr "讨论"
 
 #: questions/templates/questions/ask.html:7
 #: questions/templates/questions/questions.html:16
 msgid "Ask Question"
-msgstr "提问"
+msgstr "发帖"
 
 #: questions/templates/questions/ask.html:30
 msgid "Post Your Question"
-msgstr "发布你的问题"
+msgstr "发贴"
 
 #: questions/templates/questions/partial_answer.html:7
 msgid "Click to up vote; click again to toggle"
@@ -508,7 +508,7 @@ msgstr "回答时间"
 #: questions/templates/questions/partial_question.html:16
 #: questions/templates/questions/question.html:54
 msgid "Answers"
-msgstr "所有回答"
+msgstr "所有回复"
 
 #: questions/templates/questions/partial_question.html:20
 msgid "Favorites"
@@ -522,7 +522,7 @@ msgstr "提问时间"
 
 #: questions/templates/questions/question.html:15
 msgid "Question"
-msgstr "提问"
+msgstr "发帖"
 
 #: questions/templates/questions/question.html:22
 #: questions/templates/questions/question.html:25
@@ -532,11 +532,11 @@ msgstr "点击收藏这个问题；再次点击取消"
 
 #: questions/templates/questions/question.html:61
 msgid "Your Answer"
-msgstr "你的回答"
+msgstr "你的回复"
 
 #: questions/templates/questions/question.html:71
 msgid "Post Your Answer"
-msgstr "发布你的回答"
+msgstr "发布你的回复"
 
 #: questions/templates/questions/questions.html:24
 msgid "Unanswered"
@@ -548,11 +548,11 @@ msgstr "已解决的"
 
 #: questions/templates/questions/questions.html:28
 msgid "All Questions"
-msgstr "所有问题"
+msgstr "所有回复"
 
 #: questions/templates/questions/questions.html:33
 msgid "No question to display"
-msgstr "没有可以显示的问题"
+msgstr "没有可以显示的帖子"
 
 #: search/templates/search/partial_articles_results.html:24
 msgid "No article found"
@@ -584,7 +584,7 @@ msgstr "搜索"
 #: search/templates/search/results.html:24
 #: search/templates/search/search.html:20
 msgid "Search Feed, Articles, Questions and Users"
-msgstr "搜索书籍，问答和用户"
+msgstr "搜索书籍，讨论帖和用户"
 
 #: templates/403.html:6
 msgid "Permission denied"
@@ -612,7 +612,7 @@ msgstr ""
 
 #: templates/base.html:50
 msgid "Q&A"
-msgstr "问答"
+msgstr "讨论"
 
 #: templates/base.html:76
 msgid "Log out"

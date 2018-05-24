@@ -21,7 +21,7 @@ xadmin.site.register(views.CommAdminView, GlobalSettings)
 
 @xadmin.sites.register(Book)
 class ArticleAdmin(object):
-    list_display = ("title", "slug", "content", "status", "create_user") #界面上展示的列，对应IDC Model的字段
+    list_display = ("slug","title", "img_name", "author", "publisher","pubdate","summary","catalog","pages","price") #界面上展示的列，对应IDC Model的字段
     list_display_links = ("title",) #带链接可点击的字段，点击会进入编辑界面
 # @xadmin.sites.register(Tag)
 # class TagAdmin(object):

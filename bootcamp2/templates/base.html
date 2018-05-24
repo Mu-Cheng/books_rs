@@ -47,7 +47,7 @@
                         {% endif %}
                         <li><a href="{% url 'feeds' %}">{% trans 'Feed' %}</a></li>
                         <li><a href="{% url 'articles' %}">{% trans 'Articles' %}</a></li>
-                        <li><a href="{% url 'questions' %}"> 问答</a></li>
+                        <li><a href="{% url 'questions' %}"> 讨论</a></li>
                     </ul>
                     {% if not hide_search %}
                         <form class="navbar-form navbar-left" role="search" action="{% url 'search' %}">

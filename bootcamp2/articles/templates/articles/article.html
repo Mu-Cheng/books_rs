@@ -15,6 +15,7 @@
         <li class="active">{% trans 'Article' %}</li>
     </ol>
     {% include 'articles/partial_article.html' with article=article %}
+
     {% if not user.is_anonymous %}
         {% include 'articles/partial_article_comments.html' with article=article %}
     {% endif %}

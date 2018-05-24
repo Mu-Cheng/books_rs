@@ -28,7 +28,7 @@ def _questions(request, questions, active):
 
 
 def questions(request):
-    return unanswered(request)
+    return all_question(request)
 
 
 def answered(request):

@@ -21,10 +21,10 @@ class Feed(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
     post = models.TextField(max_length=255)
-    parent = models.ForeignKey(
-        'Feed', null=True, blank=True, on_delete=models.CASCADE)  # 数据库空值保存为NULL，允许输入一个空值
+    # parent = models.ForeignKey(
+        # 'Feed', null=True, blank=True, on_delete=models.CASCADE)  # 数据库空值保存为NULL，允许输入一个空值
     likes = models.IntegerField(default=0)
-    comments = models.IntegerField(default=0)
+    # comments = models.IntegerField(default=0)
 
     class Meta:
         ordering = ['-date']
@@ -41,32 +41,32 @@ class Feed(models.Model):
     def get_feeds(user_id=None):
         if user_id is not None:
             feeds = Feed.objects.filter(
-                parent=None, user_id=user_id)  # <= gte >=
+                user_id=user_id)  # <= gte >=
             # print('get_feeds=', feeds)
         else:
 
-            feeds = Feed.objects.filter(parent=None)
+            feeds = Feed.objects.filter()
         return feeds
 
     @staticmethod
     def get_feeds_after(feed):
-        feeds = Feed.objects.filter(parent=None, id__gt=feed)
+        feeds = Feed.objects.filter( id__gt=feed)
         return feeds
+    #
+    # def get_comments(self):
+    #     return Feed.objects.filter(parent=self).order_by('date')
+    #
+    # def comment(self, user, post):
+    #     feed_comment = Feed(user=user, post=post, parent=self)
+    #     feed_comment.save()
+    #     self.comments = Feed.objects.filter(parent=self).count()
+    #     self.save()
+    #     return feed_comment
 
-    def get_comments(self):
-        return Feed.objects.filter(parent=self).order_by('date')
-
-    def comment(self, user, post):
-        feed_comment = Feed(user=user, post=post, parent=self)
-        feed_comment.save()
-        self.comments = Feed.objects.filter(parent=self).count()
-        self.save()
-        return feed_comment
-
-    def calculate_comments(self):
-        self.comments = Feed.objects.filter(parent=self).count()
-        self.save()
-        return self.comments
+    # def calculate_comments(self):
+    #     self.comments = Feed.objects.filter(parent=self).count()
+    #     self.save()
+    #     return self.comments
 
 
     def get_content_len(self):
@@ -173,3 +173,5 @@ class Feed(models.Model):
 
     def linkfy_post(self):
         return bleach.linkify(escape(self.post))
+
+# class Recommend:

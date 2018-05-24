@@ -33,26 +33,28 @@ def articles(request):
 
 # @cache_page(None)
 def article(request, slug):
-    article = get_object_or_404(Article, slug=slug, status=Article.PUBLISHED)
+    book = get_object_or_404(Article, slug=slug, status=Article.PUBLISHED)
     # print('type(article.content) : {}'.format(type(article.content)))
-    r_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=6)
-    content = r_db.get(article.title)
-    content = str(content, encoding='utf-8')
-    content = json.loads(content)
+    # r_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=6)
+    # content = r_db.get(article.title)
+    # content = str(content, encoding='utf-8')
+    # content = json.loads(content)
     # print(content)
-    book = content['books'][0]
-    img = 'http://img-1252422469.file.myqcloud.com/big_bookimg/{}'.format(book['image'].split('/')[-1])
+    # book = content['books'][0]
+    # book =
+    img = 'http://img-1252422469.file.myqcloud.com/big_bookimg/{}'.format(book.img_name)
     # print(type(content))
     # print(book['summary'].replace('\n',''))
     con = []
-    con.append(['出版社：', book['publisher']])
-    con.append(['出版日期：',book['pubdate']])
-    con.append(['简介：',book['summary'].replace('\n','')])
-    con.append(['目录：',book['catalog'].replace('\n','')])
-    con.append(['页数：',book['pages']])
-    con.append(['售价：',book['price']])
+    con.append(['作者：',book.author])
+    con.append(['出版社：', book.publisher])
+    con.append(['出版日期：',book.pubdate])
+    con.append(['简介：',book.summary])
+    con.append(['目录：',book.catalog])
+    con.append(['页数：',book.pages])
+    con.append(['售价：',book.price])
     ans = {}
-    ans['title'] = article.title
+    ans['title'] = book.title
     ans['img'] = img
     ans['info'] = con
     # con = '''![{}]({})
@@ -72,12 +74,12 @@ def article(request, slug):
     #                   book['pages'],
     #                   book['price'])
 
-    article.content = ans
-    return render(request, 'articles/article.html', {'article': article})
+    book.content = ans
+    return render(request, 'articles/article.html', {'article': book})
 
 # @cache_page(None)
 def tag(request, tag_name):
-    r_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=8)
+    r_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=2)
     r_ans = r_db.get(tag_name)
 
     if r_ans:

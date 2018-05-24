@@ -123,7 +123,7 @@
             </li>
             {% if not user.is_anonymous %}
             <li>
-                <a href="{% url 'followed' %}">
+                <a href="{% url 'borrowed' %}">
                     <span class="glyphicon glyphicon-th-list"> 借阅历史</span>
                     <span class="badge">{{ borrow_sum  }}</span>
                 </a>

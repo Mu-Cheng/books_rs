@@ -6,9 +6,12 @@ from bootcamp2.follow.models import Follow
 
 
 class Profile(models.Model):
+    student_number =models.CharField(max_length=50, null=True, blank=True)
+    name= models.CharField(max_length=50, null=True, blank=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     college = models.CharField(max_length=50, null=True, blank=True)
     identity = models.CharField(max_length=50, null=True, blank=True)
+
     # job_title = models.CharField(max_length=50, null=True, blank=True)
     picture_url = models.CharField(max_length=100, null=True, blank=True)
 

@@ -14,7 +14,8 @@
 !-->
 
     <!-- <a href="{{ feed.get_img_link }}"> -->
-        <img src="{{ feed.get_img }}" data-holder-rendered="true" style="height: 300px; width: 100%; display: block;"></a>
+        <img src="{{ feed.get_img }}" data-holder-rendered="true" style="height: 300px; width: 100%; display: block;">
+    <!-- </a> -->
         <div class="box-content">
             <h3 class="title">
                 {{ feed.get_content_as_str }}
@@ -36,26 +37,10 @@
     <!-- <div class="center-block"> -->
     <!-- <div class="post"> -->
 
-        {% if feed.user == user or user.is_superuser %}
+        <!-- {% if feed.user == user or user.is_superuser %}
             <span class="glyphicon glyphicon-remove remove-feed" title="{% trans 'Click to remove this feed' %}"></span>
-        {% endif %}
+        {% endif %}  -->
 
-          <!-- <span class="label label-default"> -->
-            <!-- <p class="text-muted"> -->
-            <!-- <button type="button" class="btn btn-default btn-block"> -->
-
-
-
-            <!-- <p class="text-muted"> -->
-            <!-- <pre class="pre-scrollable"> -->
-                <!-- {% if feed.get_content_has_second %} -->
-                <!-- {{ feed.get_second_p }} -->
-                <!-- {% else %} -->
-                    <!-- &nbsp; -->
-                <!-- {% endif %} -->
-	        <!-- </pre> -->
-            <!-- </p>  -->
-            <!-- <h6>&nbsp;</h6> -->
             <p class="text-muted">
             {% if feed.get_tag_1 != '' %}
 
@@ -82,23 +67,6 @@
             <!-- </button> -->
         {% if not user.is_anonymous %}
             <div class="interaction">
-                <!-- {% if user in feed.get_likers %}
-                    <a href="#" class="like unlike">
-                        <span class="glyphicon glyphicon-thumbs-up"></span>
-                        <span class="text">还书</span>
-                        (<span class="like-count">{{ feed.likes }}</span>)
-                    </a>
-                {% else %} -->
-
-                <!-- <button type="button" class="btn btn-default btn-xs btn-block" data-toggle="modal" data-target="#myModal{{ feed.get_book_id }}"> -->
-                    <!-- <h5 class="glyphicon glyphicon-plus"> -->
-                    <!-- <span  class="glyphicon glyphicon-plus"> -->
-                    <!-- 借阅 -->
-                <!-- </span> -->
-                <!-- </h5> -->
-                <!-- </button> -->
-
-                <!-- Modal -->
                 <div class="modal fade" id="myModal{{ feed.get_book_id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -111,12 +79,11 @@
                         <img src="{{ feed.get_img }}" data-holder-rendered="true" style="height: 400px; width: 100%; display: block;">
                       </div>
                       <div class="modal-footer">
-                          <form action="{% url 'followed' %}" method="post">
+                          <form action="{% url 'borrowed' %}" method="post">
                             {% csrf_token %}
                             <input type="hidden" name="book_name" value="{{ feed.get_book }}" />
                             <input type="hidden" name="book_id" value="{{ feed.get_book_id }}" />
                             <input type="hidden" name="mode" value="borrow_book" />
-                            <!-- <div class="modal-footer"> -->
                             <button type="button" class="btn btn-default" data-dismiss="modal">
                                 <span class="glyphicon glyphicon-remove"> 取消</span>
 
@@ -124,7 +91,6 @@
                             <button type="submit" class="btn btn-primary" value="">
                                 <span class="glyphicon glyphicon-ok"> 确定</span>
                             </button>
-                            <!-- </div> -->
 
                           </form>
                       </div>
@@ -132,49 +98,8 @@
                   </div>
                 </div>
 
-                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">
-                    借阅
-                </button>
-                <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-                     <div class="modal-dialog modal-sm" role="document">
-                       <div class="modal-content">
-                           <form action="{% url 'followed' %}" method="post">
-                             {% csrf_token %}
-                             <input type="hidden" name="book_name" value="{{ feed.get_book }}">
-                             <input type="hidden" name="book_id" value="{{ feed.get_book_id }}">
-                             <div class="modal-footer">
-                             <input type="submit" class="btn btn-primary" value="借阅">
-                             </div>
-                           </form>
-                       </div>
-                     </div>
-                </div> -->
-                <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 
-                </div> -->
-                    <!-- <a href="#" class="like"> -->
-                        <!-- <span class="glyphicon glyphicon-thumbs-up"></span> -->
-                        <!-- <span class="text">借阅</span> -->
-                        <!-- <a href="{% url 'followed' %}">借阅</a> -->
-                        <!-- (<span class="like-count">{{ feed.likes }}</span>) -->
-                    <!-- </a> -->
-                <!-- {% endif %} -->
-                <!-- <a href="#" class="comment">
-                    <span class="glyphicon glyphicon-comment"></span> {% trans 'Comment' %}
-                    (<span class="comment-count">{{ feed.comments }}</span>)
-                </a> -->
             </div>
-            <!-- <div class="comments">
-                <form role="form" method="post" action="{{ comment }}" onsubmit="return false">
-                    {% csrf_token %}
-                    <input type="hidden" name="feed" value="{{ feed.pk }}">
-                    <input type="text" class="form-control input-sm" placeholder="{% trans 'Write a comment...' %}"
-                           name="post" maxlength="255">
-                </form>
-                <ol class="clearfix">
-                    {% comment %} Place holder to load feed comments {% endcomment %}
-                </ol>
-            </div> -->
         {% endif %}
 
     <!-- </div> -->
@@ -186,5 +111,4 @@
 </div>
 </div>
     <!-- </div> -->
-
 {% endif %}

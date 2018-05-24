@@ -24,7 +24,7 @@
             </a>
             </li>
             <li role="presentation" class="active">
-                <a href="{% url 'followed' %}">
+                <a href="{% url 'borrowed' %}">
                     <span class="glyphicon glyphicon-chevron-down"> 借阅历史</span>
                     <span class="badge">{{ borrow_sum }}</span>
                 </a>
@@ -74,12 +74,4 @@
     </div>
     {% endif %}
 
-    <!-- <div class="load">
-        <img src="{% static 'img/loading.gif' %}">
-    </div>
-    <form method="get" action="{% url 'load' %}" id="load_feed" autocomplete="off">
-        <input type="hidden" name="feed_source" id="feed_source" value="followed">
-        <input type="hidden" name="from_feed" value="{{ from_feed }}">
-        <input type="hidden" name="page" value="{{ page }}">
-    </form> -->
 {% endblock main %}

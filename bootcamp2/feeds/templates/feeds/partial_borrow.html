@@ -55,7 +55,7 @@
                             <img src="{{ borrow.get_img_link }}" data-holder-rendered="true" style="height: 400px; width: 100%; display: block;">
                           </div>
                           <div class="modal-footer">
-                              <form action="{% url 'followed' %}" method="post">
+                              <form action="{% url 'borrowed' %}" method="post">
                                 {% csrf_token %}
                                 <input type="hidden" name="book_name" value="{{ borrow.book_name }}" />
                                 <input type="hidden" name="book_id" value="{{ borrow.get_book_id }}" />

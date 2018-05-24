@@ -92,25 +92,26 @@ def feeds(request):
         feeds = paginator.page(paginator.num_pages)
 
     # print(feeds.object_list)
-    item_list = feeds.object_list
-    len_item = len(item_list)
-    books = []
-    # feeds = []
-    for i in range(len_item):
-        try:
-            book_id = feeds[i].post.split('/')[-2]
-            feeds[i].comments = len(Article.objects.filter(id=book_id)[0].get_comments())
-
-        # books.append(book_id)
-        # item.comments = len(Article.objects.filter(id=book_id)[0].get_comments())
-        except:
-            feeds[i].comments = 0
+    # item_list = feeds.object_list
+    # len_item = len(item_list)
+    # books = []
+    # # feeds = []
+    # for i in range(len_item):
+    #     try:
+    #         book_id = feeds[i].post.split('/')[-2]
+    #         feeds[i].comments = len(Article.objects.filter(id=book_id)[0].get_comments())
+    #
+    #     # books.append(book_id)
+    #     # item.comments = len(Article.objects.filter(id=book_id)[0].get_comments())
+    #     except:
+    #         feeds[i].comments = 0
         # feeds.append(item)
     # feeds = paginator.page(1)
     from_feed = -1
     # print(feeds.next_page_number)
     if feeds:
         from_feed = feeds[0].id
+    # print("test "*20)
     return render(request, 'feeds/feeds.html', {
         'feeds': feeds,
         'from_feed': from_feed,
@@ -119,13 +120,13 @@ def feeds(request):
     })
 
 # @cache_page(None)
-def followed(request):
+def borrowed(request):
     # cache redis db 10
     user = request.user
     # print('followed ',user)
     user_id = None
     if user == NO_USER:
-        return render(request, 'feeds/followed_feeds.html', {
+        return render(request, 'feeds/borrowed_feeds.html', {
             'borrows': None,
             # 'from_feed': from_feed,
             'page': 1,
@@ -232,7 +233,7 @@ def followed(request):
         # print(user_id)
         bootcamp2_c.close()
         bootcamp2_db.close()
-    return render(request, 'feeds/followed_feeds.html', {
+    return render(request, 'feeds/borrowed_feeds.html', {
         'borrows': borrows,
         # 'from_feed': from_feed,
         'borrow_sum' : Borrow.get_borrowed_sum(user_id),
@@ -270,7 +271,9 @@ def load(request):
     from_feed = request.GET.get('from_feed')
     feed_source = request.GET.get('feed_source')
     csrf_token = str(csrf(request)['csrf_token'])
-
+    print('*'*40)
+    print(user,page,from_feed,feed_source)
+    print('*'*40)
     all_feeds = Feed.get_feeds(from_feed)
 
     if feed_source != 'all':
@@ -324,104 +327,104 @@ def _html_feeds(last_feed, user, csrf_token, feed_source='all'):
         html = f'{html}{template}'
     return html
 
-
-@ajax_required
-def load_new(request):
-    last_feed = request.GET.get('last_feed')
-    user = request.user
-    csrf_token = str(csrf(request)['csrf_token'])
-    html = _html_feeds(last_feed, user, csrf_token)
-    return HttpResponse(html)
-
-
-@ajax_required
-def check(request):
-    user = request.user
-    last_feed = request.GET.get('last_feed')
-    feed_source = request.GET.get('feed_source')
-    feeds = Feed.get_feeds_after(last_feed)
-
-    if feed_source != 'all':
-        if feed_source == 'followed':
-            feeds = feeds.filter(user__in=Follow.user_followed(user))
-        else:
-            feeds = feeds.filter(user__id=feed_source)
-
-    count = feeds.count()
-    return HttpResponse(count)
+#
+# @ajax_required
+# def load_new(request):
+#     last_feed = request.GET.get('last_feed')
+#     user = request.user
+#     csrf_token = str(csrf(request)['csrf_token'])
+#     html = _html_feeds(last_feed, user, csrf_token)
+#     return HttpResponse(html)
 
 
-@login_required
-@ajax_required
-def post(request):
-    last_feed = request.POST.get('last_feed')
-    post = request.POST['post'].strip()[:255]
-    user = request.user
-
-    csrf_token = str(csrf(request)['csrf_token'])
-
-    if len(post) > 0:
-        Feed.objects.create(
-            post=post,
-            user=user
-        )
-    html = _html_feeds(last_feed, user, csrf_token)
-    return HttpResponse(html)
-
-
-@login_required
-@ajax_required
-def comment(request):
-    if request.method == 'POST':
-        feed_id = request.POST['feed']
-        feed = Feed.objects.get(pk=feed_id)
-        post = request.POST['post'].strip()  # 去格式
-
-        if len(post) > 0:
-            post = post[:255]
-            user = request.user
-            feed.comment(user=user, post=post)
-            user.profile.notify_commented(feed)
-            user.profile.notify_also_commented(feed)
-
-        context = {'feed': feed}
-        return render(request, 'feeds/partial_feed_comments.html', context)
-
-    feed_id = request.GET.get('feed')
-    feed = Feed.objects.get(pk=feed_id)
-    return render(request, 'feeds/partial_feed_comments.html', {'feed': feed})
+# @ajax_required
+# def check(request):
+#     user = request.user
+#     last_feed = request.GET.get('last_feed')
+#     feed_source = request.GET.get('feed_source')
+#     feeds = Feed.get_feeds_after(last_feed)
+#
+#     if feed_source != 'all':
+#         if feed_source == 'followed':
+#             feeds = feeds.filter(user__in=Follow.user_followed(user))
+#         else:
+#             feeds = feeds.filter(user__id=feed_source)
+#
+#     count = feeds.count()
+#     return HttpResponse(count)
 
 
-@login_required
-@ajax_required
-def update(request):
-    user = request.user
-    first_feed = request.GET.get('first_feed')
-    last_feed = request.GET.get('last_feed')
-    feed_source = request.GET.get('feed_source')
-
-    feeds = Feed.get_feeds().filter(id__range=(last_feed, first_feed))
-
-    if feed_source != 'all':
-        if feed_source == 'followed':
-            feeds = feeds.filter(user__in=Follow.user_followed(user))
-        else:
-            feeds = feeds.filter(user__id=feed_source)
-
-    dump = {}
-
-    for feed in feeds:
-        dump[feed.pk] = {'comments': feed.comments}
-
-    return JsonResponse(dump, safe=False)
+# @login_required
+# @ajax_required
+# def post(request):
+#     last_feed = request.POST.get('last_feed')
+#     post = request.POST['post'].strip()[:255]
+#     user = request.user
+#
+#     csrf_token = str(csrf(request)['csrf_token'])
+#
+#     if len(post) > 0:
+#         Feed.objects.create(
+#             post=post,
+#             user=user
+#         )
+#     html = _html_feeds(last_feed, user, csrf_token)
+#     return HttpResponse(html)
 
 
-@login_required
-@ajax_required
-def track_comments(request):
-    feed_id = request.GET.get('feed')
-    feed = Feed.objects.get(pk=feed_id)
-    return render(request, 'feeds/partial_feed_comments.html', {'feed': feed})
+# @login_required
+# @ajax_required
+# def comment(request):
+#     if request.method == 'POST':
+#         feed_id = request.POST['feed']
+#         feed = Feed.objects.get(pk=feed_id)
+#         post = request.POST['post'].strip()  # 去格式
+#
+#         if len(post) > 0:
+#             post = post[:255]
+#             user = request.user
+#             feed.comment(user=user, post=post)
+#             user.profile.notify_commented(feed)
+#             user.profile.notify_also_commented(feed)
+#
+#         context = {'feed': feed}
+#         return render(request, 'feeds/partial_feed_comments.html', context)
+#
+#     feed_id = request.GET.get('feed')
+#     feed = Feed.objects.get(pk=feed_id)
+#     return render(request, 'feeds/partial_feed_comments.html', {'feed': feed})
+#
+#
+# @login_required
+# @ajax_required
+# def update(request):
+#     user = request.user
+#     first_feed = request.GET.get('first_feed')
+#     last_feed = request.GET.get('last_feed')
+#     feed_source = request.GET.get('feed_source')
+#
+#     feeds = Feed.get_feeds().filter(id__range=(last_feed, first_feed))
+#
+#     if feed_source != 'all':
+#         if feed_source == 'followed':
+#             feeds = feeds.filter(user__in=Follow.user_followed(user))
+#         else:
+#             feeds = feeds.filter(user__id=feed_source)
+#
+#     dump = {}
+#
+#     for feed in feeds:
+#         dump[feed.pk] = {'comments': feed.comments}
+#
+#     return JsonResponse(dump, safe=False)
+
+
+# @login_required
+# @ajax_required
+# def track_comments(request):
+#     feed_id = request.GET.get('feed')
+#     feed = Feed.objects.get(pk=feed_id)
+#     return render(request, 'feeds/partial_feed_comments.html', {'feed': feed})
 
 
 @login_required

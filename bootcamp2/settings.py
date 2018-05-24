@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'bootcamp2.articles',
     # 'bootcamp2.books',
 
-    'xadmin',
+    'bootcamp2.xadmin',
     'crispy_forms',
     'reversion',
     'bootcamp2.questions',
@@ -103,6 +103,9 @@ DATABASES = {
         'PASSWORD': 'xu695847',
         'HOST': '127.0.0.1',
         'PORT': '43306',
+        'OPTIONS': {
+            'init_command': 'SET innodb_strict_mode=1',
+        },
     }
 }
 

@@ -16,9 +16,9 @@ class Borrow(models.Model):
 
     @staticmethod
     def get_borrowed_sum(userid):
-        print(userid)
+        # print(userid)
         borrow_sum = Borrow.objects.filter(userid=userid).count()
-        print(borrow_sum)
+        # print(borrow_sum)
         return borrow_sum
 
     def get_img_link(self):

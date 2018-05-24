@@ -28,7 +28,7 @@ from .feeds import views as feeds_views
 from .search import views as search_views
 from .authentication import views as authentication_views
 from django.conf.urls.i18n import i18n_patterns
-import xadmin
+from bootcamp2 import xadmin
 xadmin.autodiscover()
 
 from xadmin.plugins import xversion

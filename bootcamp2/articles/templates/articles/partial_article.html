@@ -1,6 +1,51 @@
 {% load i18n %}
 <article>
-  <h2><a href="{% url 'article' article.slug %}">{{ article.title }}</a></h2>
+  <h2>
+      {# <a href="{% url 'article' article.slug %}"> #}
+          {{ article.title }}
+      {# </a> #}
+  </h2>
+  <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal{{ feed.get_book_id }}">
+      <h5 class="glyphicon glyphicon-plus">
+      <!-- <span  class="glyphicon glyphicon-plus"> -->
+      借阅
+  <!-- </span> -->
+  </h5>
+  </button>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal{{ feed.get_book_id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">提示</h4>
+        </div>
+        <div class="modal-body">
+          您要借阅的是：{{ article.title }}
+          <img src="{{ article.get_img }}" data-holder-rendered="true" style="height: 400px; width: 100%; display: block;">
+        </div>
+        <div class="modal-footer">
+            <form action="/feeds/borrowed/" method="post">
+              {% csrf_token %}
+              <input type="hidden" name="book_name" value="{{ article.title }}" />
+              <input type="hidden" name="book_id" value="{{ article.slug }}" />
+              <input type="hidden" name="mode" value="borrow_book" />
+              <!-- <div class="modal-footer"> -->
+              <button type="button" class="btn btn-default" data-dismiss="modal">
+                  <span class="glyphicon glyphicon-remove"> 取消</span>
+
+              </button>
+              <button type="submit" class="btn btn-primary" value="">
+                  <span class="glyphicon glyphicon-ok"> 确定</span>
+              </button>
+              <!-- </div> -->
+
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="info">
     <!-- <span class="date">
       <span class="glyphicon glyphicon-calendar"></span>

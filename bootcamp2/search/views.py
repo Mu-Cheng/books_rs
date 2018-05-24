@@ -25,7 +25,7 @@ def search(request):
         # 'feed': Feed.objects.filter(post__icontains=querystring),
         'articles': Article.objects.filter(
             Q(title__icontains=querystring) |
-            Q(content__icontains=querystring)),
+            Q(summary__icontains=querystring)),
         'questions': Question.objects.filter(
             Q(title__icontains=querystring) |
             Q(description__icontains=querystring)),
