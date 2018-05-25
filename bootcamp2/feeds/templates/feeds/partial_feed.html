@@ -18,7 +18,7 @@
     <!-- </a> -->
         <div class="box-content">
             <h3 class="title">
-                {{ feed.get_content_as_str }}
+                {{ feed.get_title }}
             </h3>
             <h3 class="title">
 
@@ -33,13 +33,6 @@
         </div>
     </div>
 
-
-    <!-- <div class="center-block"> -->
-    <!-- <div class="post"> -->
-
-        <!-- {% if feed.user == user or user.is_superuser %}
-            <span class="glyphicon glyphicon-remove remove-feed" title="{% trans 'Click to remove this feed' %}"></span>
-        {% endif %}  -->
 
             <p class="text-muted">
             {% if feed.get_tag_1 != '' %}
@@ -75,13 +68,13 @@
                         <h4 class="modal-title" id="myModalLabel">提示</h4>
                       </div>
                       <div class="modal-body">
-                        您要借阅的是：{{ feed.get_content_as_markdown|safe }}
+                        您要借阅的是：<a href="/articles/{{ feed.get_book_id }}">{{ feed.get_title }}</a>
                         <img src="{{ feed.get_img }}" data-holder-rendered="true" style="height: 400px; width: 100%; display: block;">
                       </div>
                       <div class="modal-footer">
                           <form action="{% url 'borrowed' %}" method="post">
                             {% csrf_token %}
-                            <input type="hidden" name="book_name" value="{{ feed.get_book }}" />
+                            <input type="hidden" name="book_name" value="{{ feed.get_title }}" />
                             <input type="hidden" name="book_id" value="{{ feed.get_book_id }}" />
                             <input type="hidden" name="mode" value="borrow_book" />
                             <button type="button" class="btn btn-default" data-dismiss="modal">

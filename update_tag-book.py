@@ -145,7 +145,7 @@ def update_user_user():
         pos = pos + 1
 
 
-def main():
+def update_db2():
     bootcamp2_db = MySQLdb.connect(host="127.0.0.1", port=43306, user="root", passwd="xu695847", db="bootcamp2", charset='utf8')
     bootcamp2_c = bootcamp2_db.cursor()
     bootcamp2_c.execute('select * from articles_tag')
@@ -155,6 +155,13 @@ def main():
     sum = len(tag_books)
     pos = 1
     book_tags = {}
+
+    bootcamp2_c.execute('SELECT slug,title FROM articles_book')
+    id_titledbs = bootcamp2_c.fetchall()
+    id_titles = {}
+    for it in id_titledbs:
+        id_titles[str(it[0])] = it[1]
+
     for tag_book in tag_books:
         print('{}/{}'.format(pos,sum))
         # print(type(tag_book[2]))
@@ -165,7 +172,7 @@ def main():
         except:
             book_tags[str(tag_book[2])] = []
         book_tags[str(tag_book[2])].append(tag_book[1])
-        # out_db.zincrby(tag_book[1],tag_book[2],amount=1)
+        out_db.zincrby(tag_book[1],tag_book[2],amount=1)
         # r_db.lpush(tag_book[1],tag_book[2])
         pos = pos + 1
     print("*"*60)
@@ -173,11 +180,16 @@ def main():
 
     books = bootcamp2_c.fetchall()
     print("*"*60)
+
     sum = len(books)
     print(sum)
     pos = 1
     for book in books:
         book = book[0]
+        # try:
+        #     title = book[1]
+        # except:
+        #     continue
         try:
             book_tags[book]
         except:
@@ -193,6 +205,17 @@ def main():
 
     bootcamp2_c.close()
     bootcamp2_db.close()
+
+def main():
+    bootcamp2_db = MySQLdb.connect(host="127.0.0.1", port=43306, user="root", passwd="xu695847", db="bootcamp2", charset='utf8')
+    bootcamp2_c = bootcamp2_db.cursor()
+    out_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=11)
+    bootcamp2_c.execute('SELECT slug,title FROM articles_book')
+    id_titledbs = bootcamp2_c.fetchall()
+    id_titles = {}
+    for it in id_titledbs:
+        out_db.set(it[0],it[1])
+        # id_titles[str(it[0])] = it[1]
 
 if __name__ =='__main__':
     main()

@@ -13,7 +13,8 @@ from bootcamp2.borrow.models import Borrow
 
 import markdown
 import redis
-import json
+import json,random
+import datetime
 
 STR_NUM = 18
 
@@ -174,4 +175,80 @@ class Feed(models.Model):
     def linkfy_post(self):
         return bleach.linkify(escape(self.post))
 
-# class Recommend:
+class Recommend:
+
+    bookid = ''
+    book_title = ''
+
+    def __init__(self,bookid='',book_title=''):
+        self.bookid = bookid
+        self.book_title = book_title
+
+    @staticmethod
+    def get_books(user_id=None):
+        # print(user_id)
+        ans = []
+        r_db3 = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=3)
+        r_db7 = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=7)
+        r_db2 = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=2)
+        r_db11 = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=11)
+
+
+        # 获得ItemCF
+        item_tags = r_db3.zrevrange(user_id,'0','9')
+        for tag in item_tags:
+            # print(datetime.datetime.now().strftime('%Y.%m.%d-%H:%M:%S'))
+
+            book_ids = r_db2.zrevrangebyscore(tag,'+inf','-inf')
+            book_tieles = r_db11.mget(book_ids)
+            lenth = len(book_ids)
+            for i in range(lenth):
+                tem = Recommend(str(book_ids[i],encoding='utf-8'),str(book_tieles[i],encoding='utf-8'))
+                ans.append(tem)
+            # print(datetime.datetime.now().strftime('%Y.%m.%d-%H:%M:%S'))
+
+        # print(datetime.datetime.now().strftime('%Y.%m.%d-%H:%M:%S'))
+        # 获得UserCF
+        user_taas = r_db7.zrevrange(user_id,'0','1')
+        for tag in user_taas:
+            book_ids = r_db2.zrevrangebyscore(tag,'+inf','-inf')
+            book_tieles = r_db11.mget(book_ids)
+            lenth = len(book_ids)
+            for i in range(lenth):
+                tem = Recommend(str(book_ids[i],encoding='utf-8'),str(book_tieles[i],encoding='utf-8'))
+                ans.append(tem)
+        # print(datetime.datetime.now().strftime('%Y.%m.%d-%H:%M:%S'))
+        # print(ans)
+        random.shuffle(ans)
+        # print(datetime.datetime.now().strftime('%Y.%m.%d-%H:%M:%S'))
+        # print('*'*60)
+        return ans
+
+
+
+
+
+    def get_img(self):
+        r_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=6)
+        try:
+
+            content = r_db.get(self.book_title)
+            content = str(content, encoding='utf-8')
+            content = json.loads(content)
+            book = content['books'][0]
+            img = 'http://img-1252422469.file.myqcloud.com/big_bookimg/{}'.format(book['image'].split('/')[-1])
+
+            return img
+        except:
+            return '#'
+    def get_title(self):
+        return self.book_title
+    def get_book_id(self):
+        # print(self.bookid)
+        return self.bookid
+    def get_tag_1(self):
+        return str(Tag.objects.filter(article_id=self.get_book_id())[0])
+    def get_tag_2(self):
+        return str(Tag.objects.filter(article_id=self.get_book_id())[1])
+    def get_tag_3(self):
+        return str(Tag.objects.filter(article_id=self.get_book_id())[2])

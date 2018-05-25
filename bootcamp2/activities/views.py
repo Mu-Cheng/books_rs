@@ -6,7 +6,7 @@ from bootcamp2.decorators import ajax_required
 from .models import Notification
 
 
-@login_required
+# @login_required
 def notifications(request):
     user = request.user
     all_notifications = Notification.objects.filter(to_user=user)
@@ -16,8 +16,8 @@ def notifications(request):
     return render(request, 'activities/notifications.html', context)
 
 
-@login_required
-@ajax_required
+# @login_required
+# @ajax_required
 def last_notifications(request):
     user = request.user
     last_unread_notifications = Notification.objects.filter(
@@ -31,8 +31,8 @@ def last_notifications(request):
     return render(request, 'activities/last_notifications.html', context)
 
 
-@login_required
-@ajax_required
+# @login_required
+# @ajax_required
 def check_notifications(request):
     user = request.user
     notifications_count = Notification.objects.filter(

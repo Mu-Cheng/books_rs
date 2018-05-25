@@ -9,15 +9,15 @@ from django.views.decorators.cache import cache_page
 
 from bootcamp2.decorators import ajax_required
 from bootcamp2.activities.models import Activity
-from bootcamp2.articles.models import Book as Article
+from bootcamp2.articles.models import Book as Article,Tag
 from bootcamp2.articles.views import tag
 from bootcamp2.follow.models import Follow
 from bootcamp2.borrow.models import Borrow
 
 
 
-from .models import Feed
-import redis, time, pickle,MySQLdb,json,random
+from .models import Feed,Recommend
+import redis, time, pickle,MySQLdb,json,random,datetime
 
 FEEDS_NUM_PATES = 24
 NO_USER = 'AnonymousUser'
@@ -36,7 +36,7 @@ def feeds(request):
 
     # print(user)
     # print(type(user))
-
+    # print(datetime.datetime.now().strftime('%Y.%m.%d-%H:%M:%S'))
     r_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=8)
     r_ans = r_db.get(user)
     bootcamp2_db = MySQLdb.connect(host="127.0.0.1", port=43306, user="root", passwd="xu695847", db="bootcamp2", charset='utf8')
@@ -44,10 +44,11 @@ def feeds(request):
     bootcamp2_c.execute('select id from auth_user where username = \'{}\''.format(user))
     user_id = bootcamp2_c.fetchone()
     user_id = user_id[0]
-    # print(user_id)
+    # print('1',user_id)
     bootcamp2_c.close()
     bootcamp2_db.close()
     # r_ans = False
+    # print(datetime.datetime.now().strftime('%Y.%m.%d-%H:%M:%S'))
     if r_ans:
         paginator = pickle.loads(r_ans)
     else:
@@ -55,15 +56,16 @@ def feeds(request):
             # user = User.objects.get(username=user)
             # user = user.get_profile().id
             # print('user_id = ', user_id)
-            all_feeds = Feed.get_feeds(user_id)
+            all_feeds = Recommend.get_books(user_id)
             # print(type(all_feeds))
         except:
-            all_feeds = Feed.get_feeds(3)
-
+            all_feeds = Recommend.get_books(3)
+        # print(all_feeds)
         paginator = Paginator(all_feeds, FEEDS_NUM_PATES)
         if paginator.num_pages < 2:
             return tag(request,'小说')
         r_db.setnx(user, pickle.dumps(paginator))
+    # print(datetime.datetime.now().strftime('%Y.%m.%d-%H:%M:%S'))
     # content = r_db.get(article.title)
     # content = str(content, encoding='utf-8')
     # content = json.loads(content)
@@ -90,7 +92,7 @@ def feeds(request):
         feeds = paginator.page(1)
     except EmptyPage:
         feeds = paginator.page(paginator.num_pages)
-
+    # print(datetime.datetime.now().strftime('%Y.%m.%d-%H:%M:%S'))
     # print(feeds.object_list)
     # item_list = feeds.object_list
     # len_item = len(item_list)
@@ -107,14 +109,15 @@ def feeds(request):
     #         feeds[i].comments = 0
         # feeds.append(item)
     # feeds = paginator.page(1)
-    from_feed = -1
+    # from_feed = -1
     # print(feeds.next_page_number)
-    if feeds:
-        from_feed = feeds[0].id
+    # if feeds:
+        # from_feed = feeds[0].id
     # print("test "*20)
+    print(paginator.num_pages)
     return render(request, 'feeds/feeds.html', {
         'feeds': feeds,
-        'from_feed': from_feed,
+        # 'from_feed': from_feed,
         'borrow_sum': Borrow.get_borrowed_sum(user_id),
         'page': 1,
     })
@@ -137,8 +140,12 @@ def borrowed(request):
         # print('mode : {}'.format(mode))
         book_name = request.POST['book_name']
         book_id = request.POST['book_id']
+
+
+
         book_link = 'http://118.89.162.148/articles/{}'.format(request.POST['book_id'])
         r_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=6)
+        print(book_name)
         content = r_db.get(book_name)
         content = str(content, encoding='utf-8')
         content = json.loads(content)
@@ -153,6 +160,8 @@ def borrowed(request):
         userid = user_id[0]
         user_id = userid
         # print('userid',user_id)
+
+
         bootcamp2_c.close()
         bootcamp2_db.close()
         # print(userid,book_link,img_link,book_name)
@@ -172,12 +181,16 @@ def borrowed(request):
                 r_db.delete(user)
             except:
                 pass
-            post = '[{}]({}/)'.format(book_name,book_link)
+            tags = Tag.objects.filter(article_id=book_id)
+            r_db3 = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=3)
+            for tag in tags:
+                r_db3.zincrby(user_id,tag,amount=1)
+            # post = '[{}]({}/)'.format(book_name,book_link)
             # print(userid,post)
-            try:
-                Feed.objects.filter(user_id=userid,post=post).delete()
-            except:
-                print(post+'del fail')
+            # try:
+            #     Feed.objects.filter(user_id=userid,post=post).delete()
+            # except:
+            #     print(post+'del fail')
         if mode == 'return_book':
             try:
                 Borrow.objects.filter(userid = userid,
@@ -189,6 +202,10 @@ def borrowed(request):
                     r_db.delete(user)
                 except:
                     pass
+                tags = Tag.objects.filter(article_id=book_id)
+                r_db3 = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=3)
+                for tag in tags:
+                    r_db3.zincrby(user_id,tag,amount=-0.5)
             except:
                 print('return book {} fail'.format(book_name))
         # if mode == 'return_book':
