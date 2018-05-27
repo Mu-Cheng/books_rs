@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseBadRequest, HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.decorators.cache import cache_page
+from django.views.decorators.gzip import gzip_page
 
 import markdown
 from bootcamp2.decorators import ajax_required
@@ -27,13 +28,15 @@ def _articles(request, articles):
     return render(request, 'articles/articles.html', {'articles': articles, 'popular_tags': popular_tags, 'pages_sum':paginator.num_pages})
 
 # @cache_page(None)
+@gzip_page
 def articles(request):
     all_articles = Article.get_published()
     return _articles(request, all_articles)
 
 # @cache_page(None)
+@gzip_page
 def article(request, slug):
-    book = get_object_or_404(Article, slug=slug, status=Article.PUBLISHED)
+    book = get_object_or_404(Article, slug=slug)
     # print('type(article.content) : {}'.format(type(article.content)))
     # r_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=6)
     # content = r_db.get(article.title)
@@ -79,20 +82,29 @@ def article(request, slug):
 
 # @cache_page(None)
 def tag(request, tag_name):
-    r_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=2)
-    r_ans = r_db.get(tag_name)
-
-    if r_ans:
-        articles = pickle.loads(r_ans)
-    else:
-        tags = Tag.objects.filter(tag=tag_name)
-        articles = []
-        for tag in tags:
-            # if tag.article.status == Article.PUBLISHED:
-            articles.append(tag.article)
-        r_db.setnx(tag_name, pickle.dumps(articles))
+    tags = Tag.objects.filter(tag=tag_name)
+    articles = []
+    for tag in tags:
+        # if tag.article.status == Article.PUBLISHED:
+        articles.append(tag.article)
 
     return _articles(request, articles)
+
+    # r_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=2)
+    # r_ans = r_db.zrevrangebyscore(tag_name,'+inf','-inf')
+    #
+    # if r_ans:
+    #
+    #     articles = pickle.loads(r_ans)
+    # else:
+    #     tags = Tag.objects.filter(tag=tag_name)
+    #     articles = []
+    #     for tag in tags:
+    #         # if tag.article.status == Article.PUBLISHED:
+    #         articles.append(tag.article)
+    #     r_db.setnx(tag_name, pickle.dumps(articles))
+    #
+    # return _articles(request, articles)
 
 
 @login_required

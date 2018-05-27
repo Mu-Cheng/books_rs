@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.template.context_processors import csrf
 from django.contrib.auth.models import User
+from django.views.decorators.gzip import gzip_page
 from django.views.decorators.cache import cache_page
 
 from bootcamp2.decorators import ajax_required
@@ -13,15 +14,19 @@ from bootcamp2.articles.models import Book as Article,Tag
 from bootcamp2.articles.views import tag
 from bootcamp2.follow.models import Follow
 from bootcamp2.borrow.models import Borrow
+from bootcamp2.public import get_redis_connction
+
+
 
 
 
 from .models import Feed,Recommend
-import redis, time, pickle,MySQLdb,json,random,datetime
+import redis, time, pickle,MySQLdb,json,random,datetime,tqdm
 
 FEEDS_NUM_PATES = 24
 NO_USER = 'AnonymousUser'
 # @cache_page(None)
+@gzip_page
 def feeds(request):
     # redis cache db 8
     user = request.user
@@ -37,7 +42,8 @@ def feeds(request):
     # print(user)
     # print(type(user))
     # print(datetime.datetime.now().strftime('%Y.%m.%d-%H:%M:%S'))
-    r_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=8)
+    # r_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=8)
+    r_db = get_redis_connction(8)
     r_ans = r_db.get(user)
     bootcamp2_db = MySQLdb.connect(host="127.0.0.1", port=43306, user="root", passwd="xu695847", db="bootcamp2", charset='utf8')
     bootcamp2_c = bootcamp2_db.cursor()
@@ -114,7 +120,7 @@ def feeds(request):
     # if feeds:
         # from_feed = feeds[0].id
     # print("test "*20)
-    print(paginator.num_pages)
+    # print(paginator.num_pages)
     return render(request, 'feeds/feeds.html', {
         'feeds': feeds,
         # 'from_feed': from_feed,
@@ -123,6 +129,7 @@ def feeds(request):
     })
 
 # @cache_page(None)
+@gzip_page
 def borrowed(request):
     # cache redis db 10
     user = request.user
@@ -144,7 +151,8 @@ def borrowed(request):
 
 
         book_link = 'http://118.89.162.148/articles/{}'.format(request.POST['book_id'])
-        r_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=6)
+        # r_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=6)
+        r_db = get_redis_connction(6)
         print(book_name)
         content = r_db.get(book_name)
         content = str(content, encoding='utf-8')

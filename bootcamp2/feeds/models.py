@@ -8,6 +8,7 @@ from bootcamp2.articles.models import Book as Article
 from bootcamp2.articles.models import Tag
 
 from bootcamp2.borrow.models import Borrow
+from bootcamp2.public import get_redis_connction
 
 # from bootcamp2.feeds.models import Feed
 
@@ -188,12 +189,15 @@ class Recommend:
     def get_books(user_id=None):
         # print(user_id)
         ans = []
-        r_db3 = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=3)
-        r_db7 = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=7)
-        r_db2 = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=2)
-        r_db11 = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=11)
+        # r_db3 = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=3)
+        # r_db7 = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=7)
+        # r_db2 = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=2)
+        # r_db11 = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=11)
 
-
+        r_db3 = get_redis_connction(3)
+        r_db7 = get_redis_connction(7)
+        r_db2 = get_redis_connction(2)
+        r_db11 =get_redis_connction(11)
         # 获得ItemCF
         item_tags = r_db3.zrevrange(user_id,'0','9')
         for tag in item_tags:
@@ -229,7 +233,8 @@ class Recommend:
 
 
     def get_img(self):
-        r_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=6)
+        # r_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=6)
+        r_db = get_redis_connction(6)
         try:
 
             content = r_db.get(self.book_title)
@@ -240,7 +245,7 @@ class Recommend:
 
             return img
         except:
-            return '#'
+            return 'http://img-1252422469.file.myqcloud.com/big_bookimg/waite252300.png'
     def get_title(self):
         return self.book_title
     def get_book_id(self):

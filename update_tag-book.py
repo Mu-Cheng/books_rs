@@ -6,7 +6,8 @@ import csv
 # import requests
 import redis
 import time,json
-import math
+import math,pickle
+from tqdm import tqdm
 
 def update_tag_book():
     bootcamp2_db = MySQLdb.connect(host="127.0.0.1", port=43306, user="root", passwd="xu695847", db="bootcamp2", charset='utf8')
@@ -206,7 +207,7 @@ def update_db2():
     bootcamp2_c.close()
     bootcamp2_db.close()
 
-def main():
+def update_db11():
     bootcamp2_db = MySQLdb.connect(host="127.0.0.1", port=43306, user="root", passwd="xu695847", db="bootcamp2", charset='utf8')
     bootcamp2_c = bootcamp2_db.cursor()
     out_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=11)
@@ -216,6 +217,56 @@ def main():
     for it in id_titledbs:
         out_db.set(it[0],it[1])
         # id_titles[str(it[0])] = it[1]
+def update_db5():
+    bootcamp2_db = MySQLdb.connect(host="127.0.0.1", port=43306, user="root", passwd="xu695847", db="bootcamp2", charset='utf8')
+    bootcamp2_c = bootcamp2_db.cursor()
+    bootcamp2_c.execute('SELECT user_id,college FROM authentication_profile')
+    id_colleges = bootcamp2_c.fetchall()
+    ans = {}
+    in_db3 = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=3)
+    out_db3 = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=5)
+    for id_college in tqdm(id_colleges):
+        id = str(id_college[0])
+        if  id_college[1] is None or id_college[1] == '' or id_college[1].isspace():
+            continue
+        college = id_college[1],
+        try:
+            ans[college]
+        except:
+            ans[college] = {}
+        tags = in_db3.zrevrangebyscore(id,'+inf','-inf',withscores=True)
+        for tag_code in tags:
+            tag = str(tag_code[0], encoding='utf-8')
+            code = tag_code[1]
+            try:
+                ans[college][tag]
+            except:
+                ans[college][tag] = 0
+            ans[college][tag] = ans[college][tag] + code
 
+    for college,tags in tqdm(ans.items()):
+        college = college[0]
+        sorts=sorted(tags.items(),key=lambda e:e[1],reverse=True)
+        cnt = 0
+        tem = {}
+        for it in sorts:
+            tem[it[0]] = it[1]
+            cnt = cnt + 1
+            if cnt >= 10:
+                break
+        out_db3.setnx(college, pickle.dumps(tem))
+
+
+
+    bootcamp2_c.close()
+    bootcamp2_db.close()
+def main():
+    out_db3 = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=5)
+    keys = out_db3.keys()
+    ans = '['
+    for key in keys:
+        ans = ans + "('{}','{}'),".format(str(key, encoding='utf-8'),str(key, encoding='utf-8'))
+    ans= ans+'],'
+    print(ans)
 if __name__ =='__main__':
     main()

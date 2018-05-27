@@ -7,7 +7,7 @@ from bootcamp2.decorators import ajax_required
 from .models import Message
 
 
-@login_required
+# @login_required
 def inbox(request):
     messages = None
     active_conversation = None
@@ -35,7 +35,7 @@ def inbox(request):
     return render(request, 'messages/inbox.html', context)
 
 
-@login_required
+# @login_required
 def messages(request, username):
     active_conversation = username
     conversations = Message.get_conversations(user=request.user)
@@ -53,7 +53,7 @@ def messages(request, username):
     return render(request, 'messages/inbox.html', context)
 
 
-@login_required
+# @login_required
 def new(request):
     if request.method == 'POST':
         to_user_username = request.POST.get('to')
@@ -76,14 +76,14 @@ def new(request):
     return render(request, 'messages/new.html', context)
 
 
-@login_required
-@ajax_required
+# @login_required
+# @ajax_required
 def delete(request):
     return HttpResponse()
 
 
-@login_required
-@ajax_required
+# @login_required
+# @ajax_required
 def send(request):
     if request.method == 'POST':
         message = request.POST.get('message')
@@ -104,8 +104,8 @@ def send(request):
     return HttpResponseBadRequest()
 
 
-@login_required
-@ajax_required
+# @login_required
+# @ajax_required
 def users(request):
     users = User.objects.filter(is_active=True)
 
@@ -122,8 +122,8 @@ def users(request):
     return JsonResponse(dump, safe=False)
 
 
-@login_required
-@ajax_required
+# @login_required
+# @ajax_required
 def check(request):
     count = Message.objects.filter(user=request.user, is_read=False).count()
     return HttpResponse(count)

@@ -10,11 +10,13 @@ import markdown,redis,json,pickle, random
 # choice 最好在模型内部定义，然后给每个值定义一个合适名字的常量，方便外部引用
 # on_delete 删除联级, related_name 不创建反向关联
 class Book(models.Model):
-    DRAFT = 'D'
-    PUBLISHED = 'P'
+    # Y还在库里
+    # N被借走了
+    NO = 'N'
+    YES = 'Y'
     STATUS = (
-        (DRAFT, 'Draft'),
-        (PUBLISHED, 'Published'),
+        (NO, 'No'),
+        (YES, 'Yes'),
     )
 
     title = models.CharField(max_length=255)
@@ -27,15 +29,15 @@ class Book(models.Model):
     catalog = models.TextField(max_length=4000, blank=True, null=True)
     pages = models.CharField(max_length=255, blank=True, null=True)
     price = models.CharField(max_length=255, blank=True, null=True)
-    status = models.CharField(max_length=1, choices=STATUS, default=DRAFT)
-    create_user = models.ForeignKey(User, on_delete=models.CASCADE)
-    create_date = models.DateTimeField(auto_now_add=True)
-    update_date = models.DateTimeField(blank=True, null=True)
-    update_user = models.ForeignKey(
-        User, blank=True, null=True, related_name='+', on_delete=models.CASCADE)
-
-    class Meta:
-        ordering = ('-create_date',)
+    status = models.CharField(max_length=1, choices=STATUS, default=YES)
+    # create_user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # create_date = models.DateTimeField(auto_now_add=True)
+    # update_date = models.DateTimeField(blank=True, null=True)
+    # update_user = models.ForeignKey(
+    #     User, blank=True, null=True, related_name='+', on_delete=models.CASCADE)
+    #
+    # class Meta:
+    #     ordering = ('-create_date',)
 
     def __str__(self):
         return self.title
@@ -77,7 +79,7 @@ class Book(models.Model):
 
     @staticmethod
     def get_published():
-        articles = Book.objects.filter(status=Book.PUBLISHED)
+        articles = Book.objects.filter()
         return articles
 
     @staticmethod

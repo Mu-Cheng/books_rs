@@ -8,6 +8,7 @@ from bootcamp2.feeds.models import Feed
 from .forms import SignUpForm
 from .models import Profile
 
+import redis, pickle
 
 # is_valid是否合法, cleaned_data 清理格式
 def signup(request):
@@ -30,7 +31,17 @@ def signup(request):
         username=username, password=password, email=email
         )
     Profile.objects.filter(user=user).update(college=college,identity=identity)
+    userid = Profile.objects.filter(user=user).values()[0]['user_id']
+    # print(userinfo)
+    # print(type(userinfo))
+    # Profile.objects.filter(user=user)
     # user_list.close()
+    in_db5= redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=5)
+    out_db= redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=3)
+    r_ans = in_db5.get(college)
+    tag_codes = pickle.loads(r_ans)
+    for tag,code in tag_codes.items():
+        out_db.zincrby(userid,tag,amount=code)
     user = authenticate(username=username, password=password)
     login(request, user)
 

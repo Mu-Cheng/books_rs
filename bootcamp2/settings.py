@@ -68,6 +68,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.gzip.GZipMiddleware',
     # 'django.middleware.cache.FetchFromCacheMiddleware',
 ]
 
@@ -108,6 +109,14 @@ DATABASES = {
         },
     }
 }
+
+REDISINFO = {
+    'HOST':'10.154.141.214',
+    'PASSWORD':'7TCcwQUKZ3NH',
+    'PORT':'6379'
+}
+
+
 
 if os.getenv('DATABASE_URL'):
     import dj_database_url
