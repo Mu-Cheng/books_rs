@@ -15,6 +15,8 @@ from bootcamp2.books.models import Tag, ArticleComment
 from bootcamp2.feeds.models import Feed
 import redis
 import json,pickle
+from bootcamp2.public import get_redis_connction
+
 
 def _articles(request, articles):
     paginator = Paginator(articles, 36)
@@ -37,7 +39,7 @@ def articles(request):
 def article(request, slug):
     article = get_object_or_404(Article, slug=slug, status=Article.PUBLISHED)
     # print('type(article.content) : {}'.format(type(article.content)))
-    r_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=6)
+    r_db = get_redis_connction( db=6)
     content = r_db.get(article.title)
     content = str(content, encoding='utf-8')
     content = json.loads(content)
@@ -79,7 +81,7 @@ def article(request, slug):
 
 # @cache_page(None)
 def tag(request, tag_name):
-    r_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=2)
+    r_db = get_redis_connction( db=2)
     r_ans = r_db.get(tag_name)
 
     if r_ans:

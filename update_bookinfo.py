@@ -6,6 +6,7 @@ import csv
 # import requests
 import redis
 import time,json
+from bootcamp2.public import get_redis_connction
 
 
 def main():
@@ -17,7 +18,7 @@ def main():
     sum = len(titles)
     pos = 1
     for title in titles:
-        r_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=6)
+        r_db = get_redis_connction( db=6)
         content = r_db.get(title[0])
         try:
             content = str(content, encoding='utf-8')

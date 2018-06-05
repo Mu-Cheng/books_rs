@@ -248,6 +248,8 @@ class Recommend:
             return 'http://img-1252422469.file.myqcloud.com/big_bookimg/waite252300.png'
     def get_title(self):
         return self.book_title
+    def get_url(self):
+        return '/articles/{}/'.format(self.get_book_id())
     def get_book_id(self):
         # print(self.bookid)
         return self.bookid

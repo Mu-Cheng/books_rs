@@ -5,6 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from datetime import datetime
 import markdown,redis,json,pickle, random
+from bootcamp2.public import get_redis_connction
 
 
 # choice 最好在模型内部定义，然后给每个值定义一个合适名字的常量，方便外部引用
@@ -56,7 +57,7 @@ class Book(models.Model):
         return markdown.markdown(self.content, safe_mode='escape')
 
     def get_img(self):
-        r_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=6)
+        r_db = get_redis_connction(db=6)
         try:
             # bookid = self.post.split('/')[-2]
             # article = Article.objects.filter(id=self.slug)[0]
@@ -137,7 +138,7 @@ class Tag(models.Model):
 
     @staticmethod
     def get_popular_tags():
-        r_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=1)
+        r_db = get_redis_connction(db=1)
         r_ans = r_db.get('tags')
         if r_ans:
             sorted_count = pickle.loads(r_ans)

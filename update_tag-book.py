@@ -8,13 +8,14 @@ import redis
 import time,json
 import math,pickle
 from tqdm import tqdm
+from bootcamp2.public import get_redis_connction
 
 def update_tag_book():
     bootcamp2_db = MySQLdb.connect(host="127.0.0.1", port=43306, user="root", passwd="xu695847", db="bootcamp2", charset='utf8')
     bootcamp2_c = bootcamp2_db.cursor()
     bootcamp2_c.execute('select * from articles_tag')
 
-    r_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=2)
+    r_db = get_redis_connction( db=2)
     tag_books = bootcamp2_c.fetchall()
     sum = len(tag_books)
     pos = 1
@@ -28,7 +29,7 @@ def update_tag_book():
     bootcamp2_db.close()
 
 def update_user_tag():
-    r_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=3)
+    r_db = get_redis_connction( db=3)
     anss = r_db.zrevrangebyscore('5141','+inf','-inf')
     for ans in anss:
         ans = str(ans, encoding='utf-8')
@@ -70,8 +71,8 @@ def get_score(list_1,list_2):
     return sum
 
 def update_user_user():
-    in_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=3)
-    out_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=4)
+    in_db = get_redis_connction( db=3)
+    out_db = get_redis_connction( db=4)
     keys = in_db.keys()
     user_user = {}
     sum = len(keys)
@@ -102,10 +103,10 @@ def update_user_user():
         pos = pos + 1
         print("{}/{}".format(pos,sum))
 
-def update_user_user():
-    in_db3 = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=3)
-    in_db4 = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=4)
-    out_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=7)
+def update_user_extag():
+    in_db3 = get_redis_connction( db=3)
+    in_db4 = get_redis_connction( db=4)
+    out_db = get_redis_connction( db=7)
     keys = in_db3.keys()
     user_user = {}
     sum = len(keys)
@@ -147,11 +148,13 @@ def update_user_user():
 
 
 def update_db2():
+    out_db.flushdb()
+
     bootcamp2_db = MySQLdb.connect(host="127.0.0.1", port=43306, user="root", passwd="xu695847", db="bootcamp2", charset='utf8')
     bootcamp2_c = bootcamp2_db.cursor()
     bootcamp2_c.execute('select * from articles_tag')
 
-    out_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=2)
+    out_db = get_redis_connction( db=2)
     tag_books = bootcamp2_c.fetchall()
     sum = len(tag_books)
     pos = 1
@@ -210,7 +213,7 @@ def update_db2():
 def update_db11():
     bootcamp2_db = MySQLdb.connect(host="127.0.0.1", port=43306, user="root", passwd="xu695847", db="bootcamp2", charset='utf8')
     bootcamp2_c = bootcamp2_db.cursor()
-    out_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=11)
+    out_db = get_redis_connction( db=11)
     bootcamp2_c.execute('SELECT slug,title FROM articles_book')
     id_titledbs = bootcamp2_c.fetchall()
     id_titles = {}
@@ -223,8 +226,8 @@ def update_db5():
     bootcamp2_c.execute('SELECT user_id,college FROM authentication_profile')
     id_colleges = bootcamp2_c.fetchall()
     ans = {}
-    in_db3 = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=3)
-    out_db3 = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=5)
+    in_db3 = get_redis_connction( db=3)
+    out_db5 = get_redis_connction( db=5)
     for id_college in tqdm(id_colleges):
         id = str(id_college[0])
         if  id_college[1] is None or id_college[1] == '' or id_college[1].isspace():
@@ -254,14 +257,14 @@ def update_db5():
             cnt = cnt + 1
             if cnt >= 10:
                 break
-        out_db3.setnx(college, pickle.dumps(tem))
+        out_db5.setnx(college, pickle.dumps(tem))
 
 
 
     bootcamp2_c.close()
     bootcamp2_db.close()
 def main():
-    out_db3 = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=5)
+    out_db3 = get_redis_connction( db=5)
     keys = out_db3.keys()
     ans = '['
     for key in keys:

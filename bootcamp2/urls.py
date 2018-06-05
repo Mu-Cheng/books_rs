@@ -58,6 +58,7 @@ urlpatterns = [
     path('feeds/', include('bootcamp2.feeds.urls')),
     path('articles/', include('bootcamp2.articles.urls')),
     path('questions/', include('bootcamp2.questions.urls')),
+    path('recommend/', include('bootcamp2.recommend.urls')),
     path('messages/', include('bootcamp2.messenger.urls')),
     path('notifications/', include('bootcamp2.activities.urls')),
 

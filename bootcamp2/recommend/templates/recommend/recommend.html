@@ -1,0 +1,256 @@
+{% extends 'base.html' %} {% load i18n %} {% load staticfiles %} {% block head %} {% endblock head %} {% block main %}
+<script type="text/javascript">
+    window.WebSocketTest();
+   function WebSocketTest()
+   {
+      if ("WebSocket" in window)
+      {
+         // alert("您的浏览器支持 WebSocket!");
+
+         // 打开一个 web socket
+         var ws = new WebSocket("ws://118.89.162.148:80/recommend_status/");
+         // ws.send("hello world");
+         // ws.onopen = function()
+         // {
+         //    // Web Socket 已连接上，使用 send() 方法发送数据
+         //    alert("数据发送中...");
+         //    ws.send("hello ");
+         //    // ws.send("hello world")
+         // };
+         // ws.onopen = function()
+         // {
+         //    // Web Socket 已连接上，使用 send() 方法发送数据
+         //    alert("数据发送中...");
+         //
+         // };
+
+         ws.onmessage = function (evt)
+         {
+            // var received_msg = evt.data;
+            var received_msg = JSON.parse(evt.data);
+            // alert(received_msg)
+            // console.log(evt.data)
+            if (received_msg.open == "db2") {
+                $("#tagbook").width(received_msg.progress1+"%")
+                $("#tagbook").text("从图书标签更新 " +received_msg.progress1+"%")
+                $("#tagbook2").width(received_msg.progress2+"%")
+                $("#tagbook2").text("从借阅历史更新 "+received_msg.progress2+"%")
+                // val tagbook_a = document.getElementById("tagbook_a")
+                // console.log(tagbook_a)
+                if (received_msg.progress1==1 || (received_msg.progress1==100 && received_msg.progress2 == 100)) {
+                    location.reload();
+                }
+            }else if (received_msg.open == "db4") {
+                $("#userwithuser").width(received_msg.progress1+"%")
+                $("#userwithuser").text("获取所有用户标签 " +received_msg.progress1+"%")
+                $("#userwithuser2").width(received_msg.progress2+"%")
+                $("#userwithuser2").text("计算用户间的关系 "+received_msg.progress2+"%")
+                // val tagbook_a = document.getElementById("tagbook_a")
+                // console.log(tagbook_a)
+                if (received_msg.progress1==1 || (received_msg.progress1==100 && received_msg.progress2 == 100)) {
+                    location.reload();
+                }
+            }else if (received_msg.open == "db7") {
+                $("#userextag").width(received_msg.progress1+"%")
+                $("#userextag").text("更新用户标签 " +received_msg.progress1+"%")
+
+                // val tagbook_a = document.getElementById("tagbook_a")
+                // console.log(tagbook_a)
+                if (received_msg.progress1==1 || (received_msg.progress1==100)) {
+                    location.reload();
+                }
+            }else if (received_msg.open == "db5") {
+                $("#collegetag").width(received_msg.progress1+"%")
+                $("#collegetag").text("统计学院热门标签 " +received_msg.progress1+"%")
+                $("#collegetag2").width(received_msg.progress2+"%")
+                $("#collegetag2").text("更新学院热门标签 " +received_msg.progress2+"%")
+                // val tagbook_a = document.getElementById("tagbook_a")
+                // console.log(tagbook_a)
+                if (received_msg.progress1==1 || ( received_msg.progress1==100 && received_msg.progress2 == 100)) {
+                    location.reload();
+                }
+            }
+
+         };
+
+         // ws.onclose = function()
+         // {
+         //    // 关闭 websocket
+         //    alert("连接已关闭...");
+         // };
+      }
+
+      else
+      {
+         // 浏览器不支持 WebSocket
+         alert("您的浏览器不支持 WebSocket!");
+      }
+   }
+function showprogress1(){
+    var int=self.setInterval("showprogress()","2000");
+
+}
+function showprogress(){
+
+
+
+    $.ajax({
+        url:"./2",
+        type : 'GET',
+        async : true,
+        success: function(tagbook) {
+            var dataobj = JSON.parse(tagbook);
+            // alert (dataobj.progress1);
+            $("#tagbook").width( dataobj.progress1+"%")
+            $("#tagbook").text("从图书标签更新 " +dataobj.progress1+"%")
+            // $("#tagbook").attr("width",dataobj.progress1); //显示后端传递的结果
+            $("#tagbook2").width(dataobj.progress2+"%")
+            $("#tagbook2").text("从借阅历史更新 "+dataobj.progress2+"%")
+        },
+        error : function() {
+                alert("failed");
+        },
+    })
+}
+</script>
+<div class="jumbotron">
+    <h1>推荐系统相关计算</h1>
+    <p>
+        本推荐系统有在线计算和离线计算两部分
+        <ul>
+          <li>在线部分</li>
+                <ul>
+                    <li>
+                        ItemCF当用户发生借阅还书时会自动更新，属于离线推荐
+                    </li>
+                    <li>
+                        冷推荐在用户注册时自动更新，属于离线推荐
+                    </li>
+                </ul>
+            <li>
+                离线部分
+            </li>
+                <ul>
+                    <li>
+                        离线推荐主要用于计算量大的算法，具体如下：
+                    </li>
+                </ul>
+        </ul>
+    </p>
+</div>
+<div class="jumbotron">
+    <h2>更新关键词与图书的关系</h2>
+    <p>维护关键词与图书排名，每个关键词有一个列表，列表按关系度从高到低记录与该关键词有关的图书。
+    </p>
+    {% if not status2.open %}
+    <h5>上次更新时间：<strong>{{status2.date}}</strong></h5>
+<!-- onclick="showprogress1()"  -->
+    <p><a  class="btn btn-primary btn-lg" href="/recommend/update_tag_book" role="button">开始计算</a></p>
+
+    {% else %}
+
+    <div class="progress" >
+        <div id="tagbook" class="progress-bar progress-bar-striped  {% if status2.1 != 100 %}active{% endif %}" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="min-width: 10em; width: {{ status2.1 }}% ">
+            从图书标签更新 {{status2.1}}%
+        </div>
+
+    </div>
+
+    <div class="progress">
+    <div  id="tagbook2" class="progress-bar progress-bar-success progress-bar-striped  active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="min-width: 10em; width: {{ status2.2 }}% ">
+        从借阅历史更新 {{status2.2}}%
+    </div>
+    </div>
+
+    <p><a class="btn btn-primary btn-lg" role="button" disabled="disabled">计算中......</a></p>
+<!-- <meta http-equiv="refresh" content="2"> -->
+    {% endif %}
+</div>
+
+<div class="jumbotron">
+    <h2>UserCF</h2>
+    <p>计算用户和用户之间的关系度强弱，做聚类
+    </p>
+    {% if not status4.open %}
+    <h5>上次更新时间：<strong>{{status4.date}}</strong></h5>
+    <p><a class="btn btn-primary btn-lg" href="/recommend/update_user_user" role="button">开始计算</a></p>
+
+    {% else %}
+
+    <div class="progress">
+        <div id="userwithuser" class="progress-bar progress-bar-striped {% if status4.1 != 100 %}active{% endif %}" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="min-width: 10em; width: {{ status4.1 }}% ">
+            获得用户标签信息 {{status4.1}}%
+        </div>
+
+    </div>
+
+    <div class="progress">
+        <div id="userwithuser2" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="min-width: 10em; width: {{ status4.2 }}% ">
+            计算用户间关系 {{status4.2}}%
+        </div>
+
+    </div>
+
+
+
+    <p><a class="btn btn-primary btn-lg" role="button" disabled="disabled">计算中......</a></p>
+<!-- <meta http-equiv="refresh" content="2"> -->
+    {% endif %}
+</div>
+
+
+<div class="jumbotron">
+    <h2>计算隐藏关键字</h2>
+    <p>计算用户可能的扩展关键词，举例：如果用户A在数据上有B，C，D这三个很相似的用户，那么在B，C，D中出现频率很高的关键词在A中没有出现或者出现频率很低，
+        大概率是A的一个隐藏关键字，此计算就是发现这种用户的隐藏关键字。<strong>此计算应在上一步UserCF计算之后进行。 </strong>
+    </p>
+    {% if not status7.open %}
+    <h5>上次更新时间：<strong>{{status7.date}}</strong></h5>
+    <p><a class="btn btn-primary btn-lg" href="/recommend/update_user_extag" role="button">开始计算</a></p>
+
+    {% else %}
+
+    <div class="progress">
+        <div id="userextag" class="progress-bar progress-bar-striped {% if status7.1 != 100 %}active{% endif %}" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="min-width: 10em; width: {{ status7.1 }}% ">
+            获得用户标签信息 {{status7.1}}%
+        </div>
+
+    </div>
+
+
+    <p><a class="btn btn-primary btn-lg" role="button" disabled="disabled">计算中......</a></p>
+<!-- <meta http-equiv="refresh" content="2"> -->
+    {% endif %}
+</div>
+
+<div class="jumbotron">
+    <h2>学院相关热门标签，冷推荐</h2>
+    <p>统计每个学院借阅较多的书籍的，记录其关键字，用作冷推荐
+    </p>
+    {% if not status5.open %}
+    <h5>上次更新时间：<strong>{{status5.date}}</strong></h5>
+    <p><a class="btn btn-primary btn-lg" href="/recommend/update_college_tag" role="button">开始计算</a></p>
+
+    {% else %}
+
+    <div class="progress">
+        <div id="collegetag" class="progress-bar progress-bar-striped {% if status5.1 != 100 %}active{% endif %}" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="min-width: 10em; width: {{ status5.1 }}% ">
+            获得用户标签信息 %
+        </div>
+
+    </div>
+
+    <div class="progress">
+        <div id="collegetag2" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="min-width: 10em; width: 0% ">
+            计算用户间关系 %
+        </div>
+
+    </div>
+
+
+
+    <p><a class="btn btn-primary btn-lg" role="button" disabled="disabled">计算中......</a></p>
+<!-- <meta http-equiv="refresh" content="2"> -->
+    {% endif %}
+</div>
+{% endblock main %}

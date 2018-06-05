@@ -1,10 +1,15 @@
+ # -*- coding: utf-8 -*-
 from django.contrib import admin
 
 from .models import Profile
 # from bootcamp2 import xadmin
 # from bootcamp2.xadmin import views
+
 import xadmin
+from xadmin.sites import site
 from xadmin import views
+from xadmin.views import BaseAdminPlugin, ListAdminView
+
 # admin.site.register(Profile)
 @xadmin.sites.register(Profile)
 class UserAdmin(object):

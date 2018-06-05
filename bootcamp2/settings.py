@@ -49,6 +49,8 @@ INSTALLED_APPS = [
 
     'bootcamp2.xadmin',
     'crispy_forms',
+    'channels',
+    # 'rest_framework',
     'reversion',
     'bootcamp2.questions',
     'bootcamp2.messenger',
@@ -56,6 +58,7 @@ INSTALLED_APPS = [
     'bootcamp2.activities',
     'bootcamp2.follow',
     'bootcamp2.borrow',
+    'bootcamp2.recommend',
 ]
 # 认证会话
 MIDDLEWARE = [
@@ -71,6 +74,19 @@ MIDDLEWARE = [
     'django.middleware.gzip.GZipMiddleware',
     # 'django.middleware.cache.FetchFromCacheMiddleware',
 ]
+
+ASGI_APPLICATION = "bootcamp2.routing.application"
+
+# 设定消息队列，选用redis
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [ "redis://:7TCcwQUKZ3NH@10.154.141.214:6379/12"],
+            # [("10.154.141.214", 6379)],
+        },
+    },
+}
 
 ROOT_URLCONF = 'bootcamp2.urls'
 

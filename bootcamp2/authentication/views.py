@@ -9,6 +9,8 @@ from .forms import SignUpForm
 from .models import Profile
 
 import redis, pickle
+from bootcamp2.public import get_redis_connction
+
 
 # is_valid是否合法, cleaned_data 清理格式
 def signup(request):
@@ -36,8 +38,8 @@ def signup(request):
     # print(type(userinfo))
     # Profile.objects.filter(user=user)
     # user_list.close()
-    in_db5= redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=5)
-    out_db= redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=3)
+    in_db5= get_redis_connction( db=5)
+    out_db= get_redis_connction( db=3)
     r_ans = in_db5.get(college)
     tag_codes = pickle.loads(r_ans)
     for tag,code in tag_codes.items():
