@@ -28,7 +28,7 @@ from .feeds import views as feeds_views
 from .search import views as search_views
 from .authentication import views as authentication_views
 from django.conf.urls.i18n import i18n_patterns
-from bootcamp2 import xadmin
+import xadmin
 xadmin.autodiscover()
 
 from xadmin.plugins import xversion
@@ -60,7 +60,7 @@ urlpatterns = [
     path('questions/', include('bootcamp2.questions.urls')),
     path('recommend/', include('bootcamp2.recommend.urls')),
     path('messages/', include('bootcamp2.messenger.urls')),
-    path('notifications/', include('bootcamp2.activities.urls')),
+    # path('notifications/', include('bootcamp2.activities.urls')),
 
     path('search/', search_views.search, name='search'),
     path('<username>/', core_views.profile, name='profile'),  # 一定要放后面

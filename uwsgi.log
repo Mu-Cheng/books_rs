@@ -6351,3 +6351,711 @@ Not Found: /img/book-default-lpic.gif
 [pid: 30125|app: 0|req: 16/33] 123.112.175.162 () {44 vars in 880 bytes} [Fri Apr 27 23:15:15 2018] GET /notifications/check/?_=1524842134538 => generated 1 bytes in 7 msecs (HTTP/1.1 200) 5 headers in 165 bytes (1 switches on core 0)
 [pid: 30126|app: 0|req: 18/34] 123.112.175.162 () {44 vars in 869 bytes} [Fri Apr 27 23:15:45 2018] GET /messages/check/?_=1524842134540 => generated 1 bytes in 10 msecs (HTTP/1.1 200) 5 headers in 165 bytes (1 switches on core 0)
 [pid: 30125|app: 0|req: 17/35] 123.112.175.162 () {44 vars in 880 bytes} [Fri Apr 27 23:15:45 2018] GET /notifications/check/?_=1524842134539 => generated 1 bytes in 8 msecs (HTTP/1.1 200) 5 headers in 165 bytes (1 switches on core 0)
+*** Starting uWSGI 2.0.15 (64bit) on [Tue Jun  5 19:58:16 2018] ***
+compiled with version: 4.8.4 on 10 May 2018 20:49:05
+os: Linux-3.13.0-105-generic #152-Ubuntu SMP Fri Dec 2 15:37:11 UTC 2016
+nodename: VM-182-224-ubuntu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /root/books_rs
+*** running under screen session 19348.son3 ***
+detected binary path: /root/books_rs/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/bootcamp2
+your processes number limit is 14820
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /root/bootcamp2/mysite.sock fd 3
+Python version: 3.6.2 (default, Jul 29 2017, 00:00:00)  [GCC 4.8.4]
+PEP 405 virtualenv detected: /root/bootcamp2/venv
+Set PythonHome to /root/bootcamp2/venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x87fbc0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 218280 bytes (213 KB) for 2 cores
+*** Operational MODE: preforking ***
+Traceback (most recent call last):
+  File "./bootcamp2/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/root/bootcamp2/venv/lib/python3.6/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/root/bootcamp2/venv/lib/python3.6/site-packages/django/__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/root/bootcamp2/venv/lib/python3.6/site-packages/django/apps/registry.py", line 120, in populate
+    app_config.ready()
+  File "/root/bootcamp2/venv/lib/python3.6/site-packages/django/contrib/admin/apps.py", line 23, in ready
+    self.module.autodiscover()
+  File "/root/bootcamp2/venv/lib/python3.6/site-packages/django/contrib/admin/__init__.py", line 26, in autodiscover
+    autodiscover_modules('admin', register_to=site)
+  File "/root/bootcamp2/venv/lib/python3.6/site-packages/django/utils/module_loading.py", line 47, in autodiscover_modules
+    import_module('%s.%s' % (app_config.name, module_to_search))
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "./bootcamp2/books/admin.py", line 3, in <module>
+    from .models import Article, Tag, ArticleComment
+ImportError: cannot import name 'Article'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 14340)
+spawned uWSGI worker 1 (pid: 14352, cores: 1)
+spawned uWSGI worker 2 (pid: 14353, cores: 1)
+--- no python application found, check your startup logs for errors ---
+[pid: 14353|app: -1|req: -1/1] 202.113.68.171 () {42 vars in 810 bytes} [Tue Jun  5 19:58:39 2018] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 14352|app: -1|req: -1/2] 202.113.68.171 () {44 vars in 841 bytes} [Tue Jun  5 19:58:41 2018] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 14352|app: -1|req: -1/3] 202.113.68.171 () {44 vars in 841 bytes} [Tue Jun  5 19:58:42 2018] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 14352|app: -1|req: -1/4] 202.113.68.171 () {44 vars in 841 bytes} [Tue Jun  5 19:58:45 2018] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 14353|app: -1|req: -1/5] 202.113.68.171 () {44 vars in 841 bytes} [Tue Jun  5 19:58:47 2018] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 14353|app: -1|req: -1/6] 202.113.68.171 () {44 vars in 841 bytes} [Tue Jun  5 19:58:47 2018] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 14353|app: -1|req: -1/7] 202.113.68.171 () {42 vars in 894 bytes} [Tue Jun  5 19:58:52 2018] GET /admin/ => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 14352|app: -1|req: -1/8] 202.113.68.171 () {44 vars in 925 bytes} [Tue Jun  5 19:58:56 2018] GET /admin/ => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 14353|app: -1|req: -1/9] 202.113.68.171 () {44 vars in 925 bytes} [Tue Jun  5 19:58:57 2018] GET /admin/ => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 14352|app: -1|req: -1/10] 202.113.68.171 () {44 vars in 925 bytes} [Tue Jun  5 19:58:57 2018] GET /admin/ => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 14353|app: -1|req: -1/11] 202.113.68.171 () {44 vars in 925 bytes} [Tue Jun  5 19:58:57 2018] GET /admin/ => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 14352|app: -1|req: -1/12] 202.113.68.171 () {44 vars in 925 bytes} [Tue Jun  5 19:58:58 2018] GET /admin/ => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 14352|app: -1|req: -1/13] 202.113.68.171 () {44 vars in 925 bytes} [Tue Jun  5 19:59:01 2018] GET /admin/ => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 14353|app: -1|req: -1/14] 202.113.68.171 () {44 vars in 925 bytes} [Tue Jun  5 19:59:02 2018] GET /admin/ => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 14353|app: -1|req: -1/15] 202.113.68.171 () {42 vars in 810 bytes} [Tue Jun  5 20:09:36 2018] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 14353|app: -1|req: -1/16] 106.120.160.109 () {38 vars in 664 bytes} [Tue Jun  5 20:14:54 2018] GET /feeds/borrowed => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 14353|app: -1|req: -1/17] 106.120.160.109 () {38 vars in 637 bytes} [Tue Jun  5 20:19:22 2018] GET /feeds => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 14353|app: -1|req: -1/18] 106.120.160.109 () {38 vars in 649 bytes} [Tue Jun  5 20:24:36 2018] GET /questions => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 14353|app: -1|req: -1/19] 202.113.68.171 () {42 vars in 810 bytes} [Tue Jun  5 20:29:16 2018] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+*** Starting uWSGI 2.0.15 (64bit) on [Tue Jun  5 20:32:42 2018] ***
+compiled with version: 4.8.4 on 10 May 2018 20:49:05
+os: Linux-3.13.0-105-generic #152-Ubuntu SMP Fri Dec 2 15:37:11 UTC 2016
+nodename: VM-182-224-ubuntu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /root/books_rs
+*** running under screen session 19348.son3 ***
+detected binary path: /root/books_rs/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/bootcamp2
+your processes number limit is 14820
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /root/bootcamp2/mysite.sock fd 3
+Python version: 3.6.2 (default, Jul 29 2017, 00:00:00)  [GCC 4.8.4]
+PEP 405 virtualenv detected: /root/bootcamp2/venv
+Set PythonHome to /root/bootcamp2/venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x2209bb0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 218280 bytes (213 KB) for 2 cores
+*** Operational MODE: preforking ***
+Traceback (most recent call last):
+  File "./bootcamp2/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/root/bootcamp2/venv/lib/python3.6/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/root/bootcamp2/venv/lib/python3.6/site-packages/django/__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/root/bootcamp2/venv/lib/python3.6/site-packages/django/apps/registry.py", line 120, in populate
+    app_config.ready()
+  File "/root/bootcamp2/venv/lib/python3.6/site-packages/django/contrib/admin/apps.py", line 23, in ready
+    self.module.autodiscover()
+  File "/root/bootcamp2/venv/lib/python3.6/site-packages/django/contrib/admin/__init__.py", line 26, in autodiscover
+    autodiscover_modules('admin', register_to=site)
+  File "/root/bootcamp2/venv/lib/python3.6/site-packages/django/utils/module_loading.py", line 47, in autodiscover_modules
+    import_module('%s.%s' % (app_config.name, module_to_search))
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "./bootcamp2/books/admin.py", line 3, in <module>
+    from .models import Article, Tag, ArticleComment
+ImportError: cannot import name 'Article'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 17794)
+spawned uWSGI worker 1 (pid: 17804, cores: 1)
+spawned uWSGI worker 2 (pid: 17806, cores: 1)
+--- no python application found, check your startup logs for errors ---
+[pid: 17804|app: -1|req: -1/1] 202.113.68.171 () {44 vars in 841 bytes} [Tue Jun  5 20:32:54 2018] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 17806|app: -1|req: -1/2] 202.113.68.171 () {44 vars in 841 bytes} [Tue Jun  5 20:32:55 2018] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 17804|app: -1|req: -1/3] 202.113.68.171 () {44 vars in 841 bytes} [Tue Jun  5 20:32:55 2018] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 17804|app: -1|req: -1/4] 202.113.68.171 () {44 vars in 841 bytes} [Tue Jun  5 20:32:55 2018] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 17804|app: -1|req: -1/5] 202.113.68.171 () {44 vars in 841 bytes} [Tue Jun  5 20:32:55 2018] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 17806|app: -1|req: -1/6] 202.113.68.171 () {44 vars in 841 bytes} [Tue Jun  5 20:32:56 2018] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 17804|app: -1|req: -1/7] 202.113.68.171 () {44 vars in 841 bytes} [Tue Jun  5 20:32:57 2018] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 17806|app: -1|req: -1/8] 202.113.68.171 () {44 vars in 841 bytes} [Tue Jun  5 20:32:58 2018] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 17804|app: -1|req: -1/9] 106.120.160.109 () {38 vars in 621 bytes} [Tue Jun  5 20:46:36 2018] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+*** Starting uWSGI 2.0.15 (64bit) on [Tue Jun  5 20:47:03 2018] ***
+compiled with version: 4.8.4 on 10 May 2018 20:49:05
+os: Linux-3.13.0-105-generic #152-Ubuntu SMP Fri Dec 2 15:37:11 UTC 2016
+nodename: VM-182-224-ubuntu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /root/books_rs
+*** running under screen session 19348.son3 ***
+detected binary path: /root/books_rs/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/bootcamp2
+your processes number limit is 14820
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /root/bootcamp2/mysite.sock fd 3
+Python version: 3.6.2 (default, Jul 29 2017, 00:00:00)  [GCC 4.8.4]
+PEP 405 virtualenv detected: /root/bootcamp2/venv
+Set PythonHome to /root/bootcamp2/venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x20d7bb0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 218280 bytes (213 KB) for 2 cores
+*** Operational MODE: preforking ***
+Traceback (most recent call last):
+  File "./bootcamp2/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/root/bootcamp2/venv/lib/python3.6/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/root/bootcamp2/venv/lib/python3.6/site-packages/django/__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/root/bootcamp2/venv/lib/python3.6/site-packages/django/apps/registry.py", line 120, in populate
+    app_config.ready()
+  File "/root/bootcamp2/venv/lib/python3.6/site-packages/django/contrib/admin/apps.py", line 23, in ready
+    self.module.autodiscover()
+  File "/root/bootcamp2/venv/lib/python3.6/site-packages/django/contrib/admin/__init__.py", line 26, in autodiscover
+    autodiscover_modules('admin', register_to=site)
+  File "/root/bootcamp2/venv/lib/python3.6/site-packages/django/utils/module_loading.py", line 47, in autodiscover_modules
+    import_module('%s.%s' % (app_config.name, module_to_search))
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "./bootcamp2/books/admin.py", line 3, in <module>
+    from .models import Article, Tag, ArticleComment
+ImportError: cannot import name 'Article'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 19310)
+spawned uWSGI worker 1 (pid: 19319, cores: 1)
+spawned uWSGI worker 2 (pid: 19320, cores: 1)
+Tue Jun  5 20:48:16 2018 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Jun  5 20:48:16 2018 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+*** Starting uWSGI 2.0.15 (64bit) on [Tue Jun  5 20:57:16 2018] ***
+compiled with version: 4.8.4 on 10 May 2018 20:49:05
+os: Linux-3.13.0-105-generic #152-Ubuntu SMP Fri Dec 2 15:37:11 UTC 2016
+nodename: VM-182-224-ubuntu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /root/books_rs
+*** running under screen session 19348.son3 ***
+detected binary path: /root/books_rs/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/books_rs
+your processes number limit is 14820
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /root/books_rs/mysite.sock fd 3
+Python version: 3.6.2 (default, Jul 29 2017, 00:00:00)  [GCC 4.8.4]
+Set PythonHome to /root/books_rs/venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x1019bd0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 218280 bytes (213 KB) for 2 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x1019bd0 pid: 20429 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 20429)
+spawned uWSGI worker 1 (pid: 20439, cores: 1)
+spawned uWSGI worker 2 (pid: 20440, cores: 1)
+[pid: 20439|app: 0|req: 1/1] 202.113.68.171 () {44 vars in 840 bytes} [Tue Jun  5 21:04:04 2018] GET / => generated 7329 bytes in 3515 msecs (HTTP/1.1 200) 7 headers in 363 bytes (1 switches on core 0)
+[pid: 20440|app: 0|req: 1/2] 202.113.68.171 () {44 vars in 867 bytes} [Tue Jun  5 21:04:15 2018] GET /recommend/ => generated 3378 bytes in 338 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+Not Found: /recommend_status/
+[pid: 20439|app: 0|req: 2/3] 202.113.68.171 () {52 vars in 976 bytes} [Tue Jun  5 21:04:17 2018] GET /recommend_status/ => generated 846 bytes in 12 msecs (HTTP/1.1 404) 6 headers in 192 bytes (1 switches on core 0)
+[pid: 20440|app: 0|req: 2/4] 202.113.68.171 () {46 vars in 898 bytes} [Tue Jun  5 21:04:20 2018] GET /recommend/ => generated 3378 bytes in 23 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+Not Found: /recommend_status/
+[pid: 20440|app: 0|req: 3/5] 202.113.68.171 () {52 vars in 976 bytes} [Tue Jun  5 21:04:20 2018] GET /recommend_status/ => generated 846 bytes in 11 msecs (HTTP/1.1 404) 6 headers in 192 bytes (1 switches on core 0)
+[pid: 20439|app: 0|req: 3/6] 202.113.68.171 () {44 vars in 907 bytes} [Tue Jun  5 21:04:24 2018] GET /recommend/update_tag_book => generated 0 bytes in 7 msecs (HTTP/1.1 302) 6 headers in 190 bytes (1 switches on core 0)
+[pid: 20440|app: 0|req: 4/7] 202.113.68.171 () {44 vars in 877 bytes} [Tue Jun  5 21:04:24 2018] GET /recommend/ => generated 3378 bytes in 22 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+Not Found: /recommend_status/
+[pid: 20439|app: 0|req: 4/8] 202.113.68.171 () {52 vars in 976 bytes} [Tue Jun  5 21:04:24 2018] GET /recommend_status/ => generated 846 bytes in 6 msecs (HTTP/1.1 404) 6 headers in 192 bytes (1 switches on core 0)
+[pid: 20440|app: 0|req: 5/9] 202.113.68.171 () {46 vars in 908 bytes} [Tue Jun  5 21:04:29 2018] GET /recommend/ => generated 3378 bytes in 24 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+Not Found: /recommend_status/
+[pid: 20440|app: 0|req: 6/10] 202.113.68.171 () {52 vars in 976 bytes} [Tue Jun  5 21:04:30 2018] GET /recommend_status/ => generated 846 bytes in 7 msecs (HTTP/1.1 404) 6 headers in 192 bytes (1 switches on core 0)
+[pid: 20440|app: 0|req: 7/11] 171.13.14.132 () {42 vars in 733 bytes} [Tue Jun  5 21:15:04 2018] GET /feeds/borrowed => generated 0 bytes in 1 msecs (HTTP/1.1 301) 5 headers in 171 bytes (1 switches on core 0)
+Internal Server Error: /feeds/borrowed/
+Traceback (most recent call last):
+  File "/root/books_rs/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/root/books_rs/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/root/books_rs/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/books_rs/venv/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "./bootcamp2/feeds/views.py", line 236, in borrowed
+    userid = user_id[0]
+TypeError: 'NoneType' object is not subscriptable
+[pid: 20440|app: 0|req: 8/12] 171.13.14.132 () {42 vars in 735 bytes} [Tue Jun  5 21:15:04 2018] GET /feeds/borrowed/ => generated 67022 bytes in 129 msecs (HTTP/1.1 500) 5 headers in 190 bytes (1 switches on core 0)
+[pid: 20439|app: 0|req: 5/13] 171.13.14.150 () {42 vars in 733 bytes} [Tue Jun  5 21:15:04 2018] GET /feeds/borrowed => generated 0 bytes in 1 msecs (HTTP/1.1 301) 5 headers in 171 bytes (1 switches on core 0)
+Internal Server Error: /feeds/borrowed/
+Traceback (most recent call last):
+  File "/root/books_rs/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/root/books_rs/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/root/books_rs/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/books_rs/venv/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "./bootcamp2/feeds/views.py", line 236, in borrowed
+    userid = user_id[0]
+TypeError: 'NoneType' object is not subscriptable
+[pid: 20440|app: 0|req: 9/14] 171.13.14.150 () {42 vars in 735 bytes} [Tue Jun  5 21:15:04 2018] GET /feeds/borrowed/ => generated 67022 bytes in 45 msecs (HTTP/1.1 500) 5 headers in 190 bytes (1 switches on core 0)
+[pid: 20440|app: 0|req: 10/15] 220.181.132.198 () {40 vars in 675 bytes} [Tue Jun  5 21:15:13 2018] GET /feeds/borrowed => generated 0 bytes in 1 msecs (HTTP/1.1 301) 5 headers in 171 bytes (1 switches on core 0)
+Internal Server Error: /feeds/borrowed/
+Traceback (most recent call last):
+  File "/root/books_rs/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/root/books_rs/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/root/books_rs/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/books_rs/venv/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "./bootcamp2/feeds/views.py", line 236, in borrowed
+    userid = user_id[0]
+TypeError: 'NoneType' object is not subscriptable
+[pid: 20440|app: 0|req: 11/16] 220.181.132.198 () {40 vars in 677 bytes} [Tue Jun  5 21:15:13 2018] GET /feeds/borrowed/ => generated 9860 bytes in 43 msecs (HTTP/1.1 500) 6 headers in 213 bytes (1 switches on core 0)
+[pid: 20440|app: 0|req: 12/17] 187.153.228.30 () {32 vars in 459 bytes} [Tue Jun  5 21:18:46 2018] GET / => generated 10251 bytes in 10 msecs (HTTP/1.1 200) 5 headers in 186 bytes (1 switches on core 0)
+[pid: 20440|app: 0|req: 13/18] 171.13.14.150 () {42 vars in 706 bytes} [Tue Jun  5 21:20:04 2018] GET /feeds => generated 0 bytes in 1 msecs (HTTP/1.1 301) 5 headers in 162 bytes (1 switches on core 0)
+[pid: 20439|app: 0|req: 6/19] 171.13.14.150 () {42 vars in 708 bytes} [Tue Jun  5 21:20:04 2018] GET /feeds/ => generated 10251 bytes in 23 msecs (HTTP/1.1 200) 5 headers in 186 bytes (1 switches on core 0)
+[pid: 20440|app: 0|req: 14/20] 101.199.112.54 () {40 vars in 656 bytes} [Tue Jun  5 21:20:10 2018] GET /feeds => generated 0 bytes in 1 msecs (HTTP/1.1 301) 5 headers in 162 bytes (1 switches on core 0)
+[pid: 20440|app: 0|req: 15/21] 101.199.112.54 () {40 vars in 658 bytes} [Tue Jun  5 21:20:10 2018] GET /feeds/ => generated 2546 bytes in 9 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 20440|app: 0|req: 16/22] 171.13.14.145 () {42 vars in 718 bytes} [Tue Jun  5 21:25:04 2018] GET /questions => generated 0 bytes in 1 msecs (HTTP/1.1 301) 5 headers in 166 bytes (1 switches on core 0)
+[pid: 20439|app: 0|req: 7/23] 171.13.14.145 () {42 vars in 720 bytes} [Tue Jun  5 21:25:04 2018] GET /questions/ => generated 5555 bytes in 176 msecs (HTTP/1.1 200) 5 headers in 185 bytes (1 switches on core 0)
+[pid: 20440|app: 0|req: 17/24] 58.64.185.202 () {42 vars in 699 bytes} [Tue Jun  5 21:25:20 2018] GET /questions => generated 0 bytes in 0 msecs (HTTP/1.1 301) 5 headers in 166 bytes (1 switches on core 0)
+[pid: 20440|app: 0|req: 18/25] 58.64.185.202 () {42 vars in 701 bytes} [Tue Jun  5 21:25:20 2018] GET /questions/ => generated 1730 bytes in 37 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 20440|app: 0|req: 19/26] 202.113.68.171 () {46 vars in 908 bytes} [Tue Jun  5 21:27:19 2018] GET /recommend/ => generated 3380 bytes in 26 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 20440|app: 0|req: 20/27] 202.113.68.171 () {44 vars in 907 bytes} [Tue Jun  5 21:27:22 2018] GET /recommend/update_tag_book => generated 0 bytes in 16 msecs (HTTP/1.1 302) 6 headers in 190 bytes (1 switches on core 0)
+[pid: 20439|app: 0|req: 8/28] 202.113.68.171 () {44 vars in 877 bytes} [Tue Jun  5 21:27:23 2018] GET /recommend/ => generated 3380 bytes in 35 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 20440|app: 0|req: 21/29] 202.113.68.171 () {46 vars in 908 bytes} [Tue Jun  5 21:29:17 2018] GET /recommend/ => generated 3380 bytes in 238 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 20439|app: 0|req: 9/30] 202.113.68.171 () {46 vars in 908 bytes} [Tue Jun  5 21:32:11 2018] GET /recommend/ => generated 3380 bytes in 197 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 20440|app: 0|req: 22/31] 202.113.68.171 () {44 vars in 907 bytes} [Tue Jun  5 21:32:23 2018] GET /recommend/update_tag_book => generated 0 bytes in 33 msecs (HTTP/1.1 302) 6 headers in 190 bytes (1 switches on core 0)
+[pid: 20439|app: 0|req: 10/32] 202.113.68.171 () {44 vars in 877 bytes} [Tue Jun  5 21:32:23 2018] GET /recommend/ => generated 3509 bytes in 91 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 20439|app: 0|req: 11/33] 202.113.68.171 () {46 vars in 908 bytes} [Tue Jun  5 21:33:06 2018] GET /recommend/ => generated 3509 bytes in 23 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 20440|app: 0|req: 23/34] 202.113.68.171 () {46 vars in 908 bytes} [Tue Jun  5 21:36:26 2018] GET /recommend/ => generated 3507 bytes in 67 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+Not Found: /recommend_status/
+[pid: 20440|app: 0|req: 24/35] 202.113.68.171 () {52 vars in 976 bytes} [Tue Jun  5 21:36:26 2018] GET /recommend_status/ => generated 846 bytes in 34 msecs (HTTP/1.1 404) 6 headers in 192 bytes (1 switches on core 0)
+[pid: 20440|app: 0|req: 25/36] 202.113.68.171 () {46 vars in 908 bytes} [Tue Jun  5 21:36:41 2018] GET /recommend/ => generated 3507 bytes in 24 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+Not Found: /recommend_status/
+[pid: 20439|app: 0|req: 12/37] 202.113.68.171 () {52 vars in 976 bytes} [Tue Jun  5 21:36:41 2018] GET /recommend_status/ => generated 846 bytes in 11 msecs (HTTP/1.1 404) 6 headers in 192 bytes (1 switches on core 0)
+Tue Jun  5 21:37:56 2018 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Jun  5 21:37:56 2018 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+*** Starting uWSGI 2.0.17 (64bit) on [Thu Jun  7 23:22:22 2018] ***
+compiled with version: 4.8.4 on 15 April 2018 15:49:10
+os: Linux-3.13.0-105-generic #152-Ubuntu SMP Fri Dec 2 15:37:11 UTC 2016
+nodename: VM-182-224-ubuntu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /root/books_rs
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/books_rs
+your processes number limit is 14820
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /root/books_rs/mysite.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 2.7.6 (default, Nov 23 2017, 15:53:45)  [GCC 4.8.4]
+Set PythonHome to /root/books_rs/venv
+ImportError: No module named site
+*** Starting uWSGI 2.0.15 (64bit) on [Thu Jun  7 23:27:32 2018] ***
+compiled with version: 4.8.4 on 10 May 2018 20:49:05
+os: Linux-3.13.0-105-generic #152-Ubuntu SMP Fri Dec 2 15:37:11 UTC 2016
+nodename: VM-182-224-ubuntu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /root/books_rs
+detected binary path: /root/books_rs/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/books_rs
+your processes number limit is 14820
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /root/books_rs/mysite.sock fd 3
+Python version: 3.6.2 (default, Jul 29 2017, 00:00:00)  [GCC 4.8.4]
+Set PythonHome to /root/books_rs/venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x13fe670
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 218280 bytes (213 KB) for 2 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x13fe670 pid: 12946 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 12946)
+spawned uWSGI worker 1 (pid: 12957, cores: 1)
+spawned uWSGI worker 2 (pid: 12958, cores: 1)
+[pid: 12958|app: 0|req: 1/1] 60.29.18.22 () {44 vars in 837 bytes} [Thu Jun  7 23:27:35 2018] GET / => generated 7321 bytes in 3506 msecs (HTTP/1.1 200) 7 headers in 363 bytes (1 switches on core 0)
+[pid: 12957|app: 0|req: 1/2] 60.29.18.22 () {44 vars in 864 bytes} [Thu Jun  7 23:27:45 2018] GET /recommend/ => generated 3377 bytes in 381 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 12958|app: 0|req: 2/3] 60.29.18.22 () {44 vars in 904 bytes} [Thu Jun  7 23:27:49 2018] GET /recommend/update_tag_book => generated 0 bytes in 8 msecs (HTTP/1.1 302) 6 headers in 190 bytes (1 switches on core 0)
+[pid: 12957|app: 0|req: 2/4] 60.29.18.22 () {44 vars in 874 bytes} [Thu Jun  7 23:27:49 2018] GET /recommend/ => generated 3377 bytes in 20 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 12958|app: 0|req: 3/5] 60.29.18.22 () {46 vars in 905 bytes} [Thu Jun  7 23:27:57 2018] GET /recommend/ => generated 3377 bytes in 20 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 12958|app: 0|req: 4/6] 60.29.18.22 () {46 vars in 905 bytes} [Thu Jun  7 23:28:35 2018] GET /recommend/ => generated 3377 bytes in 90 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 12958|app: 0|req: 5/7] 60.29.18.22 () {46 vars in 905 bytes} [Thu Jun  7 23:28:51 2018] GET /recommend/ => generated 3377 bytes in 124 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 12958|app: 0|req: 6/8] 60.29.18.22 () {46 vars in 905 bytes} [Thu Jun  7 23:28:59 2018] GET /recommend/ => generated 3377 bytes in 59 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 12957|app: 0|req: 3/9] 60.29.18.22 () {46 vars in 905 bytes} [Thu Jun  7 23:29:03 2018] GET /recommend/ => generated 3508 bytes in 21 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 12958|app: 0|req: 7/10] 60.29.18.22 () {46 vars in 905 bytes} [Thu Jun  7 23:29:46 2018] GET /recommend/ => generated 3508 bytes in 73 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 12958|app: 0|req: 8/11] 60.29.18.22 () {46 vars in 905 bytes} [Thu Jun  7 23:30:21 2018] GET /recommend/ => generated 3508 bytes in 21 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 12958|app: 0|req: 9/12] 60.29.18.22 () {46 vars in 905 bytes} [Thu Jun  7 23:30:26 2018] GET /recommend/ => generated 3508 bytes in 23 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 12958|app: 0|req: 10/13] 60.29.18.22 () {46 vars in 905 bytes} [Thu Jun  7 23:31:55 2018] GET /recommend/ => generated 3508 bytes in 21 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 12957|app: 0|req: 4/14] 60.29.18.22 () {46 vars in 905 bytes} [Thu Jun  7 23:31:58 2018] GET /recommend/ => generated 3508 bytes in 22 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 12958|app: 0|req: 11/15] 60.29.18.22 () {46 vars in 905 bytes} [Thu Jun  7 23:33:16 2018] GET /recommend/ => generated 3508 bytes in 21 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 12958|app: 0|req: 12/16] 60.29.18.22 () {46 vars in 905 bytes} [Thu Jun  7 23:34:54 2018] GET /recommend/ => generated 3508 bytes in 25 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 12957|app: 0|req: 5/17] 60.29.18.22 () {46 vars in 905 bytes} [Thu Jun  7 23:35:36 2018] GET /recommend/ => generated 3369 bytes in 21 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 12957|app: 0|req: 6/18] 60.29.18.22 () {46 vars in 905 bytes} [Thu Jun  7 23:35:49 2018] GET /recommend/ => generated 3369 bytes in 26 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 12958|app: 0|req: 13/19] 60.29.18.22 () {44 vars in 906 bytes} [Thu Jun  7 23:35:53 2018] GET /recommend/update_user_user => generated 0 bytes in 10 msecs (HTTP/1.1 302) 6 headers in 190 bytes (1 switches on core 0)
+[pid: 12957|app: 0|req: 7/20] 60.29.18.22 () {44 vars in 874 bytes} [Thu Jun  7 23:35:53 2018] GET /recommend/ => generated 3369 bytes in 23 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 12958|app: 0|req: 14/21] 60.29.18.22 () {46 vars in 905 bytes} [Thu Jun  7 23:35:58 2018] GET /recommend/ => generated 3530 bytes in 6863 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 12958|app: 0|req: 15/22] 60.29.18.22 () {46 vars in 905 bytes} [Thu Jun  7 23:38:08 2018] GET /recommend/ => generated 3530 bytes in 30 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 12958|app: 0|req: 16/23] 60.29.18.22 () {46 vars in 905 bytes} [Thu Jun  7 23:39:51 2018] GET /recommend/ => generated 3530 bytes in 30 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 12957|app: 0|req: 8/24] 60.29.18.22 () {46 vars in 905 bytes} [Thu Jun  7 23:39:53 2018] GET /recommend/ => generated 3530 bytes in 25 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+...brutally killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /root/books_rs
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/root/books_rs/mysite.sock)
+running /root/books_rs/venv/bin/uwsgi
+[uWSGI] getting INI configuration from uwsgi.ini
+*** Starting uWSGI 2.0.15 (64bit) on [Thu Jun  7 23:40:32 2018] ***
+compiled with version: 4.8.4 on 10 May 2018 20:49:05
+os: Linux-3.13.0-105-generic #152-Ubuntu SMP Fri Dec 2 15:37:11 UTC 2016
+nodename: VM-182-224-ubuntu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /root/books_rs
+detected binary path: /root/books_rs/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/books_rs
+your processes number limit is 14820
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /root/books_rs/mysite.sock fd 3
+Python version: 3.6.2 (default, Jul 29 2017, 00:00:00)  [GCC 4.8.4]
+Set PythonHome to /root/books_rs/venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0xb4e5e0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 218280 bytes (213 KB) for 2 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0xb4e5e0 pid: 12946 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 12946)
+spawned uWSGI worker 1 (pid: 14195, cores: 1)
+spawned uWSGI worker 2 (pid: 14196, cores: 1)
+Thu Jun  7 23:40:46 2018 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Thu Jun  7 23:40:46 2018 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+*** Starting uWSGI 2.0.15 (64bit) on [Thu Jun  7 23:46:52 2018] ***
+compiled with version: 4.8.4 on 10 May 2018 20:49:05
+os: Linux-3.13.0-105-generic #152-Ubuntu SMP Fri Dec 2 15:37:11 UTC 2016
+nodename: VM-182-224-ubuntu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /root/books_rs
+detected binary path: /root/books_rs/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/books_rs
+your processes number limit is 14820
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /root/books_rs/mysite.sock fd 3
+Python version: 3.6.2 (default, Jul 29 2017, 00:00:00)  [GCC 4.8.4]
+Set PythonHome to /root/books_rs/venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x1c0e670
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 218280 bytes (213 KB) for 2 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x1c0e670 pid: 14965 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 14965)
+spawned uWSGI worker 1 (pid: 14977, cores: 1)
+spawned uWSGI worker 2 (pid: 14978, cores: 1)
+[pid: 14977|app: 0|req: 1/1] 60.29.18.22 () {46 vars in 905 bytes} [Thu Jun  7 23:46:56 2018] GET /recommend/ => generated 3378 bytes in 316 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14977|app: 0|req: 2/2] 60.29.18.22 () {44 vars in 904 bytes} [Thu Jun  7 23:46:59 2018] GET /recommend/update_tag_book => generated 0 bytes in 8 msecs (HTTP/1.1 302) 6 headers in 190 bytes (1 switches on core 0)
+[pid: 14977|app: 0|req: 3/3] 60.29.18.22 () {44 vars in 874 bytes} [Thu Jun  7 23:46:59 2018] GET /recommend/ => generated 3378 bytes in 32 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 1/4] 60.29.18.22 () {46 vars in 905 bytes} [Thu Jun  7 23:53:24 2018] GET /recommend/ => generated 3378 bytes in 332 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 2/5] 60.29.18.22 () {44 vars in 904 bytes} [Thu Jun  7 23:53:37 2018] GET /recommend/update_tag_book => generated 0 bytes in 13 msecs (HTTP/1.1 302) 6 headers in 190 bytes (1 switches on core 0)
+[pid: 14977|app: 0|req: 4/6] 60.29.18.22 () {44 vars in 874 bytes} [Thu Jun  7 23:53:37 2018] GET /recommend/ => generated 3378 bytes in 296 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 3/7] 106.120.160.109 () {38 vars in 620 bytes} [Thu Jun  7 23:56:24 2018] GET / => generated 10251 bytes in 40 msecs (HTTP/1.1 200) 5 headers in 186 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 4/8] 220.181.132.195 () {40 vars in 647 bytes} [Thu Jun  7 23:56:51 2018] GET / => generated 2546 bytes in 125 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14977|app: 0|req: 5/9] 60.29.18.22 () {46 vars in 905 bytes} [Thu Jun  7 23:57:48 2018] GET /recommend/ => generated 3504 bytes in 60 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 5/10] 60.29.18.22 () {46 vars in 905 bytes} [Thu Jun  7 23:58:38 2018] GET /recommend/ => generated 3504 bytes in 90 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 6/11] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 00:00:04 2018] GET /recommend/ => generated 3504 bytes in 79 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 7/12] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 00:01:44 2018] GET /recommend/ => generated 3538 bytes in 41 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14977|app: 0|req: 6/13] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 00:01:44 2018] GET /recommend/ => generated 3538 bytes in 77 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14977|app: 0|req: 7/14] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 00:03:51 2018] GET /recommend/ => generated 3538 bytes in 23 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 8/15] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 00:04:38 2018] GET /recommend/ => generated 3538 bytes in 83 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 9/16] 60.29.18.22 () {44 vars in 904 bytes} [Fri Jun  8 00:06:16 2018] GET /recommend/update_tag_book => generated 0 bytes in 11 msecs (HTTP/1.1 302) 6 headers in 190 bytes (1 switches on core 0)
+[pid: 14977|app: 0|req: 8/17] 60.29.18.22 () {44 vars in 874 bytes} [Fri Jun  8 00:06:16 2018] GET /recommend/ => generated 3538 bytes in 32 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 10/18] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 00:06:28 2018] GET /recommend/ => generated 3538 bytes in 33 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 11/19] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 00:07:37 2018] GET /recommend/ => generated 3538 bytes in 153 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 12/20] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 00:08:44 2018] GET /recommend/ => generated 3538 bytes in 121 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14977|app: 0|req: 9/21] 179.111.187.134 () {32 vars in 460 bytes} [Fri Jun  8 00:10:21 2018] GET / => generated 10251 bytes in 9 msecs (HTTP/1.1 200) 5 headers in 186 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 13/22] 200.111.122.228 () {32 vars in 461 bytes} [Fri Jun  8 00:21:38 2018] GET / => generated 10251 bytes in 14 msecs (HTTP/1.1 200) 5 headers in 186 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 14/23] 179.208.161.185 () {32 vars in 380 bytes} [Fri Jun  8 01:02:12 2018] GET /hndUnblock.cgi => generated 0 bytes in 1 msecs (HTTP/1.1 301) 5 headers in 171 bytes (1 switches on core 0)
+[pid: 14977|app: 0|req: 10/24] 179.208.161.185 () {32 vars in 378 bytes} [Fri Jun  8 01:02:15 2018] GET /tmUnblock.cgi => generated 0 bytes in 1 msecs (HTTP/1.1 301) 5 headers in 170 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 15/25] 179.208.161.185 () {32 vars in 358 bytes} [Fri Jun  8 01:02:18 2018] GET /moo => generated 0 bytes in 1 msecs (HTTP/1.1 301) 5 headers in 160 bytes (1 switches on core 0)
+[pid: 14977|app: 0|req: 11/26] 179.208.161.185 () {32 vars in 352 bytes} [Fri Jun  8 01:02:21 2018] GET / => generated 10251 bytes in 10 msecs (HTTP/1.1 200) 5 headers in 186 bytes (1 switches on core 0)
+Internal Server Error: /getcfg.php
+Traceback (most recent call last):
+  File "/root/books_rs/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/root/books_rs/venv/lib/python3.6/site-packages/django/utils/deprecation.py", line 93, in __call__
+    response = self.process_request(request)
+  File "/root/books_rs/venv/lib/python3.6/site-packages/django/middleware/common.py", line 61, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "/root/books_rs/venv/lib/python3.6/site-packages/django/middleware/common.py", line 99, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 118.89.162.148/getcfg.php/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[pid: 14978|app: 0|req: 16/27] 179.208.161.185 () {38 vars in 516 bytes} [Fri Jun  8 01:02:25 2018] POST /getcfg.php => generated 59839 bytes in 154 msecs (HTTP/1.1 500) 3 headers in 113 bytes (1 switches on core 0)
+Internal Server Error: /getcfg.php
+Traceback (most recent call last):
+  File "/root/books_rs/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/root/books_rs/venv/lib/python3.6/site-packages/django/utils/deprecation.py", line 93, in __call__
+    response = self.process_request(request)
+  File "/root/books_rs/venv/lib/python3.6/site-packages/django/middleware/common.py", line 61, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "/root/books_rs/venv/lib/python3.6/site-packages/django/middleware/common.py", line 99, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 118.89.162.148/getcfg.php/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[pid: 14977|app: 0|req: 12/28] 179.208.161.185 () {38 vars in 516 bytes} [Fri Jun  8 01:02:33 2018] POST /getcfg.php => generated 59839 bytes in 69 msecs (HTTP/1.1 500) 3 headers in 113 bytes (1 switches on core 0)
+Not Found: /webfig/roteros.info
+[pid: 14978|app: 0|req: 17/29] 179.208.161.185 () {34 vars in 414 bytes} [Fri Jun  8 01:02:41 2018] GET /webfig/roteros.info => generated 3855 bytes in 9 msecs (HTTP/1.1 404) 5 headers in 169 bytes (1 switches on core 0)
+[pid: 14977|app: 0|req: 13/30] 179.208.161.185 () {32 vars in 352 bytes} [Fri Jun  8 01:02:42 2018] GET / => generated 10251 bytes in 9 msecs (HTTP/1.1 200) 5 headers in 186 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 18/31] 201.114.160.3 () {32 vars in 458 bytes} [Fri Jun  8 01:06:17 2018] GET / => generated 10251 bytes in 9 msecs (HTTP/1.1 200) 5 headers in 186 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 19/32] 89.233.116.94 () {32 vars in 465 bytes} [Fri Jun  8 01:49:44 2018] GET / => generated 10251 bytes in 9 msecs (HTTP/1.1 200) 5 headers in 186 bytes (1 switches on core 0)
+[pid: 14977|app: 0|req: 14/33] 58.251.121.185 () {38 vars in 620 bytes} [Fri Jun  8 02:02:22 2018] GET / => generated 2546 bytes in 10 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 20/34] 103.211.107.136 () {32 vars in 461 bytes} [Fri Jun  8 02:15:01 2018] GET / => generated 10251 bytes in 9 msecs (HTTP/1.1 200) 5 headers in 186 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 21/35] 189.71.204.7 () {32 vars in 464 bytes} [Fri Jun  8 03:29:30 2018] GET / => generated 10251 bytes in 12 msecs (HTTP/1.1 200) 5 headers in 186 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 22/36] 141.212.122.160 () {34 vars in 390 bytes} [Fri Jun  8 04:20:47 2018] GET / => generated 2546 bytes in 9 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+Not Found: /webfig/roteros.info
+[pid: 14978|app: 0|req: 23/37] 58.251.121.186 () {38 vars in 658 bytes} [Fri Jun  8 04:34:39 2018] GET /webfig/roteros.info => generated 1109 bytes in 6 msecs (HTTP/1.1 404) 6 headers in 193 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 24/38] 101.91.62.11 () {38 vars in 638 bytes} [Fri Jun  8 04:40:43 2018] GET /phpmyadmin => generated 0 bytes in 1 msecs (HTTP/1.1 301) 5 headers in 167 bytes (1 switches on core 0)
+Not Found: /phpmyadmin/
+[pid: 14977|app: 0|req: 15/39] 101.91.62.11 () {40 vars in 688 bytes} [Fri Jun  8 04:40:43 2018] GET /phpmyadmin/ => generated 841 bytes in 7 msecs (HTTP/1.1 404) 6 headers in 192 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 25/40] 119.188.247.73 () {34 vars in 447 bytes} [Fri Jun  8 04:51:31 2018] GET / => generated 10251 bytes in 9 msecs (HTTP/1.1 200) 5 headers in 186 bytes (1 switches on core 0)
+[pid: 14977|app: 0|req: 16/41] 119.188.247.73 () {34 vars in 2190 bytes} [Fri Jun  8 04:51:31 2018] GET /index.action => generated 0 bytes in 1 msecs (HTTP/1.1 301) 5 headers in 169 bytes (1 switches on core 0)
+Not Found: /index.action/
+[pid: 14977|app: 0|req: 17/42] 119.188.247.73 () {34 vars in 2192 bytes} [Fri Jun  8 04:51:31 2018] GET /index.action/ => generated 1743 bytes in 6 msecs (HTTP/1.1 404) 5 headers in 169 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 26/43] 101.199.112.54 () {40 vars in 705 bytes} [Fri Jun  8 05:39:41 2018] GET / => generated 2546 bytes in 8 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 27/44] 189.129.134.196 () {32 vars in 461 bytes} [Fri Jun  8 06:35:28 2018] GET / => generated 10251 bytes in 22 msecs (HTTP/1.1 200) 5 headers in 186 bytes (1 switches on core 0)
+[pid: 14977|app: 0|req: 18/45] 212.37.28.212 () {32 vars in 459 bytes} [Fri Jun  8 07:05:13 2018] GET / => generated 10251 bytes in 9 msecs (HTTP/1.1 200) 5 headers in 186 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 28/46] 201.68.95.32 () {32 vars in 458 bytes} [Fri Jun  8 07:22:43 2018] GET / => generated 10251 bytes in 12 msecs (HTTP/1.1 200) 5 headers in 186 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 29/47] 159.192.125.152 () {32 vars in 460 bytes} [Fri Jun  8 07:23:55 2018] GET / => generated 10251 bytes in 10 msecs (HTTP/1.1 200) 5 headers in 186 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 30/48] 85.105.29.72 () {32 vars in 457 bytes} [Fri Jun  8 08:32:25 2018] GET / => generated 10251 bytes in 9 msecs (HTTP/1.1 200) 5 headers in 186 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 31/49] 187.1.40.96 () {32 vars in 457 bytes} [Fri Jun  8 09:10:37 2018] GET / => generated 10251 bytes in 8 msecs (HTTP/1.1 200) 5 headers in 186 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 32/50] 187.192.187.201 () {32 vars in 467 bytes} [Fri Jun  8 10:05:40 2018] GET / => generated 10251 bytes in 8 msecs (HTTP/1.1 200) 5 headers in 186 bytes (1 switches on core 0)
+[pid: 14977|app: 0|req: 19/51] 60.29.18.22 () {42 vars in 806 bytes} [Fri Jun  8 10:13:06 2018] GET / => generated 7323 bytes in 3574 msecs (HTTP/1.1 200) 7 headers in 363 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 33/52] 60.29.18.22 () {44 vars in 864 bytes} [Fri Jun  8 10:13:13 2018] GET /recommend/ => generated 3506 bytes in 24 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 34/53] 60.29.18.22 () {46 vars in 895 bytes} [Fri Jun  8 10:14:26 2018] GET /recommend/ => generated 3367 bytes in 23 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14977|app: 0|req: 20/54] 60.29.18.22 () {44 vars in 904 bytes} [Fri Jun  8 10:14:27 2018] GET /recommend/update_tag_book => generated 0 bytes in 12 msecs (HTTP/1.1 302) 6 headers in 190 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 35/55] 60.29.18.22 () {44 vars in 874 bytes} [Fri Jun  8 10:14:27 2018] GET /recommend/ => generated 3367 bytes in 22 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14977|app: 0|req: 21/56] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:14:34 2018] GET /recommend/ => generated 3367 bytes in 135 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 36/57] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:14:35 2018] GET /recommend/ => generated 3367 bytes in 25 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14977|app: 0|req: 22/58] 60.29.18.22 () {42 vars in 795 bytes} [Fri Jun  8 10:14:38 2018] GET /favicon.ico => generated 0 bytes in 1 msecs (HTTP/1.1 301) 5 headers in 168 bytes (1 switches on core 0)
+Not Found: /favicon.ico/
+[pid: 14977|app: 0|req: 23/59] 60.29.18.22 () {42 vars in 797 bytes} [Fri Jun  8 10:14:38 2018] GET /favicon.ico/ => generated 841 bytes in 21 msecs (HTTP/1.1 404) 6 headers in 192 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 37/60] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:14:51 2018] GET /recommend/ => generated 3506 bytes in 24 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 38/61] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:15:41 2018] GET /recommend/ => generated 3506 bytes in 29 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 39/62] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:16:26 2018] GET /recommend/ => generated 3506 bytes in 24 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14977|app: 0|req: 24/63] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:16:36 2018] GET /recommend/ => generated 3506 bytes in 103 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 40/64] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:17:23 2018] GET /recommend/ => generated 3506 bytes in 23 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14977|app: 0|req: 25/65] 101.255.49.253 () {32 vars in 460 bytes} [Fri Jun  8 10:19:30 2018] GET / => generated 10251 bytes in 10 msecs (HTTP/1.1 200) 5 headers in 186 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 41/66] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:19:36 2018] GET /recommend/ => generated 3506 bytes in 23 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 42/67] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:24:31 2018] GET /recommend/ => generated 3506 bytes in 22 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14977|app: 0|req: 26/68] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:24:32 2018] GET /recommend/ => generated 3506 bytes in 24 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14977|app: 0|req: 27/69] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:24:33 2018] GET /recommend/ => generated 3506 bytes in 29 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 43/70] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:24:34 2018] GET /recommend/ => generated 3506 bytes in 26 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 44/71] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:24:35 2018] GET /recommend/ => generated 3506 bytes in 26 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 45/72] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:24:36 2018] GET /recommend/ => generated 3506 bytes in 29 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14977|app: 0|req: 28/73] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:24:36 2018] GET /recommend/ => generated 3506 bytes in 26 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 46/74] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:24:37 2018] GET /recommend/ => generated 3506 bytes in 32 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 47/75] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:24:37 2018] GET /recommend/ => generated 3506 bytes in 31 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14977|app: 0|req: 29/76] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:24:38 2018] GET /recommend/ => generated 3506 bytes in 26 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 48/77] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:24:39 2018] GET /recommend/ => generated 3506 bytes in 31 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14977|app: 0|req: 30/78] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:24:39 2018] GET /recommend/ => generated 3506 bytes in 27 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 49/79] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:27:13 2018] GET /recommend/ => generated 3506 bytes in 35 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 50/80] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:27:30 2018] GET /recommend/ => generated 3367 bytes in 23 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14977|app: 0|req: 31/81] 60.29.18.22 () {44 vars in 904 bytes} [Fri Jun  8 10:27:34 2018] GET /recommend/update_tag_book => generated 0 bytes in 13 msecs (HTTP/1.1 302) 6 headers in 190 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 51/82] 60.29.18.22 () {44 vars in 874 bytes} [Fri Jun  8 10:27:34 2018] GET /recommend/ => generated 3367 bytes in 23 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 52/83] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:27:50 2018] GET /recommend/ => generated 3367 bytes in 29 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14977|app: 0|req: 32/84] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:27:52 2018] GET /recommend/ => generated 3367 bytes in 39 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 53/85] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:27:54 2018] GET /recommend/ => generated 3367 bytes in 25 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14977|app: 0|req: 33/86] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:27:55 2018] GET /recommend/ => generated 3367 bytes in 149 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 54/87] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:27:55 2018] GET /recommend/ => generated 3506 bytes in 30 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 14978|app: 0|req: 55/88] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:29:14 2018] GET /recommend/ => generated 3506 bytes in 24 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+...brutally killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /root/books_rs
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/root/books_rs/mysite.sock)
+running /root/books_rs/venv/bin/uwsgi
+[uWSGI] getting INI configuration from uwsgi.ini
+*** Starting uWSGI 2.0.15 (64bit) on [Fri Jun  8 10:30:53 2018] ***
+compiled with version: 4.8.4 on 10 May 2018 20:49:05
+os: Linux-3.13.0-105-generic #152-Ubuntu SMP Fri Dec 2 15:37:11 UTC 2016
+nodename: VM-182-224-ubuntu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /root/books_rs
+detected binary path: /root/books_rs/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/books_rs
+your processes number limit is 14820
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /root/books_rs/mysite.sock fd 3
+Python version: 3.6.2 (default, Jul 29 2017, 00:00:00)  [GCC 4.8.4]
+Set PythonHome to /root/books_rs/venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0xe135e0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 218280 bytes (213 KB) for 2 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 5 seconds on interpreter 0xe135e0 pid: 14965 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 14965)
+spawned uWSGI worker 1 (pid: 2922, cores: 1)
+spawned uWSGI worker 2 (pid: 2923, cores: 1)
+DAMN ! worker 1 (pid: 2922) died, killed by signal 9 :( trying respawn ...
+Respawned uWSGI worker 1 (new pid: 3001)
+DAMN ! worker 2 (pid: 2923) died, killed by signal 9 :( trying respawn ...
+Respawned uWSGI worker 2 (new pid: 3020)
+DAMN ! worker 1 (pid: 3001) died, killed by signal 9 :( trying respawn ...
+Respawned uWSGI worker 1 (new pid: 3054)
+DAMN ! worker 2 (pid: 3020) died, killed by signal 9 :( trying respawn ...
+Respawned uWSGI worker 2 (new pid: 3075)
+Fri Jun  8 10:32:02 2018 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Fri Jun  8 10:32:02 2018 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+*** Starting uWSGI 2.0.15 (64bit) on [Fri Jun  8 10:39:03 2018] ***
+compiled with version: 4.8.4 on 10 May 2018 20:49:05
+os: Linux-3.13.0-105-generic #152-Ubuntu SMP Fri Dec 2 15:37:11 UTC 2016
+nodename: VM-182-224-ubuntu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /root/books_rs
+*** running under screen session 19348.son3 ***
+detected binary path: /root/books_rs/venv/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /root/books_rs
+your processes number limit is 14820
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /root/books_rs/mysite.sock fd 3
+Python version: 3.6.2 (default, Jul 29 2017, 00:00:00)  [GCC 4.8.4]
+Set PythonHome to /root/books_rs/venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x195bbd0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 218280 bytes (213 KB) for 2 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x195bbd0 pid: 3737 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 3737)
+spawned uWSGI worker 1 (pid: 3748, cores: 1)
+spawned uWSGI worker 2 (pid: 3749, cores: 1)
+[pid: 3748|app: 0|req: 1/1] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:39:27 2018] GET /recommend/ => generated 3376 bytes in 314 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 3748|app: 0|req: 2/2] 60.29.18.22 () {44 vars in 904 bytes} [Fri Jun  8 10:39:31 2018] GET /recommend/update_tag_book => generated 0 bytes in 10 msecs (HTTP/1.1 302) 6 headers in 190 bytes (1 switches on core 0)
+[pid: 3749|app: 0|req: 1/3] 60.29.18.22 () {44 vars in 874 bytes} [Fri Jun  8 10:39:31 2018] GET /recommend/ => generated 3376 bytes in 314 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 3749|app: 0|req: 2/4] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:46:08 2018] GET /recommend/ => generated 3376 bytes in 23 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 3748|app: 0|req: 3/5] 60.29.18.22 () {44 vars in 904 bytes} [Fri Jun  8 10:46:13 2018] GET /recommend/update_tag_book => generated 0 bytes in 7 msecs (HTTP/1.1 302) 6 headers in 190 bytes (1 switches on core 0)
+[pid: 3749|app: 0|req: 3/6] 60.29.18.22 () {44 vars in 874 bytes} [Fri Jun  8 10:46:13 2018] GET /recommend/ => generated 3376 bytes in 18 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 3748|app: 0|req: 4/7] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:48:04 2018] GET /recommend/ => generated 3376 bytes in 344 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 3748|app: 0|req: 5/8] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 10:56:16 2018] GET /recommend/ => generated 3376 bytes in 78 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 3749|app: 0|req: 4/9] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 11:03:12 2018] GET /recommend/ => generated 3506 bytes in 22 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 3748|app: 0|req: 6/10] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 11:03:15 2018] GET /recommend/ => generated 3506 bytes in 162 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 3749|app: 0|req: 5/11] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 11:09:17 2018] GET /recommend/ => generated 3506 bytes in 20 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+[pid: 3748|app: 0|req: 7/12] 60.29.18.22 () {46 vars in 905 bytes} [Fri Jun  8 11:09:18 2018] GET /recommend/ => generated 3506 bytes in 27 msecs (HTTP/1.1 200) 6 headers in 209 bytes (1 switches on core 0)
+Fri Jun  8 11:11:10 2018 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Fri Jun  8 11:11:10 2018 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!

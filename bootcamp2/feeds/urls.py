@@ -4,7 +4,7 @@ from . import views
 urlpatterns = [
     path('', views.feeds, name='feeds'),
     path('borrowed/', views.borrowed, name='borrowed'),
-    path('like/', views.like, name='like'),
+    # path('like/', views.like, name='like'),
     # path('post/', views.post, name='posts'),
     path('load/', views.load, name='load'),
     # path('check/', views.check, name='check'),

@@ -1,0 +1,2401 @@
+    1  ls
+    2  webCode
+    3  ls
+    4  ..
+    5  pip3 list
+    6  ls
+    7  git clone https://github.com/vitorfs/bootcamp.git
+    8  l
+    9  ls
+   10  cd bootcamp
+   11  l
+   12  pip3 install -U -r requirements/local.txt
+   13  。。
+   14  ..
+   15  ls
+   16  l
+   17  cd .pip
+   18  ls
+   19  vim pip.conf
+   20  ..
+   21  ls
+   22  cd bootcamp
+   23  ls
+   24  pip3 install -U -r requirements/local.txt
+   25  ..
+   26  ls
+   27  python3
+   28  python
+   29  apt-get install python3.5
+   30  add-apt-repository ppa:fkrull/deadsnakes
+   31  apt-get update
+   32  apt-get install python3.5
+   33  python3
+   34  python3.5
+   35  pip3.5
+   36  pip3
+   37  ls
+   38  virtualenv env
+   39  ls
+   40  source ./bin/activate
+   41  source env/bin/activate
+   42  ls
+   43  python
+   44  deactivate
+   45  cd /usr/bin
+   46  ls
+   47  ls | grep python
+   48  cd python3.5
+   49  cd
+   50  virtualenv -p /usr/bin/python3.5 ENV3.5
+   51  l
+   52  ls
+   53  rm -rf env
+   54  source ENV3.5/bin/activate
+   55  python
+   56  pip list
+   57  virtualenv -p /usr/bin/python2.7 ENV2.7
+   58  ls
+   59  pip install --upgrade pip
+   60  ls
+   61  pip install django
+   62  pip list
+   63  ls
+   64  cd bootcamp
+   65  pip install -U -r requirements/local.txt
+   66  apt-get install gcc
+   67  pip install -U -r requirements/local.txt
+   68  apt-get install python-dev
+   69  pip install -U -r requirements/local.txt
+   70  pip install --upgrade pip
+   71  pip list
+   72  pip install --upgrade pip
+   73  pip install -U -r requirements/local.txt
+   74  apt-get install build-essential autoconf libtool pkg-config python-opengl python-imaging python-pyrex python-pyside.qtopengl idle-python2.7 qt4-dev-tools qt4-designer libqtgui4 libqtcore4 libqt4-xml libqt4-test libqt4-script libqt4-network libqt4-dbus python-qt4 python-qt4-gl libgle3 python-dev
+   75  pip install -U -r requirements/local.txt
+   76  pip install -U -r requirements/local.txt > log.txt
+   77  apt-get install lrzsz
+   78  cd /usr/bin
+   79  ln -s /usr/local/lrzsz/bin/lrz rz
+   80  ln -s /usr/local/lrzsz/bin/lsz sz
+   81  cd
+   82  ls
+   83  cd bootcamp
+   84  ls
+   85  sz log.txt
+   86  pip list
+   87  python
+   88  pip install Twisted
+   89  pip3 install Twisted
+   90  apt-get install Twisted
+   91  cd ..
+   92  l
+   93  ls
+   94  wget https://pypi.python.org/packages/a2/37/298f9547606c45d75aa9792369302cc63aa4bbcf7b5f607560180dd099d2/Twisted-17.9.0.tar.bz2\#md5\=6dbedb918f0c7288a4c670f59393ecf8
+   95  tar -xjvf Twisted-15.2.1.tar.bz2  
+   96  ls
+   97  tar -xjvf Twisted-17.9.0.tar.bz2  
+   98  ls
+   99  cs Twisted-17.9.0
+  100  cd Twisted-17.9.0
+  101  ls
+  102  python setup.py
+  103  python setup.py install
+  104  ls
+  105  cd ..
+  106  ls
+  107  wget https://pypi.python.org/packages/source/T/Twisted/Twisted-15.2.1.tar.bz2
+  108  tar -xjvf Twisted-15.2.1.tar.bz2 
+  109  ls
+  110  cd Twisted-15.2.1/
+  111  ls
+  112  cd ..
+  113  ls
+  114  cd Twisted-17.9.0
+  115  ls
+  116  find ./ -name setup3.py
+  117  find / -name setup3.py
+  118  ../Twisted-15.2.1
+  119  python setup3.py   
+  120  python setup3.py install
+  121  cd ..
+  122  ls
+  123  cd bootcamp
+  124  pip list
+  125  pip install -U -r requirements/local.txt
+  126  pip list
+  127  ..
+  128  ls
+  129  cd Twisted-15.2.1
+  130  ls
+  131  python setup3.py install
+  132  ..
+  133  ls
+  134  bootcamp
+  135  ls
+  136  pip list
+  137  ls
+  138  vim .env
+  139  ls
+  140  python manage.py syncdb
+  141  brew install postgresql
+  142  pip install postgresql
+  143  ls
+  144  cd requirements
+  145  ls
+  146  vim local.txt
+  147  ls
+  148  vim base.txt
+  149  ls
+  150  pip list
+  151  deactivate
+  152  cd ..
+  153  ls
+  154  virtualenv -p /usr/bin/python2.7 ENV2.7
+  155  ..
+  156  ls
+  157  source ENV2.7/bin/activate
+  158  cd bootcamp
+  159  pip install -U -r requirements/local.txt
+  160  pip list
+  161  ls
+  162  vim .env
+  163  python manage.py syncdb
+  164  pip install python-decouple
+  165  ls
+  166  vim get_key.py
+  167  python get_key.py
+  168  pip list
+  169  django startproject
+  170  ls
+  171  python django startproject
+  172  python manage.py startproject
+  173  ls
+  174  bo
+  175  bootcamp
+  176  ls
+  177  source ENV2.7/bin/activate
+  178  pip list
+  179  deactivate
+  180  ls
+  181  rm -rf ENV2.7
+  182  virtualenv -p /usr/bin/python2.7 ENV2.7
+  183  source ENV2.7/bin/activate
+  184  pip install -U -r requirements/local.txt
+  185  pip list
+  186  ls
+  187  echo $PATH
+  188  ls
+  189  cd bootcamp
+  190  ls
+  191  source ENV2.7/bin/activate
+  192  l
+  193  python manage.py migrate
+  194  apt
+  195  apt-get install postgresql
+  196  ls
+  197  cd bootcamp
+  198  source ENV2.7/bin/activate
+  199  python manage.py syncdb
+  200  ls
+  201  vim .env
+  202  python manage.py migrate
+  203  ls
+  204  deactivate
+  205  cd ..\\
+  206  
+  207  ls
+  208  ..
+  209  cd
+  210  mv bootcamp bootcamp_old
+  211  ls
+  212  git clone https://github.com/qulc/bootcamp.git
+  213  apt-get install python3.6
+  214  ls
+  215  cd bootcamp
+  216  ls
+  217  virtualenv -p /usr/bin/python3.6 ENV3.6
+  218  ls
+  219  source python -m venv {VENV} && source venv/bin/activate
+  220  source python3.6 -m venv {VENV} && source venv/bin/activate
+  221  ls
+  222  source ENV3.6/bin/activate
+  223  ls
+  224  python -m pip install -r requirements.txt
+  225  deactivate
+  226  python3.6
+  227  source python3.6 -m venv {VENV} && source venv/bin/activate
+  228  source python -m venv {VENV} && source venv/bin/activate
+  229  ls
+  230  pip install virtualenv virtualenvwrapper
+  231  pip install virtualenvwrapper
+  232  pip3 install virtualenvwrapper
+  233  ls
+  234  mv bootcamp bootcamp_old2
+  235  git clone https://github.com/itswcg/bootcamp2.git
+  236  python -m venv venv
+  237  python3 -m venv venv
+  238  python3.6 -m venv venv
+  239  apt-get install python3.6-venv
+  240  python3.6 -m venv venv
+  241  ls
+  242  cd bootcamp2
+  243  python3.6 -m venv venv 
+  244  source venv/bin/activate
+  245  python
+  246  python -m pip install -r requirements.txt
+  247  export REDIS_URL=redis://localhost:6379/0
+  248  export DATABASE_URL=postgres://postgres:@localhost:5432/bootcamp2
+  249  bootcamp_old2
+  250  python3.6 -m venv {VENV} && source venv/bin/activate
+  251  ls
+  252  python3.6 -m venv venv
+  253  source venv/bin/activate
+  254  python -m pip install -r requirements.txt
+  255  export REDIS_URL=redis://localhost:6379/0
+  256  export DATABASE_URL=postgres://postgres:@localhost:5432/bootcamp_old2
+  257  python manage.py makemigrations
+  258  ls
+  259  bootcamp_old2
+  260  ls
+  261  source venv/bin/activate
+  262  ls
+  263  pip list
+  264  python -m pip install -r requirements.txt
+  265  pip list
+  266  deactivate
+  267  ..
+  268  ls
+  269  cd bootcamp2
+  270  ls
+  271  source venv/bin/activate
+  272  pip list
+  273  python3.6 -m pip install -r requirements.txt
+  274  pip list
+  275  ls
+  276  venv
+  277  ls
+  278  cd lib
+  279  ls
+  280  cd python3.6
+  281  ls
+  282  cd site-packages
+  283  ls
+  284  cd pip
+  285  ls
+  286  ..
+  287  cd
+  288  ls
+  289  cd bootcamp2
+  290  pip install uWSGI
+  291  pip install python-dev
+  292  apt-get install python-dev
+  293  apt-get install python3.6-dev
+  294  python3.6 -m pip install -r requirements.txt
+  295  export REDIS_URL=redis://localhost:6379/0
+  296  export DATABASE_URL=postgres://postgres:@localhost:5432/bootcamp2
+  297  la
+  298  ls
+  299  cd bootcamp2
+  300  ls
+  301  source venv/bin/activate
+  302  ls
+  303  cd bootcamp2
+  304  ls
+  305  cd core
+  306  vim view.py
+  307  ls
+  308  pwd
+  309  vim views.py
+  310  cd
+  311  ls
+  312  cd bootcamp_old2
+  313  ls
+  314  cd bootcamp
+  315  ls
+  316  cd core
+  317  ls
+  318  vim views
+  319  vim views.py
+  320  cd
+  321  ls
+  322  cd bootcamp2
+  323  ls
+  324  cd bootcamp2
+  325  ls
+  326  cd core
+  327  ls
+  328  vim views.py
+  329  ..
+  330  ls
+  331  bootcamp2
+  332  ls
+  333  vim settings.py
+  334  ..
+  335  ls
+  336  python manage.py makemigrations
+  337  ls
+  338  mv bootcamp_old2 bootcamp
+  339  cd bootcamp
+  340  source venv/bin/activate
+  341  python3.6 -m pip install -r requirements.txt
+  342  pip list
+  343  python -m pip install -r requirements.txt
+  344  ls
+  345  pip list
+  346  python3.6 -m pip3.6 install -r requirements.txt
+  347  python3.6 -m pip install -r requirements.txt
+  348  python3.6 -m pip3 install -r requirements.txt
+  349  deactivate
+  350  ls
+  351  cd ..
+  352  ls
+  353  bootcamp2
+  354  ls
+  355  source venv/bin/activate
+  356  ls
+  357  piplist
+  358  pip list
+  359  ls
+  360  $PATH
+  361  ls
+  362  export DATABASE_URL=mysql://root:@localhost:43306/bootcamp2
+  363  python manage.py makemigrations
+  364  pip install mysqlclient
+  365  python manage.py makemigrations
+  366  ls
+  367  cd bootcamp2
+  368  ls
+  369  cd bootcamp2
+  370  ls
+  371  vim settings.py
+  372  l
+  373  ls
+  374  bootcamp2
+  375  ls
+  376  bootcamp2
+  377  ls
+  378  vim settings.py
+  379  ls
+  380  bootcamp
+  381  ls
+  382  cd ..
+  383  ls
+  384  cd bootcamp2
+  385  ls
+  386  cd bootcamp2
+  387  ls
+  388  vim settings.py
+  389  ls
+  390  cd ..
+  391  ls
+  392  source venv/bin/activate
+  393  ls
+  394  export REDIS_URL=redis://localhost:6379/0
+  395  python manage.py makemigrations
+  396  python manage.py migrate
+  397  python manage.py test
+  398  python manage.py compilemessages
+  399  python manage.py collectstatic
+  400  python manage.py runserver
+  401  telnet 127.0.0.1 8000
+  402  python manage.py runserver 118.89.162.148:8000
+  403  ls
+  404  cd bootcamp2
+  405  ls
+  406  vim settings.py
+  407  python manage.py runserver 0.0.0.0:8000
+  408  ls
+  409  ..
+  410  ls
+  411  python manage.py runserver 0.0.0.0:8000
+  412  ls
+  413  cd bootcamp2
+  414  pwd
+  415  screen -ls
+  416  screen -h
+  417  screen -ls
+  418  screen -r son1
+  419  ls
+  420  screen -ls
+  421  screen -r son1
+  422  ls
+  423  screen -r son1
+  424  screen -r son2
+  425  ls
+  426  screen -ls
+  427  screen -r son2
+  428  exit
+  429  screen -r son2
+  430  exit
+  431  ls
+  432  cd bootcamp2
+  433  ls
+  434  python
+  435  python upload_data.py
+  436  pip list
+  437  pip2 list
+  438  pip install mysqldb
+  439  pip install MySQLdb
+  440  apt-get install MySQL-python
+  441  pip install MySQL-python
+  442  pip install mysqlclient
+  443  pip list
+  444  ls
+  445  source venv/bin/activate
+  446  pip list
+  447  python
+  448  python upload_data.py
+  449  pip install urllib2
+  450  deactivate
+  451  pip install mysqlclient
+  452  cd 
+  453  cd .pip
+  454  ls
+  455  vim pip..c
+  456  vim pip.conf
+  457  cd
+  458  ls
+  459  pip install mysqlclient
+  460  cd bootcamp2
+  461  ls
+  462  python upload_data.py
+  463  python upload_data.py > log.txt
+  464  ls
+  465  vim log.txt
+  466  python upload_data.py > log.txt
+  467  vim log.txt
+  468  python upload_data.py > log.txt
+  469  vim log.txt
+  470  python upload_data.py > log.txt
+  471  vim log.txt
+  472  python upload_data.py > log.txt
+  473  vim log.txt
+  474  python upload_data.py > log.txt
+  475  vim log.txt
+  476  ls
+  477  cd bootcamp2
+  478  ls
+  479  python upload_data.py > log.txt
+  480  rm log.txt
+  481  python upload_data.py > log.txt
+  482  vim log.txt
+  483  python upload_data.py
+  484  python upload_data.py > sql_com.txt
+  485  python upload_data.py > newsql.txt
+  486  rm newsql.txt
+  487  python upload_data.py > newsql.txt
+  488  vim newsql.txt
+  489  python upload_data.py > newsql.txt
+  490  rm newsql.txt
+  491  python upload_data.py > newsql.txt
+  492  vim newsql.txt
+  493  rm newsql.txt
+  494  python upload_data.py > newsql.txt
+  495  vim newsql.txt
+  496  screen -ls
+  497  screen -h
+  498  screen -r son2
+  499  ls
+  500  cd bootcamp2
+  501  ls
+  502  source venv/bin/activate
+  503  python manage.py compilemessages
+  504  screen -r son2
+  505  ls
+  506  cd bootcamp2
+  507  ls
+  508  python upload_data.py
+  509  ls
+  510  cd bootcamp2
+  511  ls
+  512  python upload_data.py
+  513  ls
+  514  cd bootcamp2
+  515  ls
+  516  python upload_data.py
+  517  wget http://update2.agent.tencentyun.com/update/linux_stargate_installer
+  518  chmod +x linux_stargate_installer
+  519  ./linux_stargate_installer
+  520  ls
+  521  rm linux_stargate_installer
+  522  ps ax | grep barad
+  523  rm linux_stargate_installer
+  524  python upload_data.py
+  525  top
+  526  top | grep python
+  527  kill 20774
+  528  top | grep python
+  529  python upload_data.py
+  530  ls
+  531  cd bootcamp2
+  532  python upload_data.py
+  533  top
+  534  top | grep python
+  535  python upload_data.py
+  536  vim upload_data.py
+  537  python upload_data.py
+  538  screen son2
+  539  screen -le
+  540  screen -ls
+  541  screen -r son2
+  542  ls
+  543  cd bootcamp2
+  544  docker ps -a
+  545  ls
+  546  cd bootcamp2
+  547  ls
+  548  authentication
+  549  ls
+  550  rz
+  551  ls
+  552  tree
+  553  ape-get install tree
+  554  apt-get install tree
+  555  tree
+  556  pwd
+  557  mysql -u root -p
+  558  cd
+  559  ls
+  560  cd owncloud
+  561  ls
+  562  cd ..
+  563  find /  -type f -size +500M
+  564  ls
+  565  rm -rf owncloud
+  566  screen -r son2
+  567  top
+  568  ping 10.154.141.214
+  569  apt-get install redis-cli
+  570  la
+  571  ls
+  572  wget http://download.redis.io/releases/redis-4.0.9.tar.gz
+  573  tar xzf redis-4.0.9.tar.gz
+  574  cd redis-4.0.9
+  575  make
+  576  top
+  577  ls
+  578  cd src
+  579  ls
+  580  ./redis-cli -h 10.154.141.214 -p 6379
+  581  python3
+  582  pip3 install redis
+  583  pip install redis
+  584  ls
+  585  cd bootcamp2
+  586  ls
+  587  source venv/bin/activate
+  588  pip install redis
+  589  pip install --upgrade pip
+  590  pip install redis
+  591  pip list
+  592  python 
+  593  ./redis-cli -h 10.154.141.214 -p 6379
+  594  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  595  screen -r son2
+  596  rz
+  597  cd
+  598  ls
+  599  rz
+  600  ls
+  601  screen -h
+  602  screen -r son3
+  603  screen -R son3
+  604  ls
+  605  python3 sys_context.py 
+  606  python3 syny_context.py
+  607  pip3 install ridis
+  608  pip list
+  609  python syny_context.py
+  610  apt-get install pip3
+  611  ls
+  612  cd bootcamp2
+  613  ls
+  614  source venv/bin/activate
+  615  cd
+  616  ls
+  617  python3 syny_context.py
+  618  pip install requests
+  619  python3 syny_context.py
+  620  vim syny_context.py
+  621  python3 syny_context.py
+  622  screen -r son3
+  623  ls
+  624  cd redis-4.0.9
+  625  ls
+  626  cd src
+  627  ls
+  628  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  629  screen -ls
+  630  screen -r son3
+  631  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  632  ls
+  633  cd redis-4.0.9
+  634  cs
+  635  cd src
+  636  ls
+  637  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  638  ls
+  639  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH MONITOR
+  640  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  641  screen -ls
+  642  screen -r son3
+  643  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  644  ls
+  645  screen -ls
+  646  screen -r son2
+  647  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  648  ls
+  649  cd redis-4.0.9
+  650  cd src
+  651  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  652  ls
+  653  cd redis-4.0.9
+  654  cd src
+  655  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  656  top
+  657  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  658  top
+  659  screen -ls
+  660  screen -r son2
+  661  exit
+  662  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  663  cs redis-4.0.9
+  664  redis-4.0.9
+  665  src
+  666  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  667  cd redis-4.0.9
+  668  cd src
+  669  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  670  ls
+  671  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  672  cd redis-4.0.9
+  673  cs src
+  674  cd src
+  675  ls
+  676  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  677  screen -ls
+  678  screen -r son3
+  679  ls
+  680  sz books1.csv
+  681  cp books1.csv bootcamp2
+  682  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  683  screen -r son3
+  684  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  685  ls
+  686  screen -r son3
+  687  vim syny_context.py
+  688  python3 syny_context.py
+  689  screen -r son3
+  690  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  691  top
+  692  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  693  ls
+  694  cd redis-4.0.9
+  695  cd src
+  696  ls
+  697  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  698  screen -r son3
+  699  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  700  screen -r son3
+  701  vim syny_context.py
+  702  cd redis-4.0.9
+  703  cd src
+  704  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  705  screen -r son3
+  706  vim syny_context.py
+  707  ls
+  708  python3 syny_context.py
+  709  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  710  cd redis-4.0.9
+  711  cd src
+  712  ls
+  713  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  714  ls
+  715  cd redis-4.0.9
+  716  cd src
+  717  screen -r son3
+  718  ls
+  719  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  720  cd redis-4.0.9
+  721  ls
+  722  cd src
+  723  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  724  cd redis-4.0.9
+  725  cd src
+  726  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  727  apt-get install redis-cli
+  728  cd redis-4.0.9
+  729  ls
+  730  cd src
+  731  ls
+  732  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  733  cd ..
+  734  ls
+  735  cd ..
+  736  ls
+  737  cd
+  738  ll
+  739  cd libData
+  740  ls
+  741  cd ..
+  742  ls
+  743  cd redis-4.0.9
+  744  cd src
+  745  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  746  screen -r son3
+  747  screen -ls
+  748  screen -r son2
+  749  ls
+  750  cd ..
+  751  ls
+  752  cd bootcamp2
+  753  python manage.py compilemessages
+  754  python3 manage.py compilemessages
+  755  ls
+  756  source venv/bin/activate
+  757  python manage.py compilemessages
+  758  deactivate
+  759  screen -r son2
+  760  source venv/bin/activate
+  761  python manage.py compilemessages
+  762  cd
+  763  ls
+  764  cd bootcamp2
+  765  deactivate
+  766  cd ..
+  767  ls
+  768  cd redis-4.0.9
+  769  cd src
+  770  ls
+  771  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  772  cd redis-4.0.9
+  773  cd src
+  774  ls
+  775  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  776  cd redis-4.0.9/src
+  777  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  778  screen -ls
+  779  screen -r son2
+  780  ls
+  781  cd bootcamp2
+  782  ls
+  783  cd bootcamp2
+  784  ls
+  785  mkdir bookimg
+  786  cd bookimg
+  787  sz
+  788  rz
+  789  ls
+  790  vim count.py
+  791  cd ..
+  792  ls
+  793  cd ..
+  794  ls
+  795  source venv/bin/activate
+  796  cd bootcamp2
+  797  ls
+  798  cd bookimg
+  799  ls
+  800  python count.py
+  801  ls
+  802  rm upimg.sh
+  803  vim count.py
+  804  cd src
+  805  ls
+  806  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  807  python count.py
+  808  ls
+  809  vim upimg.sh
+  810  rm upimg.sh
+  811  vim count.py
+  812  python count.py
+  813  vim count.py
+  814  python count.py
+  815  ls
+  816  vim upimg.sh
+  817  ls
+  818  bash ./upimg.sh
+  819  ls
+  820  rm *.jpg
+  821  ls
+  822  rm *.gif
+  823  ls
+  824  screen -r son2
+  825  ls
+  826  cd 
+  827  ls
+  828  cd bootcamp2
+  829  ls
+  830  cd bootcamp2
+  831  ls
+  832  cd bookimg
+  833  ls
+  834  ls |wc -w
+  835  ls
+  836  cd bootcamp2
+  837  ls
+  838  cd bootcamp2
+  839  ls
+  840  cd bookimg
+  841  ls
+  842  ls |wc -w
+  843  screen -r son2
+  844  ls
+  845  cd ..
+  846  ls
+  847  cd ..
+  848  ls
+  849  staticfiles
+  850  ls
+  851  cd imp
+  852  cd img
+  853  ls
+  854  pwd
+  855  cd ..
+  856  ls
+  857  cd ..
+  858  cd bootcamp2/bootcamp2
+  859  ls
+  860  mv bookimg ../staticfiles/img
+  861  cd ../staticfiles
+  862  ls
+  863  cd img
+  864  ls
+  865  cd bookimg
+  866  ls
+  867  screen -r son2
+  868  pwd
+  869  screen -r son2
+  870  apt-get install imagemagick
+  871  ls
+  872  cd bootcamp2
+  873  ls
+  874  cd bootcamp2
+  875  cd ..
+  876  ls
+  877  cd staticfiles
+  878  ls
+  879  cd img
+  880  ls
+  881  cd bookimg
+  882  ls
+  883  cd ..
+  884  for img in `ls bookimg\*.jpg`; do convert -resize 50%x50% $img small-$img; done
+  885  mkdir newimg
+  886  for img in `ls bookimg/*.jpg`; do convert -resize 50%x50% $img newimg-$img; done
+  887  ls
+  888  cd newimg
+  889  lsl
+  890  ls
+  891  cd ..
+  892  ls
+  893  cd bookimg
+  894  ls
+  895  cd ..
+  896  for img in `ls newimg/*.jpg`; do convert -resize 50%x50% $img bookimg/$img; done
+  897  cd bookimg
+  898  cd bookimgcd ..
+  899  cd 。。
+  900  for img in `ls bookimg/*.jpg`; do convert -resize 50%x50% $img newimg/$img; done
+  901  ls
+  902  cd ..
+  903  for img in `ls bookimg/*.jpg`; do convert -resize 50%x50% $img newimg/$img; done
+  904  convert -h
+  905  screen -r son2
+  906  top
+  907  screen -r son2
+  908  ls
+  909  cd redis-4.0.9
+  910  cd src
+  911  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  912  ls
+  913  cd 
+  914  ls
+  915  cd bootcamp2
+  916  ls
+  917  source venv/bin/activate
+  918  pip install pickle
+  919  python
+  920  deactivate
+  921  ls
+  922  cd
+  923  ls
+  924  cd redis-4.0.9
+  925  cd src
+  926  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+  927  cd
+  928  ls
+  929  cd bootcamp2
+  930  ls
+  931  source venv/bin/activate
+  932  python
+  933  screen -r son2
+  934  rz -be
+  935  ls
+  936  mv *.jpg bootcamp2/bootcamp2/feeds/templates/feeds/
+  937  rz -be
+  938  ls
+  939  mv *.jpg bootcamp2/bootcamp2/feeds/templates/feeds/
+  940  rz -be
+  941  ls
+  942  unzip
+  943  unzip ft5_80_education.zip
+  944  ls
+  945  cd ft5_80_education
+  946  ls
+  947  cd css
+  948  ls
+  949  cp * ~/bootcamp2/bootcamp2/feeds/static/css
+  950  cd  ~/bootcamp2/bootcamp2/feeds/static/css
+  951  ls
+  952  ll
+  953  cd
+  954  ls
+  955  cd ft5_80_education
+  956  ls
+  957  cd js
+  958  ls
+  959  cp *  ~/bootcamp2/bootcamp2/feeds/static/js
+  960  screen -r son2
+  961  ls
+  962  cd bootcamp2
+  963  ls
+  964  cd bootcamp2
+  965  ls
+  966  cd feeds
+  967  ls
+  968  cd static
+  969  ls
+  970  mkdir img
+  971  ls
+  972  cd ../templates
+  973  ls
+  974  cd feeds
+  975  ls
+  976  cp *.jpg ../../static/img
+  977  cd
+  978  ls
+  979  rz ft5_80_education.zip
+  980  sz ft5_80_education.zip
+  981  ls
+  982  cd bootcamp2/bootcamp2/feeds/static
+  983  ls
+  984  mkdir fonts
+  985  cd
+  986  cd ft5_80_education
+  987  ls
+  988  cd fonts
+  989  ls
+  990  cp icomoon  ~/bootcamp2/bootcamp2/feeds/static/fonts
+  991  cp -r icomoon  ~/bootcamp2/bootcamp2/feeds/static/fonts
+  992  screen -r son2
+  993  apt-get install python-dev nginx
+  994  ld
+  995  ls
+  996  cd bootcamp2
+  997  ls
+  998  source venv/bin/activate
+  999  pip install supervisor
+ 1000  pip install uwsgi
+ 1001  uwsgi --version
+ 1002  ls
+ 1003  \tscreen -r son2
+ 1004  cd /etc/nginx
+ 1005  ls
+ 1006  vim nginx.conf
+ 1007  ls
+ 1008  cd ls
+ 1009  cd sites-enabled
+ 1010  ls
+ 1011  cp bootcamp2_nginx.conf ../conf.d
+ 1012  ls
+ 1013  cd ..
+ 1014  ls
+ 1015  cd conf.d
+ 1016  ll
+ 1017  cd ..
+ 1018  ls
+ 1019  cd sites-enabled
+ 1020  ls
+ 1021  vim bootcamp2_nginx.conf
+ 1022  tail -f /var/log/nginx/error.log
+ 1023  cd /etc/nginx/conf.d/
+ 1024  ls
+ 1025  vim bootcamp2_nginx.conf
+ 1026  cd ..
+ 1027  ls
+ 1028  pwd
+ 1029  tree
+ 1030  cd conf.d
+ 1031  ls
+ 1032  rm bootcamp2_nginx.conf
+ 1033  tail -f /var/log/nginx/error.log
+ 1034  vim bootcamp2_nginx.conf
+ 1035  cd ,,
+ 1036  cd ..
+ 1037  ls
+ 1038  cd sites-enabled
+ 1039  ls
+ 1040  vim bootcamp2_nginx.conf
+ 1041  cd ..
+ 1042  ls
+ 1043  vim nginx.conf
+ 1044  cd
+ 1045  ls
+ 1046  du -h
+ 1047  cd /home
+ 1048  ls
+ 1049  cd staticfiles
+ 1050  ls
+ 1051  python manage.py collectstatic
+ 1052  cd ..
+ 1053  cd
+ 1054  cd bootcamp
+ 1055  cd
+ 1056  cd bootcamp2
+ 1057  ls
+ 1058  python manage.py collectstatic
+ 1059  tail -f /var/log/nginx/error.log
+ 1060  rz -h
+ 1061  rz -E
+ 1062  ls
+ 1063  mv book-icon.png staticfiles/img
+ 1064  cd staticfiles/img
+ 1065  ls
+ 1066  cd 
+ 1067  cd /home
+ 1068  ls
+ 1069  cd bookimg
+ 1070  ls
+ 1071  cd ..
+ 1072  ls
+ 1073  zip bookimg
+ 1074  rar -a bookimg.rar bookimg
+ 1075  apt-get install rar
+ 1076  rar -a bookimg.rar bookimg
+ 1077  rar -h
+ 1078  ls
+ 1079  rar -a bookimg
+ 1080  apt-get install zip
+ 1081  ls
+ 1082  zip bookimg.zip bookimg
+ 1083  ls
+ 1084  sz
+ 1085  sz bookimg.zip
+ 1086  rm bookimg.zip
+ 1087  ls
+ 1088  zip bookimg.zip bookimg/*
+ 1089  ls
+ 1090  sz bookimg.zip
+ 1091  ls
+ 1092  cd bootcamp2
+ 1093  ls
+ 1094  cd /home
+ 1095  ls
+ 1096  sz bookimg.zip
+ 1097  ls
+ 1098  cd bootcamp2
+ 1099  cd staticfiles
+ 1100  cd img
+ 1101  ls
+ 1102  sz *.jpg
+ 1103  \tscreen -r son2
+ 1104  ls
+ 1105  cd bootcamp2
+ 1106  source venv/bin/activate
+ 1107  pip install -U cos-python-sdk-v5
+ 1108  ls
+ 1109  python send_to_cos.py
+ 1110  qu
+ 1111  deactivate
+ 1112  python send_to_cos.py
+ 1113  pip install -U cos-python-sdk-v5
+ 1114  python send_to_cos.py
+ 1115  python 2.6
+ 1116  python
+ 1117  python send_to_cos.py
+ 1118  \tscreen -r son2
+ 1119  nslookup img-1252422469.cossh.myqcloud.com
+ 1120  ls
+ 1121  \tscreen -r son2
+ 1122  ls
+ 1123  cd bootcampc2
+ 1124  cd bootcamp2
+ 1125  ls
+ 1126  cd ..
+ 1127  ls
+ 1128  zip -r bootcamp2.zip bootcamp2/*
+ 1129  ls
+ 1130  sz bootcamp2.zip
+ 1131  ls
+ 1132  cd bootcamp2
+ 1133  ls
+ 1134  source venv/bin/activate
+ 1135  ls
+ 1136  django-admin.py startapp borrow
+ 1137  ls
+ 1138  cd bootcamp2
+ 1139  ls
+ 1140  cd ..
+ 1141  ls
+ 1142  rm -rf borrow
+ 1143  ls
+ 1144  django-admin.py startapp -h
+ 1145  django-admin.py startapp bootcamp2.borrow
+ 1146  ls
+ 1147  cd bootcamp2
+ 1148  ls
+ 1149  django-admin.py startapp borrow
+ 1150  ls
+ 1151  python manage.py makemigrations
+ 1152  python ../manage.py makemigrations
+ 1153  cd ..
+ 1154  python manage.py makemigrations
+ 1155  python manage.py migrate
+ 1156  ls
+ 1157  cd bootcamp2
+ 1158  ls
+ 1159  python ../manage.py migrate
+ 1160  pip list
+ 1161  python manage.py makemigrations
+ 1162  python ../manage.py makemigrations
+ 1163  python ../manage.py migrate
+ 1164  cd ..
+ 1165  ls
+ 1166  cd 
+ 1167  ls
+ 1168  vim run.
+ 1169  vim run.py
+ 1170  ls
+ 1171  rz -be
+ 1172  ls
+ 1173  cd run_sh
+ 1174  ls
+ 1175  cd ..
+ 1176  ls
+ 1177  mv count.py *.csv run_sh
+ 1178  cd run_sh
+ 1179  ls
+ 1180  rz -be
+ 1181  ls
+ 1182  vim syny_context.py
+ 1183  cd bootcamp2
+ 1184  ls
+ 1185  vim sen_to_cos.py
+ 1186  vim send_to_cos.py
+ 1187  cd
+ 1188  ls
+ 1189  cd run_sh
+ 1190  ls
+ 1191  wget http://img-1252422469.file.myqcloud.com/model_borrow_data_2.csv
+ 1192  ls
+ 1193  wget http://img-1252422469.cossh.myqcloud.com/model_borrow_data_2.csv
+ 1194  cd 
+ 1195  ls
+ 1196  cd bootcamp2
+ 1197  ls
+ 1198  python send_to_cos.py
+ 1199  ls
+ 1200  python send_to_cos.py
+ 1201  ls
+ 1202  mv model_borrow_data_2.csv ~/run_sh
+ 1203  cd 
+ 1204  cd run_sh
+ 1205  ls
+ 1206  vim count.py
+ 1207  cd 
+ 1208  cd bootcamp2
+ 1209  ls
+ 1210  python send_to_cos.py
+ 1211  ls
+ 1212  mv *.csv ~/run_sh
+ 1213  cd ~/run_sh
+ 1214  ls
+ 1215  top
+ 1216  \tscreen -r son2
+ 1217  ls
+ 1218  cd bootcamp2
+ 1219  ls
+ 1220  source venv/bin/activate
+ 1221  python manage.py runserver 0.0.0.0:80
+ 1222  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+ 1223  ls
+ 1224  cd redis-4.0.9
+ 1225  cd src
+ 1226  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+ 1227  ls
+ 1228  cd bootcamp2
+ 1229  ls
+ 1230  source venv/bin/activate
+ 1231  python
+ 1232  python manage.py runserver 0.0.0.0:80
+ 1233  \tscreen -r son2
+ 1234  screen -ls
+ 1235  \tscreen -r son3
+ 1236  ls
+ 1237  cd bootcamp2
+ 1238  python manage.py runserver 0.0.0.0:80
+ 1239  ls
+ 1240  cd redis-4.0.9
+ 1241  cd src
+ 1242  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+ 1243  python manage.py runserver 0.0.0.0:80
+ 1244  ls
+ 1245  cd 
+ 1246  ls
+ 1247  cd /home
+ 1248  ls
+ 1249  cd bookimg
+ 1250  ls
+ 1251  cd
+ 1252  ls
+ 1253  cd bootcamp2
+ 1254  ls
+ 1255  cd bootcamp2
+ 1256  ls
+ 1257  cd articles
+ 1258  ls
+ 1259  cd static
+ 1260  ls
+ 1261  pwd
+ 1262  cd ..
+ 1263  ls
+ 1264  find / -name *.jpg
+ 1265  cd
+ 1266  cd /home
+ 1267  ls
+ 1268  cd bookimg
+ 1269  ls
+ 1270  find / -name *.jpg
+ 1271  find / -type jpg
+ 1272  find / -type *.jpg
+ 1273  find / -typ *.jpg
+ 1274  find / -name "*.jpg"
+ 1275  dh -sh /root/bootcamp2/staticfiles/img/bookimg
+ 1276  du -sh /root/bootcamp2/staticfiles/img/bookimg
+ 1277  du -sh /home/bookimg
+ 1278  du -sh /home/bookimg/s1000002.jpg
+ 1279  du -sh /root/bootcamp2/staticfiles/img/bookimg/s1000002.jpg
+ 1280  screen -ls
+ 1281  screen -r 30655.pts-0.VM-182-224-ubuntu
+ 1282  python manage.py runserver 0.0.0.0:80
+ 1283  \tscreen -r son3
+ 1284  python manage.py runserver 0.0.0.0:80
+ 1285  cd redis-4.0.9/src
+ 1286  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+ 1287  \tscreen -r son3
+ 1288  cd bootcamp2
+ 1289  ls
+ 1290  source venv/bin/activate
+ 1291  python
+ 1292  \tscreen -r son3
+ 1293  cd redis-4.0.9/src
+ 1294  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+ 1295  python manage.py runserver 0.0.0.0:80
+ 1296  cd
+ 1297  ls
+ 1298  cd /home
+ 1299  ls
+ 1300  cd ..
+ 1301  ls
+ 1302  cd 
+ 1303  ls
+ 1304  mkdir csv
+ 1305  cd  csv
+ 1306  rz -E
+ 1307  cd
+ 1308  cd bootcamp2
+ 1309  ls
+ 1310  source venv/bin/activate
+ 1311  cd
+ 1312  ls
+ 1313  cd csv
+ 1314  ls
+ 1315  python add_tag.py
+ 1316  python manage.py runserver 0.0.0.0:80
+ 1317  cd
+ 1318  cd redis-4.0.9/src
+ 1319  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+ 1320  ls
+ 1321  python
+ 1322  cd redis-4.0.9/src
+ 1323  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+ 1324  python manage.py runserver 0.0.0.0:80
+ 1325  pip list
+ 1326  python manage.py runserver 0.0.0.0:80
+ 1327  pip list
+ 1328  python manage.py runserver 0.0.0.0:80
+ 1329  python manage.py createcachetable
+ 1330  python manage.py runserver 0.0.0.0:80
+ 1331  \tscreen -r son3
+ 1332  python manage.py runserver 0.0.0.0:80
+ 1333  \tscreen -r son3
+ 1334  python manage.py runserver 0.0.0.0:80
+ 1335  \tscreen -r son3
+ 1336  screen -ls
+ 1337  screen -r son3
+ 1338  screen -D -r son3
+ 1339  cd redis-4.0.9/src
+ 1340  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+ 1341  python manage.py runserver 0.0.0.0:80
+ 1342  /etc/init.d/nginx start 
+ 1343  ls
+ 1344  uwsgi --ini uwsgi.ini
+ 1345  screen -D -r son3
+ 1346  cd redis-4.0.9
+ 1347  cd src
+ 1348  ls
+ 1349  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+ 1350  screen -D -r son3
+ 1351  /etc/init.d/nginx restart 
+ 1352  ps -aux
+ 1353  ps -aux | grep ini
+ 1354  kill 30277
+ 1355  ps -aux | grep ini
+ 1356  kill 30277
+ 1357  ps -aux | grep ini
+ 1358  ls
+ 1359  vim reload-ini.sh
+ 1360  ./reload-ini.sh
+ 1361  ls
+ 1362  chmod 777 reload-ini.sh
+ 1363  ./reload-ini.sh
+ 1364  screen -D -r son3
+ 1365  ./reload-ini.sh
+ 1366  ls
+ 1367  cd bootcamp2
+ 1368  ls
+ 1369  ./reload-ini.sh
+ 1370  screen -D -r son3
+ 1371  ./reload-ini.sh
+ 1372  ls
+ 1373  vim reload-ini.sh
+ 1374  ./reload-ini.sh
+ 1375  /etc/init.d/nginx stop
+ 1376  python manage.py runserver:0.0.0.0:80
+ 1377  python manage.py runserver  0.0.0.0:80
+ 1378  screen -D -r son3
+ 1379  python manage.py runserver  0.0.0.0:80
+ 1380  ls
+ 1381  cd bootcamp2
+ 1382  ls
+ 1383  cd bootcamp2
+ 1384  ls
+ 1385  cd feeds
+ 1386  ls
+ 1387  cd templates
+ 1388  ls
+ 1389  cd feeds
+ 1390  ls
+ 1391  mv bootstrap-grid.min.css ../../static/css
+ 1392  ls
+ 1393  cd bootcamp2
+ 1394  ls
+ 1395  source venv/bin/activate
+ 1396  ls
+ 1397  pip list
+ 1398  ls
+ 1399  python manage.py makemigrations
+ 1400  python manage.py -h
+ 1401  python manage.py makemigrations
+ 1402  git show
+ 1403  cd ..
+ 1404  ls
+ 1405  cd
+ 1406  ls
+ 1407  git clone https://github.com/Mu-Cheng/books_rs.git
+ 1408  ls
+ 1409  cp bootcamp2/* books_rs
+ 1410  cp -r bootcamp2/* books_rs
+ 1411  top
+ 1412  ls
+ 1413  cd bootcamp2
+ 1414  ls
+ 1415  cd ..
+ 1416  cd books_rs
+ 1417  ls
+ 1418  git add .
+ 1419  ls
+ 1420  cd books_rs
+ 1421  ls
+ 1422  ll
+ 1423  ls -a
+ 1424  cd .git
+ 1425  ls
+ 1426  cd branches
+ 1427  ls
+ 1428  cd 
+ 1429  cd ..
+ 1430  rm -rf books_rs
+ 1431  git clone https://github.com/Mu-Cheng/books_rs.git
+ 1432  cd bootcamp2
+ 1433  ls
+ 1434  ls -a
+ 1435  rm -rf .git
+ 1436  ls
+ 1437  ls -a
+ 1438  ls
+ 1439  find . -name *git*
+ 1440  find ./ -name *git*
+ 1441  rm .gitattributes .gitignore
+ 1442  ls
+ 1443  ls -a
+ 1444  cd ..
+ 1445  ls
+ 1446  cp bootcamp2/* books_rs
+ 1447  cp -r bootcamp2/* books_rs
+ 1448  cd books_rs
+ 1449  ls
+ 1450  ls -a
+ 1451  cd .git
+ 1452  ls
+ 1453  ll
+ 1454  cd branches
+ 1455  ls
+ 1456  cd ..
+ 1457  c d..
+ 1458  ls
+ 1459  cd ..
+ 1460  ls
+ 1461  vim README.md
+ 1462  rm README.md
+ 1463  vim README.md
+ 1464  ls
+ 1465  git add .
+ 1466  ping www.github.com
+ 1467  ping www.baidu.com
+ 1468  ping www.github.com\n: 1525875660:0;ping www.baidu.com
+ 1469  git commit -am 'frist'
+ 1470  ls
+ 1471  tree
+ 1472  ls
+ 1473  git pull
+ 1474  git help gc
+ 1475  git branch
+ 1476  git show
+ 1477  git push
+ 1478  python manage.py makemigrations
+ 1479  cd
+ 1480  mysqldump
+ 1481  mysqldump -uroot -pxu695847 –database bootcamp2 > /home/bootcamp2.sql 
+ 1482  mysqldump -uroot -pxu695847 database bootcamp2 > /home/bootcamp2.sql 
+ 1483  mysqldump -h
+ 1484  mysqldump --h
+ 1485  mysqldump --help
+ 1486  mysqldump -u root -p xu695847 database bootcamp2 > /home/bootcamp2.sql 
+ 1487  mysqldump -uroot -pxu695847 bootcamp2 database > /home/bootcamp2.sql 
+ 1488  mysqldump -uroot -pxu695847 bootcamp2 > /home/bootcamp2.sql 
+ 1489  top
+ 1490  ;s
+ 1491  ls
+ 1492  cd /home
+ 1493  ls
+ 1494  tree -h | *sql
+ 1495  tree -h | grep *sql
+ 1496  cd ..
+ 1497  cd 
+ 1498  ls
+ 1499  tree -h | grep books_rs
+ 1500  ls
+ 1501  cd books_rs
+ 1502  ls
+ 1503  python manage.py makemigrations
+ 1504  python manage.py schemamigration bootcamp2 rename_field_article_to_book --empty
+ 1505  git diff
+ 1506  ls
+ 1507  rm -f \*
+ 1508  rm -rf *
+ 1509  ls
+ 1510  cd ..
+ 1511  ls
+ 1512  cd books_rs
+ 1513  ls
+ 1514  cd 
+ 1515  cp -r bootcamp2/* books_rs
+ 1516  ls
+ 1517  cd books_rs
+ 1518  ls
+ 1519  cd books_rs
+ 1520  cd bootcamp
+ 1521  cd ..
+ 1522  cd bootcamp2
+ 1523  ls
+ 1524  cd ..
+ 1525  rm -rf books_rs
+ 1526  git clone https://github.com/Mu-Cheng/books_rs.git
+ 1527  ls
+ 1528  screen -D -r son3
+ 1529  ls
+ 1530  cd ..
+ 1531  ls
+ 1532  git clone https://github.com/Mu-Cheng/books_rs.git
+ 1533  ls
+ 1534  cd ..
+ 1535  ls
+ 1536  cd books_rs
+ 1537  ls
+ 1538  cd ..
+ 1539  ls
+ 1540  ping 207.97.227.239
+ 1541  ping www.github.com
+ 1542  ping 207.97.227.239
+ 1543  vi /etc/hosts
+ 1544  ping www.github.com
+ 1545  ping http://www.github.com
+ 1546  ls
+ 1547  git clone http://github.com/Mu-Cheng/books_rs.git
+ 1548  ping http://github.com
+ 1549  ping http://www.github.com
+ 1550  ping https://github.com
+ 1551  ls
+ 1552  git clone http://www.github.com/Mu-Cheng/books_rs.git
+ 1553  screen -D -r son3
+ 1554  ls
+ 1555  python manage.py makemigrations
+ 1556  cd books_rs
+ 1557  python manage.py makemigrations
+ 1558  python manage.py runserver 0.0.0.0:80
+ 1559  cd books_rs
+ 1560  ls
+ 1561  source venv/bin/activate
+ 1562  pip install --upgrade pip
+ 1563  pip list
+ 1564  git add .
+ 1565  git commit -am 'can run version'
+ 1566  git push
+ 1567  git show
+ 1568  pip list
+ 1569  pip install git+git://github.com/sshwsfc/xadmin.git@django2
+ 1570  pip install git+https://github.com/sshwsfc/xadmin.git@django2
+ 1571  vi /etc/hosts
+ 1572  了，s
+ 1573  ls
+ 1574  cd books_rs
+ 1575  ls
+ 1576  source venv/bin/activate
+ 1577  ls
+ 1578  pip install git+https://github.com/sshwsfc/xadmin.git@django2
+ 1579  top
+ 1580  ls
+ 1581  git clone https://github.com/sshwsfc/xadmin.git
+ 1582  ls
+ 1583  rz -E
+ 1584  ls
+ 1585  cd
+ 1586  pip list
+ 1587  pip uninstall pip django-xadmin
+ 1588  pip list
+ 1589  ls
+ 1590  cd books_rs
+ 1591  pip list
+ 1592  deactivate
+ 1593  ls
+ 1594  pip list
+ 1595  source venv/bin/activate
+ 1596  pip list
+ 1597  pip install pip
+ 1598  ls
+ 1599  deactivate
+ 1600  cd 
+ 1601  ls
+ 1602  cd bootcamp2
+ 1603  source venv/bin/activate
+ 1604  pip list
+ 1605  deactivate
+ 1606  cd ..
+ 1607  ls
+ 1608  cd books_rs
+ 1609  ls
+ 1610  source venv
+ 1611  source venv/bin/activate
+ 1612  python
+ 1613  python -m pip install --upgrade pip  
+ 1614  pip list
+ 1615  yum install python3-pip
+ 1616  apt install python3-pip (python3)
+ 1617  apt-get install python3-pip
+ 1618  pip list
+ 1619  python
+ 1620  apt-get install python3.6-pip
+ 1621  pip
+ 1622  pip list
+ 1623  python -m pip install -r requirements.txt
+ 1624  ls
+ 1625  deactivate
+ 1626  rm -rf venv
+ 1627  python -m venv venv
+ 1628  virtualenv -p /usr/bin/python3.6 venv
+ 1629  python -m venv venv
+ 1630  source venv/bin/activate
+ 1631  pip list
+ 1632  python -m pip install -r requirements.txt
+ 1633  ls
+ 1634  cd books_rs
+ 1635  ls
+ 1636  source venv/bin/activate
+ 1637  ls
+ 1638  pip list
+ 1639  cd venv
+ 1640  ls
+ 1641  cd lib
+ 1642  cd ..
+ 1643  tree
+ 1644  tree | grep pip
+ 1645  find . -name *pip*
+ 1646  find ./ -name *pip*
+ 1647  ls\\
+ 1648  ;
+ 1649  cd bli
+ 1650  cd lib
+ 1651  ls
+ 1652  cd python3.6
+ 1653  ls
+ 1654  ll
+ 1655  cd site-packages
+ 1656  ls
+ 1657  cd pip
+ 1658  ls
+ 1659  cd ..
+ 1660  ls
+ 1661  ls -a
+ 1662  vim ~/.pip/pip.conf
+ 1663  cd ..
+ 1664  cd
+ 1665  cd books_rs
+ 1666  find ./ -name pip.conf
+ 1667  find / -name pip.conf
+ 1668  python -m pip install -r requirements.txt
+ 1669  pip list
+ 1670  pip install mysqlclient
+ 1671  pip install python-redis
+ 1672  screen -D -r son3
+ 1673  python manage.py runserver 0.0.0.0:80
+ 1674  cd
+ 1675  ls
+ 1676  pip list
+ 1677  pip install --cache-dir . xadmin-django2.zip
+ 1678  pip list
+ 1679  cd books_rs
+ 1680  python manage.py migrate
+ 1681  python manage.py createsuperuser
+ 1682  screen -D -r son3
+ 1683  python manage.py runserver 0.0.0.0:80
+ 1684  pip list
+ 1685  python manage.py runserver 0.0.0.0:80
+ 1686  pip install xlsxwriter 
+ 1687  python manage.py runserver 0.0.0.0:80
+ 1688  pip install --cache-dir -h
+ 1689  pip -h
+ 1690  pip install -h
+ 1691  cd
+ 1692  ls
+ 1693  vim /root/bootcamp2/venv/lib/python3.6/site-packages/django/utils/autoreload.py
+ 1694  cd
+ 1695  ls
+ 1696  git clone -b django2 https://github.com/sshwsfc/xadmin.git
+ 1697  cd
+ 1698  ls
+ 1699  unzip xadmin-django2.zip
+ 1700  ls
+ 1701  cd xadmin-django2
+ 1702  ls
+ 1703  python setup.py install
+ 1704  cd ..
+ 1705  ls
+ 1706  cd books_rs
+ 1707  python manage.py runserver 0.0.0.0:80
+ 1708  pip list
+ 1709  ls
+ 1710  cd books_rs
+ 1711  pip list
+ 1712  python manage.py runserver 0.0.0.0:80
+ 1713  pip list
+ 1714  deactivate
+ 1715  python manage.py collectstatic
+ 1716  python manage.py runserver 0.0.0.0:80
+ 1717  python manage.py migrate
+ 1718  python manage.py runserver 0.0.0.0:80
+ 1719  python manage.py migrate
+ 1720  python manage.py createsuperuser
+ 1721  python manage.py runserver 0.0.0.0:80
+ 1722  screen -D -r son3
+ 1723  ls
+ 1724  source venv/bin/activate
+ 1725  ls
+ 1726  python  manage.py runserver 0.0.0.0:80
+ 1727  screen -D -r son3
+ 1728  ls
+ 1729  tree -h | grep books_rs
+ 1730  screen -D -r son3
+ 1731  ls
+ 1732  cd books_rs
+ 1733  ls
+ 1734  cd staticfiles
+ 1735  ls
+ 1736  cd img
+ 1737  ls
+ 1738  cd bookimg
+ 1739  ls
+ 1740  cd
+ 1741  cd  /home
+ 1742  ls
+ 1743  mkdir tem_files
+ 1744  mkdir old_files
+ 1745  cd 
+ 1746  cd books_rs
+ 1747  ls
+ 1748  cd staticfiles
+ 1749  ls
+ 1750  mv img /home/old_files
+ 1751  ls
+ 1752  cd ..
+ 1753  ls
+ 1754  cd books_rs
+ 1755  ls
+ 1756  cd bootcamp2
+ 1757  ls
+ 1758  tree
+ 1759  cd ..
+ 1760  ls
+ 1761  git pull
+ 1762  git add .
+ 1763  git commit -am "去除bookimg依赖"
+ 1764  git push
+ 1765  ls
+ 1766  tree
+ 1767  ls
+ 1768  cd staticfiles
+ 1769  tree
+ 1770  ls
+ 1771  cd books_rs
+ 1772  source venv/bin/activate
+ 1773  pip install -U synonyms
+ 1774  python
+ 1775  top
+ 1776  ls
+ 1777  cd books_rs
+ 1778  source venv/bin/activate
+ 1779  pip install django-debug-toolbar
+ 1780  python manage.py migrate
+ 1781  python manage.py makemigrations
+ 1782  python manage.py migrate
+ 1783  ls
+ 1784  cd
+ 1785  ls
+ 1786  ll
+ 1787  cd /home
+ 1788  ls
+ 1789  find / -name *.csv
+ 1790  find -r / -name *.csv
+ 1791  cd 
+ 1792  find -r / -name *.csv
+ 1793  find -r ~ -name *.csv
+ 1794  ls
+ 1795  find / -name *csv
+ 1796  cd csv
+ 1797  ls
+ 1798  rz -E
+ 1799  ls
+ 1800  tail -f auth_user.csv
+ 1801  tail -f rz -E
+ 1802  **00000000000000
+ 1803  ls
+ 1804  rz -E
+ 1805  ls
+ 1806  tail model_userinfo.csv
+ 1807  vim add_tag.py
+ 1808  sz add_tag.py
+ 1809  ls
+ 1810  cd books_rs
+ 1811  ls
+ 1812  source
+ 1813  source venv/bin/activate
+ 1814  ls
+ 1815  cd
+ 1816  cd csv
+ 1817  ls
+ 1818  rz -E
+ 1819  screen -D -r son3
+ 1820  唱的
+ 1821  cd
+ 1822  cd csv
+ 1823  ls
+ 1824  python opt_db.py
+ 1825  vim opt_db.py
+ 1826  python opt_db.py
+ 1827  vim opt_db.py
+ 1828  python opt_db.py
+ 1829  cd 
+ 1830  cd books_rs
+ 1831  python manage.py runserver 0.0.0.0:80
+ 1832  ls
+ 1833  pip install apache-airflow
+ 1834  ls -a
+ 1835  cd .pip
+ 1836  ls
+ 1837  vim pip.conf
+ 1838  cd
+ 1839  pip install apache-airflow
+ 1840  cd .pip
+ 1841  vim pip.conf
+ 1842  pip install apache-airflow
+ 1843  ls
+ 1844  cd books_rs
+ 1845  source venv/bin/activate
+ 1846  python
+ 1847  vim /root/books_rs/venv/lib/python3.6/site-packages/django/forms/__init__.py
+ 1848  python
+ 1849  python mange.py compilemessages
+ 1850  ls
+ 1851  cd 
+ 1852  cd books_rs
+ 1853  python mange.py compilemessages
+ 1854  ls
+ 1855  python manage.py compilemessages
+ 1856  screen -D -r son3
+ 1857  python manage.py runserver 0.0.0.0:80
+ 1858  ls
+ 1859  git add .
+ 1860  git commit -am "修改User，添加学院，类别"
+ 1861  git push
+ 1862  git help config
+ 1863  cd
+ 1864  cd books_rs
+ 1865  tree
+ 1866  tree -h
+ 1867  python manage.py makemigrations
+ 1868  python manage.py migrate
+ 1869  python manage.py makemigrations
+ 1870  python manage.py migrate
+ 1871  python manage.py makemigrations
+ 1872  ls
+ 1873  cd bootcamp2
+ 1874  ls
+ 1875  cd activities
+ 1876  ls
+ 1877  rm -rf migrations
+ 1878  cd ../books
+ 1879  rm -rf migrations
+ 1880  ls
+ 1881  cd ..
+ 1882  python manage.py makemigrations
+ 1883  ls
+ 1884  cd ..
+ 1885  python manage.py makemigrations
+ 1886  python manage.py migrate
+ 1887  python manage.py makemigrations
+ 1888  git log
+ 1889  git checkout 4a363067d7d1af6c0a69ae05df38482d03fbc11a
+ 1890  git status
+ 1891  git reset --hard 4a363067d7d1af6c0a69ae05df38482d03fbc11a
+ 1892  cd
+ 1893  ls
+ 1894  rm -rf books_rs
+ 1895  git clone https://github.com/Mu-Cheng/books_rs.git
+ 1896  screen -D -r son3
+ 1897  python manage.py runserver 0.0.0.0:80
+ 1898  ls
+ 1899  cd 
+ 1900  cd books_rs
+ 1901  python manage.py runserver 0.0.0.0:80
+ 1902  cd books_rs
+ 1903  git status
+ 1904  python manage.py makemigrations
+ 1905  screen -D -r son3
+ 1906  python manage.py runserver 0.0.0.0:80
+ 1907  python manage.py migrate
+ 1908  python manage.py runserver 0.0.0.0:80
+ 1909  python manage.py migrate
+ 1910  python manage.py runserver 0.0.0.0:80
+ 1911  git add .
+ 1912  git commit -am "book表改名"
+ 1913  git push
+ 1914  python
+ 1915  python manage.py runserver 0.0.0.0:80
+ 1916  python manage.py makemigrations
+ 1917  python manage.py migrate
+ 1918  ls
+ 1919  python update_bookinfo.py
+ 1920  python manage.py makemigrations
+ 1921  python manage.py migrate
+ 1922  python update_bookinfo.py
+ 1923  screen -D -r son3
+ 1924  ls
+ 1925  python update_bookinfo.py
+ 1926  python manage.py makemigrations
+ 1927  python update_bookinfo.py
+ 1928  python manage.py migrate
+ 1929  screen -D -r son3
+ 1930  python update_bookinfo.py
+ 1931  top
+ 1932  ls
+ 1933  python update_bookinfo.py
+ 1934  python manage.py runserver 0.0.0.0:80
+ 1935  ls
+ 1936  cd books_rs
+ 1937  ls
+ 1938  source venv/bin/activate
+ 1939  find / -name xmain
+ 1940  find / -name xadmin
+ 1941  /root/books_rs/venv/lib/python3.6/site-packages/xadmin
+ 1942  tree
+ 1943  ls
+ 1944  cd ..
+ 1945  ls
+ 1946  cp -r xadmin ~/books_rs/bootcamp2
+ 1947  cd
+ 1948  cd books_rs
+ 1949  ls
+ 1950  cd bootcamp2
+ 1951  ls
+ 1952  screen -D -r son3
+ 1953  python manage.py runserver 0.0.0.0:80
+ 1954  python manage.py runserver 0.0.0.0:80\\
+ 1955  ;
+ 1956  python manage.py runserver 0.0.0.0:80\n;
+ 1957  python manage.py runserver 0.0.0.0:80
+ 1958  python manage.py makemigrations
+ 1959  python manage.py migrate
+ 1960  python manage.py runserver 0.0.0.0:80
+ 1961  ntp
+ 1962  apt-get install ntp
+ 1963  vim /etc/ntp.conf
+ 1964  service ntp restart
+ 1965  date
+ 1966  ntpdate ntp1.aliyun.com
+ 1967  python manage.py makemigrations
+ 1968  python manage.py migrate
+ 1969  python manage.py makemigrations
+ 1970  python manage.py migrate
+ 1971  python manage.py runserver 0.0.0.0:80
+ 1972  老师、
+ 1973  ls
+ 1974  cd redis-4.0.9/
+ 1975  cd src
+ 1976  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+ 1977  python manage.py runserver 0.0.0.0:80
+ 1978  python mange.py compilemessages
+ 1979  python manage.py compilemessages
+ 1980  python mange.py compilemessages
+ 1981  python manage.py runserver 0.0.0.0:80
+ 1982  top
+ 1983  top -M
+ 1984  top -h
+ 1985  top
+ 1986  ls
+ 1987  cd books_rs
+ 1988  ls
+ 1989  vim reload-ini.sh
+ 1990  ./reload-ini.sh
+ 1991  kill 22055 22052
+ 1992  top
+ 1993  screen -D -r son3
+ 1994  python manage.py runserver 0.0.0.0:80
+ 1995  kill -9 $(pidof 进程名关键字)
+ 1996  kill -9 $(pidof uwsgi)
+ 1997  top
+ 1998  ls
+ 1999  cd books_rs
+ 2000  source venv/bin/activate
+ 2001  python
+ 2002  pip list
+ 2003  ls
+ 2004  cd books_rs
+ 2005  source venv/bin/activate
+ 2006  pip list
+ 2007  screen -D -r son3
+ 2008  wget --no-check-certificate https://imgcache.qq.com/qcloud/csec/yunjing/static/yunjinginstall.sh && sh ./yunjinginstall.sh
+ 2009  ps -ef | grep YD
+ 2010  screen -D -r son3
+ 2011  python manage.py runserver 0.0.0.0:80
+ 2012  ls
+ 2013  cd redis-4.0.9/src
+ 2014  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+ 2015  ls
+ 2016  python update_tag-book.py
+ 2017  top
+ 2018  cd books_rs
+ 2019  ls
+ 2020  screen -D -r son3
+ 2021  python update_tag-book.py
+ 2022  cd redis-4.0.9/src
+ 2023  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+ 2024  python manage.py runserver 0.0.0.0:80
+ 2025  python update_tag-book.py
+ 2026  top
+ 2027  w
+ 2028  who am i
+ 2029  screen -D -r son3
+ 2030  python update_tag-book.py
+ 2031  top
+ 2032  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+ 2033  python update_tag-book.py
+ 2034  w
+ 2035  history
+ 2036  w
+ 2037  su ubuntu
+ 2038  w
+ 2039  pkill -kill -t tty1
+ 2040  w
+ 2041  top
+ 2042  w
+ 2043  top
+ 2044  cd redis-4.0.9/src
+ 2045  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+ 2046  screen -D -r son3
+ 2047  python update_tag-book.py
+ 2048  top
+ 2049  python update_tag-book.py
+ 2050  python
+ 2051  python update_tag-book.py
+ 2052  top
+ 2053  screen -D -r son3
+ 2054  python update_tag-book.py
+ 2055  python
+ 2056  cd redis-4.0.9/src
+ 2057  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+ 2058  python update_tag-book.py
+ 2059  top
+ 2060  python update_tag-book.py
+ 2061  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+ 2062  python update_tag-book.py
+ 2063  top
+ 2064  python update_tag-book.py
+ 2065  python manage.py runserver 0.0.0.0:80
+ 2066  python
+ 2067  python manage.py runserver 0.0.0.0:80
+ 2068  ls
+ 2069  cd books_rs
+ 2070  ls
+ 2071  git add .
+ 2072  git commit -am "5.24."
+ 2073  git push
+ 2074  python update_tag-book.py
+ 2075  python manage.py runserver 0.0.0.0:80
+ 2076  top
+ 2077  w
+ 2078  python
+ 2079  pip install django-silk
+ 2080  python manage.py runserver 0.0.0.0:80
+ 2081  find . -type f -size +100M
+ 2082  rm bootcamp2.zip
+ 2083  cd webCode
+ 2084  ls
+ 2085  cd ..
+ 2086  rm -rf webCode
+ 2087  screen -D -r son3
+ 2088  python manage.py runserver 0.0.0.0:80
+ 2089  python
+ 2090  python manage.py runserver 0.0.0.0:80
+ 2091  ls
+ 2092  cd books_rs
+ 2093  top
+ 2094  ls
+ 2095  git add .
+ 2096  git commit -am '5.25 还书-0.5'
+ 2097  git push
+ 2098  python manage.py makemigrations
+ 2099  python manage.py migrate
+ 2100  python manage.py runserver 0.0.0.0:80
+ 2101  ls
+ 2102  cd bootcamp2
+ 2103  ls
+ 2104  cd ..
+ 2105  ls
+ 2106  cd staticfiles
+ 2107  ls
+ 2108  cd js
+ 2109  ls
+ 2110  rz -E
+ 2111  ls
+ 2112  python manage.py runserver 0.0.0.0:80
+ 2113  mv jquery.lazyload.min.js ~/books_rs/bootcamp2/static/js
+ 2114  screen -D -r son3
+ 2115  ls
+ 2116  cd bootcamp2
+ 2117  cd static
+ 2118  ls
+ 2119  cd js
+ 2120  ls
+ 2121  rz -E
+ 2122  ls
+ 2123  cd books_rs
+ 2124  cd bootcamp2
+ 2125  cd static/js
+ 2126  ls
+ 2127  rz -E
+ 2128  ls
+ 2129  screen -D -r son3
+ 2130  python manage.py runserver 0.0.0.0:80
+ 2131  cd
+ 2132  cd books_rs
+ 2133  python manage.py runserver 0.0.0.0:80
+ 2134  ls
+ 2135  cd books_rs
+ 2136  cd bootcamp2/static/
+ 2137  ls
+ 2138  cd img
+ 2139  ls
+ 2140  rz -E
+ 2141  ls
+ 2142  pwd
+ 2143  rz -E
+ 2144  ls
+ 2145  python manage.py runserver 0.0.0.0:80
+ 2146  rz -E
+ 2147  ls
+ 2148  rz -E
+ 2149  ls
+ 2150  rz -E
+ 2151  ls
+ 2152  ../js
+ 2153  rz -E
+ 2154  ll
+ 2155  python
+ 2156  pip install tqdm
+ 2157  python update_tag-book.py
+ 2158  python manage.py runserver 0.0.0.0:80
+ 2159  python update_tag-book.py
+ 2160  python manage.py runserver 0.0.0.0:80
+ 2161  ls
+ 2162  screen -D -r son3
+ 2163  python manage.py runserver 0.0.0.0:80
+ 2164  cd books_rs
+ 2165  git add .
+ 2166  git commit -am "5.27"
+ 2167  git push
+ 2168  python
+ 2169  screen -D -r son3
+ 2170  python manage.py runserver 0.0.0.0:80
+ 2171  tcpdump
+ 2172  tcpdump -h
+ 2173  tcpdump -T http
+ 2174  tcpdump -T -h
+ 2175  ifconfig
+ 2176  tcpdump port 80
+ 2177  ping 100.67.92.33
+ 2178  tcpdump port 80
+ 2179  ifconfig
+ 2180  tcpdump port 80
+ 2181  tcpdump port 80 -env
+ 2182  ping 100.67.92.33
+ 2183  python manage.py runserver 0.0.0.0:80
+ 2184  screen -D -r son3
+ 2185  python manage.py runserver 0.0.0.0:80
+ 2186  ls
+ 2187  python manage.py startapp recommend
+ 2188  ls
+ 2189  cd recommend
+ 2190  ls
+ 2191  cd ..
+ 2192  ls
+ 2193  rm -rf recommend
+ 2194  ls
+ 2195  python manage.py startapp bootcamp2.recommend
+ 2196  cd bootcamp2
+ 2197  ls
+ 2198  python ./manage.py startapp recommend
+ 2199  python ../manage.py startapp recommend
+ 2200  ls
+ 2201  cd ..
+ 2202  python manage.py startapp bootcamp2.recommend
+ 2203  python manage.py runserver 0.0.0.0:80
+ 2204  screen -D -r son3
+ 2205  python manage.py runserver 0.0.0.0:80
+ 2206  ls
+ 2207  books_rs
+ 2208  cd bootcamp2
+ 2209  ls
+ 2210  cd recommend
+ 2211  ls
+ 2212  cd templates
+ 2213  ks
+ 2214  ls
+ 2215  mkdir recommend
+ 2216  ls
+ 2217  mv recommend.html recommend
+ 2218  python manage.py runserver 0.0.0.0:80
+ 2219  ps -a
+ 2220  screen -D -r son3
+ 2221  kill 8631
+ 2222  ps -a
+ 2223  kill -9 8631
+ 2224  python manage.py runserver 0.0.0.0:80
+ 2225  python
+ 2226  python manage.py runserver 0.0.0.0:80
+ 2227  cd redis-4.0.9/src
+ 2228  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+ 2229  screen -D -r son3
+ 2230  ps -a
+ 2231  ls
+ 2232  ps -a
+ 2233  ls
+ 2234  cd books_rs
+ 2235  ls
+ 2236  source venv/bin/a
+ 2237  source venv/bin/activate
+ 2238  ls
+ 2239  python
+ 2240  python manage.py runserver 0.0.0.0:80
+ 2241  ps -a
+ 2242  ps -aux | grep ini
+ 2243  ps -a
+ 2244  kill 21705
+ 2245  ls
+ 2246  ps -a
+ 2247  pa -aux
+ 2248  ps -aux
+ 2249  python manage.py runserver 0.0.0.0:80
+ 2250  ps -aux |grep python
+ 2251  python
+ 2252  ps -aux |grep python
+ 2253  ps -aux 
+ 2254  ps -aux |grep python
+ 2255  ps -le
+ 2256  ps -le |grep python
+ 2257  ps -aux |grep python
+ 2258  top
+ 2259  python manage.py runserver 0.0.0.0:80
+ 2260  python
+ 2261  redis-4.0.9/src
+ 2262  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+ 2263  screen -D -r son3
+ 2264  redis-4.0.9/src
+ 2265  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+ 2266  books_rs
+ 2267  source venv/bin/activate
+ 2268  python
+ 2269  top
+ 2270  python manage.py runserver 0.0.0.0:80
+ 2271  screen -D -r son3
+ 2272  python manage.py runserver 0.0.0.0:80
+ 2273  screen -D -r son3
+ 2274  python manage.py runserver 0.0.0.0:80
+ 2275  pip install djangorestframework
+ 2276  python manage.py runserver 0.0.0.0:80
+ 2277  screen -D -r son3
+ 2278  pip list
+ 2279  pip install channels
+ 2280  pip list
+ 2281  pip install asgi_redis
+ 2282  pip list
+ 2283  pip install asgi_redis=2.3.2
+ 2284  pip install asgi_redis==2.3.2
+ 2285  pip install asgiref==2.3.2
+ 2286  pip install asgi_redis==1.3.0
+ 2287  pip install asgi_redis==1.2.0
+ 2288  pip install asgiref==2.3.2
+ 2289  pip uninstall asgi_redis
+ 2290  pip install channels
+ 2291  pip uninstall channels
+ 2292  pip install channels
+ 2293  pip install channels_redis
+ 2294  python manage.py runserver 0.0.0.0:80
+ 2295  ls
+ 2296  screen -D -r son3
+ 2297  python manage.py runserver 0.0.0.0:80
+ 2298  ls
+ 2299  top
+ 2300  screen -D -r son3
+ 2301  python manage.py runserver 0.0.0.0:80
+ 2302  kill 4191
+ 2303  python manage.py runserver 0.0.0.0:80
+ 2304  top
+ 2305  kill 4475
+ 2306  lsof -i:80
+ 2307  kill -9 4195
+ 2308  lsof -i:80
+ 2309  python manage.py runserver 0.0.0.0:80
+ 2310  kill -9 4195
+ 2311  lsof -i:80
+ 2312  kill -9 4669
+ 2313  python manage.py runserver 0.0.0.0:80
+ 2314  screen -D -r son3
+ 2315  python manage.py runserver 0.0.0.0:80
+ 2316  redis-4.0.9/src
+ 2317  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+ 2318  ls
+ 2319  books_rs
+ 2320  source venv/bin/activate
+ 2321  python manage.py shell
+ 2322  python manage.py runserver 0.0.0.0:80
+ 2323  screen -D -r son3
+ 2324  python manage.py runserver 0.0.0.0:80
+ 2325  screen -D -r son3
+ 2326  python manage.py runserver 0.0.0.0:80
+ 2327  screen -D -r son3
+ 2328  python manage.py runserver 0.0.0.0:80
+ 2329  ls
+ 2330  screen -D -r son3
+ 2331  python manage.py runserver 0.0.0.0:80
+ 2332  screen -D -r son3
+ 2333  python manage.py runserver 0.0.0.0:80
+ 2334  redis-4.0.9/src
+ 2335  ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+ 2336  crontab
+ 2337  crontab -h
+ 2338  ls
+ 2339  cd books_rs
+ 2340  source venv/bin/activate
+ 2341  pip install django-crontab
+ 2342  python manage.py runserver 0.0.0.0:80
+ 2343  screen -D -r son3
+ 2344  python manage.py runserver 0.0.0.0:80
+ 2345  top
+ 2346  ls
+ 2347  git add .
+ 2348  git commit -am "添加离线计算，websocket"
+ 2349  git pull
+ 2350  git push
+ 2351  screen -D -r son3
+ 2352  python manage.py runserver 0.0.0.0:80
+ 2353  top
+ 2354  screen -D -r son3
+ 2355  python manage.py runserver 0.0.0.0:80
+ 2356  pip list
+ 2357* screen -D -r son3
+ 2358* python manage.py crontab add
+ 2359* python manage.py runserver 0.0.0.0:80
+ 2360  cronjob
+ 2361  cronjob -h
+ 2362  crontab -a
+ 2363  crontab -e
+ 2364  crontab -h
+ 2365  crontab -l
+ 2366  vim /usr/local/qcloud/stargate/admin/start.sh
+ 2367* redis-4.0.9/src
+ 2368* ./redis-cli -h 10.154.141.214 -p 6379 -a 7TCcwQUKZ3NH
+ 2369* python manage.py runserver 0.0.0.0:80
+ 2370* python manage.py crontab add
+ 2371* python manage.py runserver 0.0.0.0:80
+ 2372  ps -a
+ 2373  ps -aux
+ 2374* ls
+ 2375* vim reload-ini.sh
+ 2376* ./reload-ini.sh
+ 2377* /etc/init.d/nginx start
+ 2378* ps -aux
+ 2379* ls
+ 2380* ll
+ 2381  ls
+ 2382  cd books_rs
+ 2383  ls
+ 2384* vim bootcamp2_nginx.conf
+ 2385* /etc/init.d/nginx stop
+ 2386* /etc/init.d/nginx -h
+ 2387* nginx   -c  bootcamp2_nginx.conf
+ 2388* ls
+ 2389* nginx   -c  ./bootcamp2_nginx.conf
+ 2390* pwd
+ 2391* nginx   -c  /root/books_rs/bootcamp2_nginx.conf
+ 2392* vim bootcamp2_nginx.conf
+ 2393* ls
+ 2394* nginx   -c  /root/books_rs/bootcamp2_nginx.conf
+ 2395* /etc/init.d/nginx start
+ 2396* history
+ 2397* ls
+ 2398* cd 
+ 2399* ls
+ 2400* history > comlog.txt
+ 2401* vim comlog.txt

@@ -47,16 +47,17 @@ INSTALLED_APPS = [
     'bootcamp2.articles',
     # 'bootcamp2.books',
 
-    'bootcamp2.xadmin',
+    'xadmin',
     'crispy_forms',
     'channels',
+    'django_crontab',
     # 'rest_framework',
     'reversion',
     'bootcamp2.questions',
     'bootcamp2.messenger',
     'bootcamp2.search',
-    'bootcamp2.activities',
-    'bootcamp2.follow',
+    # 'bootcamp2.activities',
+    # 'bootcamp2.follow',
     'bootcamp2.borrow',
     'bootcamp2.recommend',
 ]
@@ -108,7 +109,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'bootcamp2.wsgi.application'
 
+CRONJOBS = (
+    # 初级模式
 
+    ('0 0 * * *', 'bootcamp2.recommend.views.update_alldata'),
+)
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 

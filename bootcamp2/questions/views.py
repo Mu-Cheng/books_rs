@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from bootcamp2.decorators import ajax_required
-from bootcamp2.activities.models import Activity
+# from bootcamp2.activities.models import Activity
 from bootcamp2.feeds.models import Feed
 
 from .models import Question, Answer
@@ -117,53 +117,53 @@ def accept(request):
         return HttpResponseForbidden()
 
 
-@login_required
-@ajax_required
-def vote(request):
-    answer_id = request.POST['answer']
-    answer = Answer.objects.get(pk=answer_id)
-    vote = request.POST['vote']
-    user = request.user
-
-    activity = Activity.objects.filter(
-        Q(activity_type=Activity.UP_VOTE) |
-        Q(activity_type=Activity.DOWN_VOTE),
-        user=user,
-        answer=answer_id,)
-
-    if activity:
-        activity.delete()
-
-    if vote in [Activity.UP_VOTE, Activity.DOWN_VOTE]:
-        activity = Activity(activity_type=vote, user=user, answer=answer_id)
-        activity.save()
-
-    return HttpResponse(answer.calculate_votes())
-
-
-@login_required
-@ajax_required
-def favorite(request):
-    question_id = request.POST['question']
-    question = Question.objects.get(pk=question_id)
-    user = request.user
-
-    activity = Activity.objects.filter(
-        user=user,
-        question=question_id,
-        activity_type=Activity.FAVORITE,
-    )
-
-    if activity:
-        activity.delete()
-        user.profile.unotify_favorited(question)
-    else:
-        activity = Activity(
-            user=user,
-            question=question_id,
-            activity_type=Activity.FAVORITE,
-        )
-        activity.save()
-        user.profile.notify_favorited(question)
-
-    return HttpResponse(question.calculate_favorites())
+# @login_required
+# @ajax_required
+# def vote(request):
+#     answer_id = request.POST['answer']
+#     answer = Answer.objects.get(pk=answer_id)
+#     vote = request.POST['vote']
+#     user = request.user
+#
+#     activity = Activity.objects.filter(
+#         Q(activity_type=Activity.UP_VOTE) |
+#         Q(activity_type=Activity.DOWN_VOTE),
+#         user=user,
+#         answer=answer_id,)
+#
+#     if activity:
+#         activity.delete()
+#
+#     if vote in [Activity.UP_VOTE, Activity.DOWN_VOTE]:
+#         activity = Activity(activity_type=vote, user=user, answer=answer_id)
+#         activity.save()
+#
+#     return HttpResponse(answer.calculate_votes())
+#
+#
+# @login_required
+# @ajax_required
+# def favorite(request):
+#     question_id = request.POST['question']
+#     question = Question.objects.get(pk=question_id)
+#     user = request.user
+#
+#     activity = Activity.objects.filter(
+#         user=user,
+#         question=question_id,
+#         activity_type=Activity.FAVORITE,
+#     )
+#
+#     if activity:
+#         activity.delete()
+#         user.profile.unotify_favorited(question)
+#     else:
+#         activity = Activity(
+#             user=user,
+#             question=question_id,
+#             activity_type=Activity.FAVORITE,
+#         )
+#         activity.save()
+#         user.profile.notify_favorited(question)
+#
+#     return HttpResponse(question.calculate_favorites())

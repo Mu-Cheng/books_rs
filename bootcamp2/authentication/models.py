@@ -1,20 +1,22 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save  # 监听信号
-from bootcamp2.activities.models import Notification, Activity
-from bootcamp2.follow.models import Follow
+# from bootcamp2.activities.models import Notification, Activity
+# from bootcamp2.follow.models import Follow
 
 
 class Profile(models.Model):
-    student_number =models.CharField(max_length=50, null=True, blank=True)
-    name= models.CharField(max_length=50, null=True, blank=True)
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    college = models.CharField(max_length=50, null=True, blank=True)
-    identity = models.CharField(max_length=50, null=True, blank=True)
+    student_number =models.CharField(max_length=50, null=True, blank=True,verbose_name='学号')
+    name= models.CharField(max_length=50, null=True, blank=True,verbose_name='姓名')
+    user = models.OneToOneField(User, on_delete=models.CASCADE,verbose_name='登录信息')
+    college = models.CharField(max_length=50, null=True, blank=True,verbose_name='学院与部门')
+    identity = models.CharField(max_length=50, null=True, blank=True,verbose_name='类别')
 
     # job_title = models.CharField(max_length=50, null=True, blank=True)
     picture_url = models.CharField(max_length=100, null=True, blank=True)
-
+    class Meta:
+        verbose_name = '用户管理'
+        verbose_name_plural = verbose_name
     # def get_url(self):
     #     url = self.url
     #     if not self.url.startswith("http://") \
@@ -35,101 +37,101 @@ class Profile(models.Model):
         return self.user.username
 
 ##
-    def notify_liked(self, feed):
-        if self.user != feed.user:
-            Notification.objects.create(
-                notification_type=Notification.LIKED,
-                from_user=self.user,
-                to_user=feed.user,
-                feed=feed
-            )
-
-    def unotify_liked(self, feed):
-        if self.user != feed.user:
-            Notification.objects.filter(
-                notification_type=Notification.LIKED,
-                from_user=self.user,
-                to_user=feed.user,
-                feed=feed
-            ).delete()
-
-    def notify_commented(self, feed):
-        if self.user != feed.user:
-            Notification(
-                notification_type=Notification.COMMENTED,
-                from_user=self.user,
-                to_user=feed.user,
-                feed=feed
-            ).save()
-
-    def notify_also_commented(self, feed):
-        comments = feed.get_comments()
-        users = set()
-
-        for comment in comments:
-            if comment.user != self.user and comment.user != feed.user:
-                users.add(comment.user.pk)
-
-        for user in users:
-            Notification(
-                notification_type=Notification.ALSO_COMMENTED,
-                from_user=self.user,
-                to_user=User(id=user),
-                feed=feed
-            ).save()
-
-    def notify_favorited(self, question):
-        if self.user != question.user:
-            Notification(
-                notification_type=Notification.FAVORITED,
-                from_user=self.user,
-                to_user=question.user,
-                question=question
-            ).save()
-
-    def unotify_favorited(self, question):
-        if self.user != question.user:
-            Notification.objects.filter(
-                notification_type=Notification.FAVORITED,
-                from_user=self.user,
-                to_user=question.user,
-                question=question
-            ).delete()
-
-    def notify_answered(self, question):
-        if self.user != question.user:
-            Notification.objects.create(
-                notification_type=Notification.ANSWERED,
-                from_user=self.user,
-                to_user=question.user,
-                question=question
-            )
-
-    def notify_accepted(self, answer):
-        if self.user != answer.user:
-            Notification.objects.create(
-                notification_type=Notification.ACCEPTED_ANSWER,
-                from_user=self.user,
-                to_user=answer.user,
-                answer=answer
-            )
-
-    def unotify_accepted(self, answer):
-        if self.user != answer.user:
-            Notification.objects.filter(
-                notification_type=Notification.ACCEPTED_ANSWER,
-                from_user=self.user,
-                to_user=answer.user,
-                answer=answer
-            ).delete()
-
-    def notify_follow(self, user):
-        if self.user != user:
-            Notification.objects.create(
-                notification_type=Notification.FOLLOW,
-                from_user=self.user,
-                to_user=user,
-            )
+    # def notify_liked(self, feed):
+    #     if self.user != feed.user:
+    #         Notification.objects.create(
+    #             notification_type=Notification.LIKED,
+    #             from_user=self.user,
+    #             to_user=feed.user,
+    #             feed=feed
+    #         )
+    #
+    # def unotify_liked(self, feed):
+    #     if self.user != feed.user:
+    #         Notification.objects.filter(
+    #             notification_type=Notification.LIKED,
+    #             from_user=self.user,
+    #             to_user=feed.user,
+    #             feed=feed
+    #         ).delete()
+    #
+    # def notify_commented(self, feed):
+    #     if self.user != feed.user:
+    #         Notification(
+    #             notification_type=Notification.COMMENTED,
+    #             from_user=self.user,
+    #             to_user=feed.user,
+    #             feed=feed
+    #         ).save()
+    #
+    # def notify_also_commented(self, feed):
+    #     comments = feed.get_comments()
+    #     users = set()
+    #
+    #     for comment in comments:
+    #         if comment.user != self.user and comment.user != feed.user:
+    #             users.add(comment.user.pk)
+    #
+    #     for user in users:
+    #         Notification(
+    #             notification_type=Notification.ALSO_COMMENTED,
+    #             from_user=self.user,
+    #             to_user=User(id=user),
+    #             feed=feed
+    #         ).save()
+    #
+    # def notify_favorited(self, question):
+    #     if self.user != question.user:
+    #         Notification(
+    #             notification_type=Notification.FAVORITED,
+    #             from_user=self.user,
+    #             to_user=question.user,
+    #             question=question
+    #         ).save()
+    #
+    # def unotify_favorited(self, question):
+    #     if self.user != question.user:
+    #         Notification.objects.filter(
+    #             notification_type=Notification.FAVORITED,
+    #             from_user=self.user,
+    #             to_user=question.user,
+    #             question=question
+    #         ).delete()
+    #
+    # def notify_answered(self, question):
+    #     if self.user != question.user:
+    #         Notification.objects.create(
+    #             notification_type=Notification.ANSWERED,
+    #             from_user=self.user,
+    #             to_user=question.user,
+    #             question=question
+    #         )
+    #
+    # def notify_accepted(self, answer):
+    #     if self.user != answer.user:
+    #         Notification.objects.create(
+    #             notification_type=Notification.ACCEPTED_ANSWER,
+    #             from_user=self.user,
+    #             to_user=answer.user,
+    #             answer=answer
+    #         )
+    #
+    # def unotify_accepted(self, answer):
+    #     if self.user != answer.user:
+    #         Notification.objects.filter(
+    #             notification_type=Notification.ACCEPTED_ANSWER,
+    #             from_user=self.user,
+    #             to_user=answer.user,
+    #             answer=answer
+    #         ).delete()
+    #
+    # def notify_follow(self, user):
+    #     if self.user != user:
+    #         Notification.objects.create(
+    #             notification_type=Notification.FOLLOW,
+    #             from_user=self.user,
+    #             to_user=user,
+    #         )
 
 
 def create_user_profile(sender, instance, created, **kw):

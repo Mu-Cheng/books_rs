@@ -20,17 +20,17 @@ class Book(models.Model):
         (YES, 'Yes'),
     )
 
-    title = models.CharField(max_length=255)
-    slug = models.SlugField(max_length=255, blank=True, null=True)
-    img_name = models.SlugField(max_length=255, blank=True, null=True)
-    author = models.CharField(max_length=255, blank=True, null=True)
-    publisher = models.CharField(max_length=255, blank=True, null=True)
-    pubdate = models.CharField(max_length=255, blank=True, null=True)
-    summary =  models.TextField(max_length=4000, blank=True, null=True)
-    catalog = models.TextField(max_length=4000, blank=True, null=True)
-    pages = models.CharField(max_length=255, blank=True, null=True)
-    price = models.CharField(max_length=255, blank=True, null=True)
-    status = models.CharField(max_length=1, choices=STATUS, default=YES)
+    title = models.CharField(max_length=255,verbose_name='标题')
+    slug = models.SlugField(max_length=255, blank=True, null=True,verbose_name='编号')
+    img_name = models.SlugField(max_length=255, blank=True, null=True,verbose_name='图片名称')
+    author = models.CharField(max_length=255, blank=True, null=True,verbose_name='作者')
+    publisher = models.CharField(max_length=255, blank=True, null=True,verbose_name='出版社')
+    pubdate = models.CharField(max_length=255, blank=True, null=True,verbose_name='出版日期')
+    summary =  models.TextField(max_length=4000, blank=True, null=True,verbose_name='简介')
+    catalog = models.TextField(max_length=4000, blank=True, null=True,verbose_name='目录')
+    pages = models.CharField(max_length=255, blank=True, null=True,verbose_name='页数')
+    price = models.CharField(max_length=255, blank=True, null=True,verbose_name='价格')
+    status = models.CharField(max_length=1, choices=STATUS, default=YES,verbose_name='状态')
     # create_user = models.ForeignKey(User, on_delete=models.CASCADE)
     # create_date = models.DateTimeField(auto_now_add=True)
     # update_date = models.DateTimeField(blank=True, null=True)
@@ -39,7 +39,9 @@ class Book(models.Model):
     #
     # class Meta:
     #     ordering = ('-create_date',)
-
+    class Meta:
+        verbose_name = '图书管理'
+        verbose_name_plural = verbose_name
     def __str__(self):
         return self.title
 
@@ -126,12 +128,14 @@ class Book(models.Model):
 
 
 class Tag(models.Model):
-    tag = models.CharField(max_length=50)
+    tag = models.CharField(max_length=50,verbose_name='关键字')
     article = models.ForeignKey(Book, on_delete=models.CASCADE)
 
     class Meta:
         unique_together = (('tag', 'article'),)
         index_together = [['tag', 'article'], ]
+        verbose_name = '图书标签管理'
+        verbose_name_plural = verbose_name
 
     def __str__(self):
         return self.tag
@@ -164,13 +168,15 @@ class Tag(models.Model):
 
 
 class ArticleComment(models.Model):
-    article = models.ForeignKey(Book, on_delete=models.CASCADE)
-    comment = models.CharField(max_length=200)
-    date = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    article = models.ForeignKey(Book, on_delete=models.CASCADE,verbose_name='文章')
+    comment = models.CharField(max_length=200,verbose_name='评论内容')
+    date = models.DateTimeField(auto_now_add=True,verbose_name='日期')
+    user = models.ForeignKey(User, on_delete=models.CASCADE,verbose_name='用户')
 
     class Meta:
         ordering = ('date',)
+        verbose_name = '图书评论管理'
+        verbose_name_plural = verbose_name
 
     def __str__(self):
         return f'{self.user.username} {self.article.title}'

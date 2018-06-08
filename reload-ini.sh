@@ -15,4 +15,4 @@ kill -9 $id
 echo "kill $id"
 done
 echo  "################################################"
-#uwsgi --ini uwsgi.ini
+uwsgi --ini uwsgi.ini

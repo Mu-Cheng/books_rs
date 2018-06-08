@@ -91,6 +91,12 @@ def _send_group(channel_layer,status):
             },
         )
 
+def update_alldata():
+    _update_db2()
+    _update_db4()
+    _update_db5()
+    _update_db7()
+
 def _update_db5():
     bootcamp2_db = MySQLdb.connect(host="127.0.0.1", port=43306, user="root", passwd="xu695847", db="bootcamp2", charset='utf8')
     bootcamp2_c = bootcamp2_db.cursor()
@@ -344,6 +350,7 @@ def _update_db2():
     }
 
     out_db9.set(2, pickle.dumps(status))
+    out_db9.set(22, '0')
     status['open'] = 'db2'
     status['progress1'] = 0
     status['progress2'] = 0
@@ -381,6 +388,7 @@ def _update_db2():
                     },
                 )
             old_num=new_num
+            out_db9.set(22, new_num)
 
         try:
             book_tags[str(tag_book[2])]
@@ -426,6 +434,8 @@ def _update_db2():
                     },
                 )
             old_num=new_num
+            out_db9.set(22, new_num)
+
         pos = pos + 1
     status['progress2'] = 100
     async_to_sync(channel_layer.group_send)(
@@ -435,6 +445,8 @@ def _update_db2():
                 "text": json.dumps(status)
             },
         )
+    out_db9.set(22, 100)
+
     status['open'] = False
     status['date'] = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 

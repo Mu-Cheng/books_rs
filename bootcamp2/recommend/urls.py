@@ -8,5 +8,6 @@ urlpatterns = [
     path('update_user_user', views.update_user_user, name='update_user_user'),
     path('update_user_extag', views.update_user_extag, name='update_user_extag'),
     path('update_college_tag', views.update_college_tag, name='update_college_tag'),
+    path('update_alldata', views.update_alldata, name='update_alldata'),
     # path('<int:num>/', views.get_stutus, name='get_stutus'),
 ]

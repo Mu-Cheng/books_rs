@@ -8,22 +8,22 @@ import xadmin
 
 from .models import Book , Tag, ArticleComment
 from xadmin import views
-@xadmin.sites.register(views.website.IndexView)
-class MainDashboard(object):
-    widgets = [
-        [
-            {"type": "html", "title": "Test Widget",
-             "content": "<h3> Welcome to Xadmin! </h3><p>Join Online Group: <br/>QQ Qun : 282936295</p>"},
-            {"type": "chart", "model": "app.accessrecord", "chart": "user_count",
-             "params": {"_p_date__gte": "2013-01-08", "p": 1, "_p_date__lt": "2013-01-29"}},
-            {"type": "list", "model": "app.host", "params": {"o": "-guarantee_date"}},
-        ],
-        [
-            {"type": "qbutton", "title": "Quick Start",
-             "btns": [{"model": Book}, {"model": Tag}, {"title": "Google", "url": "http://www.google.com"}]},
-            {"type": "addform", "model": ArticleComment},
-        ]
-    ]
+# @xadmin.sites.register(views.website.IndexView)
+# class MainDashboard(object):
+#     widgets = [
+#         [
+#             {"type": "html", "title": "Test Widget",
+#              "content": "<h3> Welcome to Xadmin! </h3><p>Join Online Group: <br/>QQ Qun : 282936295</p>"},
+#             {"type": "chart", "model": "app.accessrecord", "chart": "user_count",
+#              "params": {"_p_date__gte": "2013-01-08", "p": 1, "_p_date__lt": "2013-01-29"}},
+#             {"type": "list", "model": "app.host", "params": {"o": "-guarantee_date"}},
+#         ],
+#         [
+#             {"type": "qbutton", "title": "Quick Start",
+#              "btns": [{"model": Book}, {"model": Tag}, {"title": "Google", "url": "http://www.google.com"}]},
+#             {"type": "addform", "model": ArticleComment},
+#         ]
+#     ]
 #
 # class RsPlugin(BaseAdminPlugin):
 #     demo_plugin = False

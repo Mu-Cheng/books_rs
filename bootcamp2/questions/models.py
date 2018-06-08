@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 import markdown
-from bootcamp2.activities.models import Activity
+# from bootcamp2.activities.models import Activity
 
 
 class Question(models.Model):
@@ -62,20 +62,20 @@ class Question(models.Model):
         return Tag.objects.filter(question=self)
 
 ##
-    def calculate_favorites(self):
-        favorites = Activity.objects.filter(
-            question=self.pk,
-            activity_type=Activity.FAVORITE).count()
-        self.favorites = favorites
-        self.save()
-        return self.favorites
-
-    def get_favoriters(self):
-        favorites = Activity.objects.filter(
-            question=self.pk,
-            activity_type=Activity.FAVORITE)
-        favoriters = [favorite.user for favorite in favorites]
-        return favoriters
+    # def calculate_favorites(self):
+    #     favorites = Activity.objects.filter(
+    #         question=self.pk,
+    #         activity_type=Activity.FAVORITE).count()
+    #     self.favorites = favorites
+    #     self.save()
+    #     return self.favorites
+    #
+    # def get_favoriters(self):
+    #     favorites = Activity.objects.filter(
+    #         question=self.pk,
+    #         activity_type=Activity.FAVORITE)
+    #     favoriters = [favorite.user for favorite in favorites]
+    #     return favoriters
 
 
 class Answer(models.Model):

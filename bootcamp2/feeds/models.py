@@ -3,7 +3,7 @@ import bleach
 from django.utils.html import escape
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _  # 延迟翻译
-from bootcamp2.activities.models import Activity
+# from bootcamp2.activities.models import Activity
 from bootcamp2.articles.models import Book as Article
 from bootcamp2.articles.models import Tag
 
@@ -30,6 +30,8 @@ class Feed(models.Model):
 
     class Meta:
         ordering = ['-date']
+        verbose_name = '推荐历史'
+        verbose_name_plural = verbose_name
 
     def _str_(self):
         return self.post
@@ -154,17 +156,17 @@ class Feed(models.Model):
         except:
             return '#'
 ##
-    def calculate_likes(self):
-        likes = Activity.objects.filter(
-            activity_type=Activity.LIKE, feed=self.pk).count()
-        self.likes = likes
-        self.save()
-        return self.likes
-
-    def get_likes(self):
-        likes = Activity.objects.filter(
-            activity_type=Activity.LIKE, feed=self.pk)
-        return likes
+    # def calculate_likes(self):
+    #     likes = Activity.objects.filter(
+    #         activity_type=Activity.LIKE, feed=self.pk).count()
+    #     self.likes = likes
+    #     self.save()
+    #     return self.likes
+    #
+    # def get_likes(self):
+    #     likes = Activity.objects.filter(
+    #         activity_type=Activity.LIKE, feed=self.pk)
+        # return likes
 
     def get_likers(self):
         likes = self.get_likes()

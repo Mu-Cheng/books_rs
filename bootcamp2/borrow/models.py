@@ -4,11 +4,13 @@ STR_NUM = 18
 
 # Create your models here.
 class Borrow(models.Model):
-    userid = models.IntegerField()
-    book_link = models.TextField(max_length=255)
-    img_link = models.TextField(max_length=255)
-    book_name = models.TextField(max_length=255)
-
+    userid = models.IntegerField(verbose_name='用户id')
+    book_link = models.TextField(max_length=255,verbose_name='图书链接')
+    img_link = models.TextField(max_length=255,verbose_name='图片链接')
+    book_name = models.TextField(max_length=255,verbose_name='图书名字')
+    class Meta:
+        verbose_name = '借阅管理'
+        verbose_name_plural = verbose_name
     @staticmethod
     def get_borrowed(userid):
         borrowed = Borrow.objects.filter(userid=userid)

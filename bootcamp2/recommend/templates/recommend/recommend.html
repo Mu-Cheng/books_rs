@@ -26,17 +26,21 @@
 
          ws.onmessage = function (evt)
          {
-            // var received_msg = evt.data;
+
             var received_msg = JSON.parse(evt.data);
-            // alert(received_msg)
-            // console.log(evt.data)
+
             if (received_msg.open == "db2") {
                 $("#tagbook").width(received_msg.progress1+"%")
                 $("#tagbook").text("从图书标签更新 " +received_msg.progress1+"%")
                 $("#tagbook2").width(received_msg.progress2+"%")
                 $("#tagbook2").text("从借阅历史更新 "+received_msg.progress2+"%")
-                // val tagbook_a = document.getElementById("tagbook_a")
-                // console.log(tagbook_a)
+
+                if (received_msg.progress1==100) {
+                    $("#tagbook").removeClass("active");
+                    $("#tagbook").removeClass("progress-bar-striped");
+                    // $("#userwithuser").class("progress-bar progress-bar-striped");
+                }
+
                 if (received_msg.progress1==1 || (received_msg.progress1==100 && received_msg.progress2 == 100)) {
                     location.reload();
                 }
@@ -45,8 +49,13 @@
                 $("#userwithuser").text("获取所有用户标签 " +received_msg.progress1+"%")
                 $("#userwithuser2").width(received_msg.progress2+"%")
                 $("#userwithuser2").text("计算用户间的关系 "+received_msg.progress2+"%")
-                // val tagbook_a = document.getElementById("tagbook_a")
-                // console.log(tagbook_a)
+
+                if (received_msg.progress1==100) {
+                    $("#userwithuser").removeClass("active");
+                    $("#userwithuser").removeClass("progress-bar-striped");
+                    // $("#userwithuser").class("progress-bar progress-bar-striped");
+                }
+
                 if (received_msg.progress1==1 || (received_msg.progress1==100 && received_msg.progress2 == 100)) {
                     location.reload();
                 }
@@ -54,8 +63,6 @@
                 $("#userextag").width(received_msg.progress1+"%")
                 $("#userextag").text("更新用户标签 " +received_msg.progress1+"%")
 
-                // val tagbook_a = document.getElementById("tagbook_a")
-                // console.log(tagbook_a)
                 if (received_msg.progress1==1 || (received_msg.progress1==100)) {
                     location.reload();
                 }
@@ -64,20 +71,17 @@
                 $("#collegetag").text("统计学院热门标签 " +received_msg.progress1+"%")
                 $("#collegetag2").width(received_msg.progress2+"%")
                 $("#collegetag2").text("更新学院热门标签 " +received_msg.progress2+"%")
-                // val tagbook_a = document.getElementById("tagbook_a")
-                // console.log(tagbook_a)
+                if (received_msg.progress1==100) {
+                    $("#collegetag").removeClass("active");
+                    $("#collegetag").removeClass("progress-bar-striped");
+                    // $("#userwithuser").class("progress-bar progress-bar-striped");
+                }
                 if (received_msg.progress1==1 || ( received_msg.progress1==100 && received_msg.progress2 == 100)) {
                     location.reload();
                 }
             }
 
          };
-
-         // ws.onclose = function()
-         // {
-         //    // 关闭 websocket
-         //    alert("连接已关闭...");
-         // };
       }
 
       else
@@ -121,23 +125,22 @@ function showprogress(){
           <li>在线部分</li>
                 <ul>
                     <li>
-                        ItemCF当用户发生借阅还书时会自动更新，属于离线推荐
+                        ItemCF当用户发生借阅还书时会自动更新，属于在线推荐
                     </li>
-                    <li>
-                        冷推荐在用户注册时自动更新，属于离线推荐
-                    </li>
+
                 </ul>
             <li>
                 离线部分
             </li>
                 <ul>
                     <li>
-                        离线推荐主要用于计算量大的算法，具体如下：
+                        离线推荐主要用于计算量大的算法，如UserCF，冷推荐。具体如下：
                     </li>
                 </ul>
         </ul>
     </p>
 </div>
+<p><a  class="btn btn-primary btn-lg" href="/recommend/update_alldata" role="button">运行下面所有计算</a></p>
 <div class="jumbotron">
     <h2>更新关键词与图书的关系</h2>
     <p>维护关键词与图书排名，每个关键词有一个列表，列表按关系度从高到低记录与该关键词有关的图书。
@@ -178,7 +181,7 @@ function showprogress(){
     {% else %}
 
     <div class="progress">
-        <div id="userwithuser" class="progress-bar progress-bar-striped {% if status4.1 != 100 %}active{% endif %}" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="min-width: 10em; width: {{ status4.1 }}% ">
+        <div id="userwithuser" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="min-width: 10em; width: {{ status4.1 }}% ">
             获得用户标签信息 {{status4.1}}%
         </div>
 

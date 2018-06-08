@@ -9,10 +9,8 @@ from django.views.decorators.gzip import gzip_page
 from django.views.decorators.cache import cache_page
 
 from bootcamp2.decorators import ajax_required
-from bootcamp2.activities.models import Activity
 from bootcamp2.articles.models import Book as Article,Tag
 from bootcamp2.articles.views import tag
-from bootcamp2.follow.models import Follow
 from bootcamp2.borrow.models import Borrow
 from bootcamp2.public import get_redis_connction
 
@@ -28,21 +26,12 @@ NO_USER = 'AnonymousUser'
 # @cache_page(None)
 @gzip_page
 def feeds(request):
-    # redis cache db 8
     user = request.user
-    # print(request)
     user = '{}'.format(user)
     if user == NO_USER:
         return render(request, 'feeds/nouser_home.html', {
-            # 'feeds': feeds,
-            # 'from_feed': from_feed,
-            # 'page': 1,
         })
 
-    # print(user)
-    # print(type(user))
-    # print(datetime.datetime.now().strftime('%Y.%m.%d-%H:%M:%S'))
-    # r_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=8)
     r_db = get_redis_connction(8)
     r_ans = r_db.get(user)
     bootcamp2_db = MySQLdb.connect(host="127.0.0.1", port=43306, user="root", passwd="xu695847", db="bootcamp2", charset='utf8')
@@ -50,43 +39,19 @@ def feeds(request):
     bootcamp2_c.execute('select id from auth_user where username = \'{}\''.format(user))
     user_id = bootcamp2_c.fetchone()
     user_id = user_id[0]
-    # print('1',user_id)
     bootcamp2_c.close()
     bootcamp2_db.close()
-    # r_ans = False
-    # print(datetime.datetime.now().strftime('%Y.%m.%d-%H:%M:%S'))
     if r_ans:
         paginator = pickle.loads(r_ans)
     else:
         try:
-            # user = User.objects.get(username=user)
-            # user = user.get_profile().id
-            # print('user_id = ', user_id)
             all_feeds = Recommend.get_books(user_id)
-            # print(type(all_feeds))
         except:
             all_feeds = Recommend.get_books(3)
-        # print(all_feeds)
         paginator = Paginator(all_feeds, FEEDS_NUM_PATES)
         if paginator.num_pages < 2:
             return tag(request,'小说')
         r_db.setnx(user, pickle.dumps(paginator))
-    # print(datetime.datetime.now().strftime('%Y.%m.%d-%H:%M:%S'))
-    # content = r_db.get(article.title)
-    # content = str(content, encoding='utf-8')
-    # content = json.loads(content)
-    # print('request : {}'.format(request))
-    # print('id : {}'.format(user))
-    # print('idtype : {}'.format(type(user)))
-    # try:
-    #     all_feeds = Feed.get_feeds(user)
-    # except:
-    #     all_feeds = Feed.get_feeds(3)
-    #
-    # # print(type(all_feeds))
-    # paginator = Paginator(all_feeds, FEEDS_NUM_PATES)
-    # print('paginator :{}'.format(type(paginator)))
-    # print('paginator :{}'.format(paginator))
 
 
     page = request.GET.get('page')
@@ -98,32 +63,8 @@ def feeds(request):
         feeds = paginator.page(1)
     except EmptyPage:
         feeds = paginator.page(paginator.num_pages)
-    # print(datetime.datetime.now().strftime('%Y.%m.%d-%H:%M:%S'))
-    # print(feeds.object_list)
-    # item_list = feeds.object_list
-    # len_item = len(item_list)
-    # books = []
-    # # feeds = []
-    # for i in range(len_item):
-    #     try:
-    #         book_id = feeds[i].post.split('/')[-2]
-    #         feeds[i].comments = len(Article.objects.filter(id=book_id)[0].get_comments())
-    #
-    #     # books.append(book_id)
-    #     # item.comments = len(Article.objects.filter(id=book_id)[0].get_comments())
-    #     except:
-    #         feeds[i].comments = 0
-        # feeds.append(item)
-    # feeds = paginator.page(1)
-    # from_feed = -1
-    # print(feeds.next_page_number)
-    # if feeds:
-        # from_feed = feeds[0].id
-    # print("test "*20)
-    # print(paginator.num_pages)
     return render(request, 'feeds/feeds.html', {
         'feeds': feeds,
-        # 'from_feed': from_feed,
         'borrow_sum': Borrow.get_borrowed_sum(user_id),
         'page': 1,
     })
@@ -131,33 +72,27 @@ def feeds(request):
 # @cache_page(None)
 @gzip_page
 def borrowed(request):
-    # cache redis db 10
     user = request.user
-    # print('followed ',user)
     user_id = None
     if user == NO_USER:
         return render(request, 'feeds/borrowed_feeds.html', {
             'borrows': None,
-            # 'from_feed': from_feed,
             'page': 1,
         })
 
     if request.POST:
         mode = request.POST['mode']
-        # print('mode : {}'.format(mode))
         book_name = request.POST['book_name']
         book_id = request.POST['book_id']
 
 
 
         book_link = 'http://118.89.162.148/articles/{}'.format(request.POST['book_id'])
-        # r_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=6)
         r_db = get_redis_connction(6)
         print(book_name)
         content = r_db.get(book_name)
         content = str(content, encoding='utf-8')
         content = json.loads(content)
-        # print(content)
         book = content['books'][0]
         img_link = book['image'].split('/')[-1]
 
@@ -167,12 +102,10 @@ def borrowed(request):
         user_id = bootcamp2_c.fetchone()
         userid = user_id[0]
         user_id = userid
-        # print('userid',user_id)
 
 
         bootcamp2_c.close()
         bootcamp2_db.close()
-        # print(userid,book_link,img_link,book_name)
         if mode == 'borrow_book':
             Borrow.objects.create(userid = userid,
                                   book_link = book_link,
@@ -193,12 +126,6 @@ def borrowed(request):
             r_db3 = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=3)
             for tag in tags:
                 r_db3.zincrby(user_id,tag,amount=1)
-            # post = '[{}]({}/)'.format(book_name,book_link)
-            # print(userid,post)
-            # try:
-            #     Feed.objects.filter(user_id=userid,post=post).delete()
-            # except:
-            #     print(post+'del fail')
         if mode == 'return_book':
             try:
                 Borrow.objects.filter(userid = userid,
@@ -216,12 +143,8 @@ def borrowed(request):
                     r_db3.zincrby(user_id,tag,amount=-0.5)
             except:
                 print('return book {} fail'.format(book_name))
-        # if mode == 'return_book':
-            # print('return_book')
     else:
         userid = None
-    # print(book_name)
-    # Borrow.objects.create()
 
     r_db = redis.Redis(host='10.154.141.214', password='7TCcwQUKZ3NH', port=6379, db=10)
     r_ans = r_db.get(user)
@@ -235,7 +158,6 @@ def borrowed(request):
             user_id = bootcamp2_c.fetchone()
             userid = user_id[0]
             user_id = userid
-            # print(user_id)
             bootcamp2_c.close()
             bootcamp2_db.close()
 
@@ -255,37 +177,21 @@ def borrowed(request):
         bootcamp2_c.execute('select id from auth_user where username = \'{}\''.format(user))
         user_id = bootcamp2_c.fetchone()
         user_id = user_id[0]
-        # print(user_id)
         bootcamp2_c.close()
         bootcamp2_db.close()
     return render(request, 'feeds/borrowed_feeds.html', {
         'borrows': borrows,
-        # 'from_feed': from_feed,
         'borrow_sum' : Borrow.get_borrowed_sum(user_id),
         'page': 1,
         'pages_sum': paginator.num_pages,
     })
 
-    #
-    # all_feeds = Feed.get_feeds().filter(user__in=Follow.user_followed(user))
-    # paginator = Paginator(all_feeds, FEEDS_NUM_PATES)
-    # feeds = paginator.page(1)
-    # from_feed = -1
-    # if feeds:
-    #     from_feed = feeds[0].id
-    # return render(request, 'feeds/followed_feeds.html', {
-    #     'feeds': feeds,
-    #     'from_feed': from_feed,
-    #     'page': 1,
-    # })
 
 
 def feed(request, pk):
     localtime = time.asctime(time.localtime(time.time()))
-    # print("the 1 tiem", localtime)
     feed = get_object_or_404(Feed, pk=pk)
     localtime = time.asctime(time.localtime(time.time()))
-    # print("the 2 tiem", localtime)
     return render(request, 'feeds/feed.html', {'feed': feed})
 
 
@@ -301,11 +207,6 @@ def load(request):
     print('*'*40)
     all_feeds = Feed.get_feeds(from_feed)
 
-    if feed_source != 'all':
-        if feed_source == 'followed':
-            all_feeds = all_feeds.filter(user__in=Follow.user_followed(user))
-        else:
-            all_feeds = all_feeds.filter(user__id=feed_source)
 
     paginator = Paginator(all_feeds, FEEDS_NUM_PATES)
 
@@ -352,105 +253,6 @@ def _html_feeds(last_feed, user, csrf_token, feed_source='all'):
         html = f'{html}{template}'
     return html
 
-#
-# @ajax_required
-# def load_new(request):
-#     last_feed = request.GET.get('last_feed')
-#     user = request.user
-#     csrf_token = str(csrf(request)['csrf_token'])
-#     html = _html_feeds(last_feed, user, csrf_token)
-#     return HttpResponse(html)
-
-
-# @ajax_required
-# def check(request):
-#     user = request.user
-#     last_feed = request.GET.get('last_feed')
-#     feed_source = request.GET.get('feed_source')
-#     feeds = Feed.get_feeds_after(last_feed)
-#
-#     if feed_source != 'all':
-#         if feed_source == 'followed':
-#             feeds = feeds.filter(user__in=Follow.user_followed(user))
-#         else:
-#             feeds = feeds.filter(user__id=feed_source)
-#
-#     count = feeds.count()
-#     return HttpResponse(count)
-
-
-# @login_required
-# @ajax_required
-# def post(request):
-#     last_feed = request.POST.get('last_feed')
-#     post = request.POST['post'].strip()[:255]
-#     user = request.user
-#
-#     csrf_token = str(csrf(request)['csrf_token'])
-#
-#     if len(post) > 0:
-#         Feed.objects.create(
-#             post=post,
-#             user=user
-#         )
-#     html = _html_feeds(last_feed, user, csrf_token)
-#     return HttpResponse(html)
-
-
-# @login_required
-# @ajax_required
-# def comment(request):
-#     if request.method == 'POST':
-#         feed_id = request.POST['feed']
-#         feed = Feed.objects.get(pk=feed_id)
-#         post = request.POST['post'].strip()  # 去格式
-#
-#         if len(post) > 0:
-#             post = post[:255]
-#             user = request.user
-#             feed.comment(user=user, post=post)
-#             user.profile.notify_commented(feed)
-#             user.profile.notify_also_commented(feed)
-#
-#         context = {'feed': feed}
-#         return render(request, 'feeds/partial_feed_comments.html', context)
-#
-#     feed_id = request.GET.get('feed')
-#     feed = Feed.objects.get(pk=feed_id)
-#     return render(request, 'feeds/partial_feed_comments.html', {'feed': feed})
-#
-#
-# @login_required
-# @ajax_required
-# def update(request):
-#     user = request.user
-#     first_feed = request.GET.get('first_feed')
-#     last_feed = request.GET.get('last_feed')
-#     feed_source = request.GET.get('feed_source')
-#
-#     feeds = Feed.get_feeds().filter(id__range=(last_feed, first_feed))
-#
-#     if feed_source != 'all':
-#         if feed_source == 'followed':
-#             feeds = feeds.filter(user__in=Follow.user_followed(user))
-#         else:
-#             feeds = feeds.filter(user__id=feed_source)
-#
-#     dump = {}
-#
-#     for feed in feeds:
-#         dump[feed.pk] = {'comments': feed.comments}
-#
-#     return JsonResponse(dump, safe=False)
-
-
-# @login_required
-# @ajax_required
-# def track_comments(request):
-#     feed_id = request.GET.get('feed')
-#     feed = Feed.objects.get(pk=feed_id)
-#     return render(request, 'feeds/partial_feed_comments.html', {'feed': feed})
-
 
 @login_required
 @ajax_required
@@ -475,27 +277,3 @@ def remove(request):
         return HttpResponse()
 
     return HttpResponseForbidden()
-
-
-##
-@login_required
-@ajax_required
-def like(request):
-    user = request.user
-    feed_id = request.POST['feed']
-
-    feed = Feed.objects.get(pk=feed_id)
-    like = Activity.objects.filter(
-        activity_type=Activity.LIKE, feed=feed_id, user=user)
-
-    if like:
-        user.profile.unotify_liked(feed)
-        like.delete()
-    else:
-        Activity.objects.create(
-            feed=feed_id,
-            user=user,
-            activity_type=Activity.LIKE
-        )
-        user.profile.notify_liked(feed)
-    return HttpResponse(feed.calculate_likes())
